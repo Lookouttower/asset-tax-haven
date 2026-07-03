@@ -573,10 +573,34 @@ function Returns() {
     ["Recapture Deferral", "Roll to new vintage"],
     ["Recapture Elimination", "§1014 step-up at death"],
   ];
+  const splitData = [
+    { name: "6% Cash (Monthly)", value: 6, color: "#4B6B2F" },
+    { name: "6% Travel Credits (Annual)", value: 6, color: "#B8955A" },
+  ];
   return (
     <section id="opp" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader eyebrow="The Opportunity" title="The 12% Preferred Return" />
+        <motion.div {...fadeIn} className="mb-12 bg-white border border-brand-border rounded-xl p-8 shadow-md">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="h-72">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie data={splitData} innerRadius={70} outerRadius={110} paddingAngle={2} dataKey="value" startAngle={90} endAngle={-270}>
+                    {splitData.map((e, i) => <Cell key={i} fill={e.color} />)}
+                  </Pie>
+                  <RTooltip formatter={(v: number) => `${v}%`} />
+                  <RLegend verticalAlign="bottom" iconType="circle" />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold mb-3">Return Composition</div>
+              <h4 className="text-3xl font-bold text-brand-text tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
+              <p className="text-brand-muted leading-relaxed">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
+            </div>
+          </div>
+        </motion.div>
         <div className="grid lg:grid-cols-2 gap-6 items-start">
           <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg overflow-hidden">
             <div className="px-6 py-4 bg-brand-sage border-b border-brand-border">
