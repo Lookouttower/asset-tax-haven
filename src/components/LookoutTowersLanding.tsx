@@ -381,7 +381,7 @@ function Portfolio() {
               transition={{ duration: 0.45, delay: (i % 6) * 0.06 }}
               className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-brand-sage">
+              <div className="relative aspect-[4/3] overflow-hidden bg-white">
                 <img
                   src={a.img}
                   alt={a.name}
