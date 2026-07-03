@@ -10,6 +10,13 @@ import asset7 from "@/assets/asset-7.jpeg.asset.json";
 import asset8 from "@/assets/asset-8.jpeg.asset.json";
 import asset9 from "@/assets/asset-9.jpeg.asset.json";
 import asset10 from "@/assets/asset-10.jpeg.asset.json";
+import asset11 from "@/assets/asset-11.jpeg.asset.json";
+import asset12 from "@/assets/asset-12.jpeg.asset.json";
+import asset14 from "@/assets/asset-14.jpeg.asset.json";
+import asset15 from "@/assets/asset-15.jpeg.asset.json";
+import asset16 from "@/assets/asset-16.jpeg.asset.json";
+import asset17 from "@/assets/asset-17.jpeg.asset.json";
+import asset18 from "@/assets/asset-18.jpeg.asset.json";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
@@ -341,14 +348,14 @@ const ASSETS: AssetWithImg[] = [
   { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "5-Yr MACRS", cat: "Marine", img: asset8.url },
   { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground", img: asset9.url },
   { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground", img: asset10.url },
-  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=80" },
+  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground", img: asset11.url },
+  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground", img: asset12.url },
   { icon: Radio, name: "Lookout Towers", desc: "Relocatable timber-frame towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: lookoutTowerAsset.url, imgPos: "75% 50%" },
-  { icon: Home, name: "Ood Glass Houses", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1585500309254-1f6c19f47c4e?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Home, name: "Ood Glass Houses", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: asset14.url },
+  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "5-Yr MACRS", cat: "Development", img: asset15.url },
+  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "5-Yr MACRS", cat: "Development", img: asset16.url },
+  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "5-Yr MACRS", cat: "Development", img: asset17.url },
+  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "5-Yr MACRS", cat: "Development", img: asset18.url },
 ];
 const CATS = ["All", "Air", "Marine", "Ground", "Lodging", "Development"];
 
