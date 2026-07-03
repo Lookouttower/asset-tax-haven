@@ -37,8 +37,7 @@ import {
   Anchor, Sailboat, Ship, Mountain, Car, CarFront, Truck, Radio, Home,
   Leaf, Utensils, Tent, Construction, FileSignature, ShoppingCart, Handshake,
   FileCheck, Scale, AlertTriangle, Gavel, FileText, Ban, Building, Infinity,
-  DollarSign, AlertCircle, LogOut, RefreshCw, TreeDeciduous, Lock, Users,
-  RotateCcw, ChevronLeft, ChevronRight, X, ArrowRight, Menu,
+  DollarSign, AlertCircle, LogOut, RefreshCw, TreeDeciduous, ChevronLeft, ChevronRight, X, ArrowRight, Menu,
   Volume2, VolumeX, ChevronDown,
 } from "lucide-react";
 import {
