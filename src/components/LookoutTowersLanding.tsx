@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
+  PieChart, Pie, Tooltip as RTooltip, Legend as RLegend,
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -90,17 +91,18 @@ function Navbar() {
 }
 
 function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; size?: "sm" | "md" | "lg"; tone?: "light" | "dark" }) {
-  const dim = size === "lg" ? "w-14 h-14" : size === "sm" ? "w-10 h-10" : "w-12 h-12";
-  const glyph = size === "lg" ? "w-6 h-6" : size === "sm" ? "w-4 h-4" : "w-5 h-5";
-  const gradient =
-    tone === "dark"
-      ? "bg-[linear-gradient(135deg,#7B9A4B_0%,#4B6B2F_100%)]"
-      : "bg-[linear-gradient(135deg,#7B9A4B_0%,#4B6B2F_100%)]";
+  const dim = size === "lg" ? "w-16 h-16" : size === "sm" ? "w-11 h-11" : "w-14 h-14";
+  const glyph = size === "lg" ? "w-8 h-8" : size === "sm" ? "w-5 h-5" : "w-7 h-7";
+  const glowColor =
+    tone === "dark" ? "rgba(123,154,75,0.55)" : "rgba(47,74,29,0.45)";
   return (
     <div
-      className={`${dim} ${gradient} rounded-full flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(75,107,47,0.45)] ring-1 ring-white/40`}
+      className={`${dim} rounded-full flex items-center justify-center ring-1 ring-white/25 bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)]`}
+      style={{
+        boxShadow: `0 12px 28px -8px ${glowColor}, inset 0 1px 0 rgba(255,255,255,0.18)`,
+      }}
     >
-      <Icon className={`${glyph} text-white`} strokeWidth={1.75} />
+      <Icon className={`${glyph} text-white`} strokeWidth={1.5} />
     </div>
   );
 }
@@ -162,8 +164,10 @@ function Hero() {
             <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
             Reg D · Rule 506(c) · Accredited Investors Only
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-white max-w-5xl">
-            Hard Assets. <span className="text-[#D4B968]">100% Depreciation.</span> Mailbox Money.
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white max-w-5xl whitespace-normal">
+            <span className="block">Hard Assets.</span>
+            <span className="block text-[#D4B968]">100% Depreciation.</span>
+            <span className="block">Mailbox Money.</span>
           </h1>
           <p className="mt-8 text-xl text-white/80 max-w-3xl leading-relaxed">
             A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
@@ -242,13 +246,26 @@ function Thesis() {
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-border border border-brand-border rounded-lg overflow-hidden">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-white p-6">
-              <div className="text-xs uppercase tracking-wider text-brand-muted mb-2">{s.label}</div>
-              <div className="font-semibold text-brand-text">{s.value}</div>
-            </div>
-          ))}
+        <motion.div {...fadeIn} className="mt-16 relative">
+          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-olive/40 to-transparent" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative flex flex-col items-center text-center bg-white border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
+              >
+                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)] text-white flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-[0_10px_25px_-6px_rgba(47,74,29,0.5)]">
+                  {i + 1}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.15em] text-brand-muted mb-2">{s.label}</div>
+                <div className="font-semibold text-brand-text text-sm">{s.value}</div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
@@ -303,15 +320,15 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
 type AssetWithImg = Asset & { img: string };
 const ASSETS: AssetWithImg[] = [
-  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80" },
   { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1583362287023-6de78d3b31b0?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1583900985737-6d0495555783?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1000&q=80" },
   { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&w=1000&q=80" },
   { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1000&q=80" },
   { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1000&q=80" },
   { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1000&q=80" },
   { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1527431016407-e0aacab6ae15?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1610461888750-10bfc601b874?auto=format&fit=crop&w=1000&q=80" },
   { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1533720421904-2ac1ef98d67c?auto=format&fit=crop&w=1000&q=80" },
   { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1000&q=80" },
   { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=80" },
@@ -556,10 +573,34 @@ function Returns() {
     ["Recapture Deferral", "Roll to new vintage"],
     ["Recapture Elimination", "§1014 step-up at death"],
   ];
+  const splitData = [
+    { name: "6% Cash (Monthly)", value: 6, color: "#4B6B2F" },
+    { name: "6% Travel Credits (Annual)", value: 6, color: "#B8955A" },
+  ];
   return (
     <section id="opp" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader eyebrow="The Opportunity" title="The 12% Preferred Return" />
+        <motion.div {...fadeIn} className="mb-12 bg-white border border-brand-border rounded-xl p-8 shadow-md">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="h-72">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie data={splitData} innerRadius={70} outerRadius={110} paddingAngle={2} dataKey="value" startAngle={90} endAngle={-270}>
+                    {splitData.map((e, i) => <Cell key={i} fill={e.color} />)}
+                  </Pie>
+                  <RTooltip formatter={(v: number) => `${v}%`} />
+                  <RLegend verticalAlign="bottom" iconType="circle" />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold mb-3">Return Composition</div>
+              <h4 className="text-3xl font-bold text-brand-text tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
+              <p className="text-brand-muted leading-relaxed">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
+            </div>
+          </div>
+        </motion.div>
         <div className="grid lg:grid-cols-2 gap-6 items-start">
           <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg overflow-hidden">
             <div className="px-6 py-4 bg-brand-sage border-b border-brand-border">
@@ -710,8 +751,13 @@ function Risks() {
     { icon: RotateCcw, title: "Recapture Risk", body: "§1245 recapture upon asset disposition is taxed as ordinary income. Recapture may exceed cash distributions received." },
   ];
   return (
-    <section id="risks" className="py-24 bg-brand-dark">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="risks" className="relative py-24 bg-brand-dark overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
+        style={{ backgroundImage: "url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=2000&q=80)" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand-dark/85 to-brand-dark" />
+      <div className="relative max-w-7xl mx-auto px-6">
         <SectionHeader dark eyebrow="Risk Factors" title="Material Risk Factors" />
         <div className="grid md:grid-cols-2 gap-4 mb-10">
           {risks.map((r, i) => (
@@ -733,8 +779,8 @@ function Risks() {
 }
 
 const DESTINATIONS = [
-  { title: "Bald Head Island, NC", sub: "Island Access", tags: ["Center Console Boat", "Golf Carts", "Lookout Tower"], img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" },
-  { title: "Miami, FL", sub: "South Florida Waters", tags: ["Yacht Charter", "Seaplane", "G-Wagons"], img: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Bald Head Island, NC", sub: "Island Access", tags: ["Center Console Boat", "Golf Carts", "Lookout Tower"], img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Miami, FL", sub: "South Florida Waters", tags: ["Yacht Charter", "Seaplane", "G-Wagons"], img: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=1200&q=80" },
   { title: "Blue Ridge Mountains", sub: "Mountain Escapes", tags: ["Helicopter", "King Air", "Snowmobiles", "UTVs", "Lookout Tower"], img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80" },
   { title: "Backcountry / Off-Grid", sub: "The Untamed", tags: ["Ood Glass Houses", "Pontoon Boats", "Food Trailer", "Hydroponic Farm"], img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80" },
 ];
