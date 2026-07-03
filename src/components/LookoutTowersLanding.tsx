@@ -89,12 +89,47 @@ function Navbar() {
   );
 }
 
-function StatCard({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
+function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; size?: "sm" | "md" | "lg"; tone?: "light" | "dark" }) {
+  const dim = size === "lg" ? "w-14 h-14" : size === "sm" ? "w-10 h-10" : "w-12 h-12";
+  const glyph = size === "lg" ? "w-6 h-6" : size === "sm" ? "w-4 h-4" : "w-5 h-5";
+  const gradient =
+    tone === "dark"
+      ? "bg-[linear-gradient(135deg,#7B9A4B_0%,#4B6B2F_100%)]"
+      : "bg-[linear-gradient(135deg,#7B9A4B_0%,#4B6B2F_100%)]";
   return (
-    <div className="bg-white border border-brand-border rounded-lg p-5 hover:shadow-lg transition-shadow">
-      <Icon className="w-5 h-5 text-brand-olive mb-3" />
-      <div className="text-3xl font-bold text-brand-text tracking-tight">{value}</div>
-      <div className="text-xs uppercase tracking-wider text-brand-muted mt-1">{label}</div>
+    <div
+      className={`${dim} ${gradient} rounded-full flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(75,107,47,0.45)] ring-1 ring-white/40`}
+    >
+      <Icon className={`${glyph} text-white`} strokeWidth={1.75} />
+    </div>
+  );
+}
+
+function GlassStatCard({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
+  return (
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] hover:bg-white/15 transition">
+      <Icon className="w-5 h-5 text-brand-olive-light mb-3" strokeWidth={1.75} />
+      <div className="text-3xl font-bold text-white tracking-tight">{value}</div>
+      <div className="text-[11px] uppercase tracking-[0.15em] text-white/70 mt-1">{label}</div>
+    </div>
+  );
+}
+
+function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: string; alt: string; height?: string; caption?: string }) {
+  return (
+    <div className={`relative w-full ${height} overflow-hidden`}>
+      <div
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
+        style={{ backgroundImage: `url(${src})`, transform: "scale(1.05)" }}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(20,38,26,0.55),rgba(20,38,26,0.2))]" />
+      {caption && (
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto w-full px-6 pb-8">
+            <p className="text-white/90 text-sm uppercase tracking-[0.25em]">{caption}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -111,33 +146,42 @@ function SectionHeader({ eyebrow, title, lead, dark }: { eyebrow: string; title:
 
 function Hero() {
   return (
-    <section id="home" className="pt-32 pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=80)",
+        }}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(20,38,26,0.88),rgba(20,38,26,0.55))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.5),transparent_60%)]" />
+      <div className="relative max-w-7xl mx-auto px-6 py-32 w-full">
         <motion.div {...fadeIn}>
-          <div className="inline-flex items-center gap-2 bg-brand-sage border border-brand-border rounded-full px-4 py-1.5 text-xs font-medium text-brand-olive-dark mb-8">
-            <ShieldCheck className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-4 py-1.5 text-xs font-medium text-white mb-8">
+            <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
             Reg D · Rule 506(c) · Accredited Investors Only
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-brand-text max-w-5xl">
-            Hard Assets. <span className="text-brand-olive">100% Depreciation.</span> Mailbox Money.
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-white max-w-5xl">
+            Hard Assets. <span className="text-[#D4B968]">100% Depreciation.</span> Mailbox Money.
           </h1>
-          <p className="mt-8 text-xl text-brand-muted max-w-3xl leading-relaxed">
+          <p className="mt-8 text-xl text-white/80 max-w-3xl leading-relaxed">
             A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-olive text-white font-medium hover:bg-brand-olive-dark transition">
+            <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-olive text-white font-medium hover:bg-brand-olive-dark transition shadow-lg shadow-black/30">
               Request Access <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="#tax" className="inline-flex items-center px-6 py-3 rounded-md border border-brand-border text-brand-text font-medium hover:border-brand-olive transition">
+            <a href="#tax" className="inline-flex items-center px-6 py-3 rounded-md border border-white/40 text-white font-medium hover:bg-white/10 backdrop-blur transition">
               Explore the Tax Engine
             </a>
           </div>
         </motion.div>
         <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.15 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
-          <StatCard icon={Percent} value="100%" label="Bonus Depreciation" />
-          <StatCard icon={TrendingUp} value="12%" label="Preferred Return" />
-          <StatCard icon={Layers} value="18" label="Asset Classes" />
-          <StatCard icon={Wallet} value="6%" label="Monthly Cash" />
+          <GlassStatCard icon={Percent} value="100%" label="Bonus Depreciation" />
+          <GlassStatCard icon={TrendingUp} value="12%" label="Preferred Return" />
+          <GlassStatCard icon={Layers} value="18" label="Asset Classes" />
+          <GlassStatCard icon={Wallet} value="6%" label="Monthly Cash" />
         </motion.div>
       </div>
     </section>
@@ -154,10 +198,8 @@ function Pillars() {
     <section id="pillars" className="py-20 bg-brand-sage border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
         {pillars.map((p, i) => (
-          <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-brand-border rounded-lg p-8 hover:shadow-lg transition-shadow">
-            <div className="w-11 h-11 rounded-md bg-brand-olive/10 flex items-center justify-center mb-6">
-              <p.icon className="w-5 h-5 text-brand-olive" />
-            </div>
+          <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <div className="mb-6"><IconBadge icon={p.icon} size="lg" /></div>
             <h3 className="text-xl font-semibold text-brand-text mb-3">{p.title}</h3>
             <p className="text-brand-muted leading-relaxed text-[15px]">{p.body}</p>
           </motion.div>
@@ -259,25 +301,26 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
 }
 
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
-const ASSETS: Asset[] = [
-  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air" },
-  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "5-Yr MACRS", cat: "Air" },
-  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "5-Yr MACRS", cat: "Air" },
-  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "5-Yr MACRS", cat: "Air" },
-  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "5-Yr MACRS", cat: "Air" },
-  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "5-Yr MACRS", cat: "Marine" },
-  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "5-Yr MACRS", cat: "Marine" },
-  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "5-Yr MACRS", cat: "Marine" },
-  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground" },
-  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground" },
-  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground" },
-  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground" },
-  { icon: Radio, name: "Lookout Towers", desc: "Relocatable steel towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging" },
-  { icon: Home, name: "Ood Glass Houses", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging" },
-  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "5-Yr MACRS", cat: "Development" },
-  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "5-Yr MACRS", cat: "Development" },
-  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "5-Yr MACRS", cat: "Development" },
-  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "5-Yr MACRS", cat: "Development" },
+type AssetWithImg = Asset & { img: string };
+const ASSETS: AssetWithImg[] = [
+  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80" },
+  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1583362287023-6de78d3b31b0?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1583900985737-6d0495555783?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&w=1000&q=80" },
+  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1527431016407-e0aacab6ae15?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1533720421904-2ac1ef98d67c?auto=format&fit=crop&w=1000&q=80" },
+  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Radio, name: "Lookout Towers", desc: "Relocatable steel towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Home, name: "Ood Glass Houses", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1585500309254-1f6c19f47c4e?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80" },
 ];
 const CATS = ["All", "Air", "Marine", "Ground", "Lodging", "Development"];
 
@@ -310,25 +353,35 @@ function Portfolio() {
             </button>
           ))}
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.map((a, i) => (
             <motion.div
               key={a.name}
               initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: (i % 6) * 0.04 }}
-              className="bg-white border border-brand-border rounded-lg p-6 hover:shadow-lg hover:border-brand-olive-light transition-all"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: (i % 6) * 0.06 }}
+              className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-md bg-brand-olive/10 flex items-center justify-center">
-                  <a.icon className="w-5 h-5 text-brand-olive" />
+              <div className="relative aspect-[16/10] overflow-hidden bg-brand-sage">
+                <img
+                  src={a.img}
+                  alt={a.name}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute top-3 left-3">
+                  <IconBadge icon={a.icon} size="sm" />
                 </div>
-                <span className={`text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded ${a.tag === "Personal Property" ? "bg-brand-olive text-white" : "bg-brand-sage text-brand-olive-dark border border-brand-border"}`}>
+                <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/85 text-brand-olive-dark"}`}>
                   {a.tag}
                 </span>
               </div>
-              <h4 className="font-semibold text-brand-text mb-2">{a.name}</h4>
-              <p className="text-sm text-brand-muted leading-relaxed">{a.desc}</p>
+              <div className="p-5">
+                <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
+                <p className="text-sm text-brand-muted leading-relaxed">{a.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -364,9 +417,9 @@ function HowItWorks() {
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {steps.map((s, i) => (
-            <motion.div key={s.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white border border-brand-border rounded-lg p-6 relative hover:shadow-lg transition-shadow">
+            <motion.div key={s.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white border border-brand-border rounded-xl p-6 relative hover:shadow-xl transition-shadow">
               <div className="text-xs font-semibold text-brand-olive mb-4">STEP {i + 1}</div>
-              <s.icon className="w-6 h-6 text-brand-olive mb-4" />
+              <div className="mb-4"><IconBadge icon={s.icon} /></div>
               <h4 className="font-semibold text-brand-text mb-2">{s.title}</h4>
               <p className="text-sm text-brand-muted leading-relaxed">{s.body}</p>
             </motion.div>
@@ -441,8 +494,8 @@ function TaxEngine() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
           {cards.map((c, i) => (
-            <motion.div key={c.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white border border-brand-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <c.icon className="w-6 h-6 text-brand-olive mb-4" />
+            <motion.div key={c.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white border border-brand-border rounded-xl p-6 hover:shadow-xl transition-shadow">
+              <div className="mb-4"><IconBadge icon={c.icon} /></div>
               <div className="text-xs uppercase tracking-wider text-brand-muted">{c.title}</div>
               <div className="font-semibold text-brand-text mt-1 mb-3">{c.sub}</div>
               <p className="text-sm text-brand-muted leading-relaxed">{c.body}</p>
@@ -524,14 +577,14 @@ function Returns() {
             </table>
           </motion.div>
           <div className="space-y-4">
-            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <DollarSign className="w-6 h-6 text-brand-olive mb-4" />
+            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+              <div className="mb-4"><IconBadge icon={DollarSign} /></div>
               <div className="text-5xl font-bold text-brand-text tracking-tight">6%</div>
               <div className="text-lg font-semibold text-brand-text mt-2">Cash Return</div>
               <p className="text-sm text-brand-muted mt-2 leading-relaxed">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
             </motion.div>
-            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <Plane className="w-6 h-6 text-brand-olive mb-4" />
+            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+              <div className="mb-4"><IconBadge icon={Plane} /></div>
               <div className="text-5xl font-bold text-brand-text tracking-tight">6%</div>
               <div className="text-lg font-semibold text-brand-text mt-2">Travel Credits</div>
               <p className="text-sm text-brand-muted mt-2 leading-relaxed">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
@@ -617,10 +670,8 @@ function Exit() {
         <SectionHeader eyebrow="Exit Strategy" title="Three Paths to Exit" />
         <div className="grid md:grid-cols-3 gap-4 mb-10">
           {paths.map((p, i) => (
-            <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white border border-brand-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-11 h-11 rounded-md bg-brand-olive/10 flex items-center justify-center mb-4">
-                <p.icon className="w-5 h-5 text-brand-olive" />
-              </div>
+            <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white border border-brand-border rounded-xl p-6 hover:shadow-xl transition-shadow">
+              <div className="mb-4"><IconBadge icon={p.icon} /></div>
               <h4 className="font-semibold text-brand-text mb-2">{p.title}</h4>
               <p className="text-sm text-brand-muted leading-relaxed">{p.body}</p>
             </motion.div>
@@ -664,8 +715,8 @@ function Risks() {
         <SectionHeader dark eyebrow="Risk Factors" title="Material Risk Factors" />
         <div className="grid md:grid-cols-2 gap-4 mb-10">
           {risks.map((r, i) => (
-            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white/5 border border-white/10 rounded-lg p-6">
-              <r.icon className="w-5 h-5 text-brand-olive-light mb-3" />
+            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
+              <div className="mb-3"><IconBadge icon={r.icon} /></div>
               <h4 className="font-semibold text-white mb-2">{r.title}</h4>
               <p className="text-sm text-white/70 leading-relaxed">{r.body}</p>
             </motion.div>
@@ -864,10 +915,12 @@ export default function LookoutTowersLanding() {
         <Pillars />
         <Thesis />
         <Portfolio />
+        <PhotoBanner src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80" alt="Coastal hospitality" caption="Where hard assets meet the horizon" />
         <HowItWorks />
         <TaxEngine />
         <Returns />
         <Travel />
+        <PhotoBanner src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=80" alt="Forest retreats" caption="Off-grid. On-portfolio." />
         <Exit />
         <Risks />
         <Destinations />
