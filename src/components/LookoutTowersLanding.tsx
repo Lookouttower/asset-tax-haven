@@ -751,8 +751,13 @@ function Risks() {
     { icon: RotateCcw, title: "Recapture Risk", body: "§1245 recapture upon asset disposition is taxed as ordinary income. Recapture may exceed cash distributions received." },
   ];
   return (
-    <section id="risks" className="py-24 bg-brand-dark">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="risks" className="relative py-24 bg-brand-dark overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
+        style={{ backgroundImage: "url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=2000&q=80)" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand-dark/85 to-brand-dark" />
+      <div className="relative max-w-7xl mx-auto px-6">
         <SectionHeader dark eyebrow="Risk Factors" title="Material Risk Factors" />
         <div className="grid md:grid-cols-2 gap-4 mb-10">
           {risks.map((r, i) => (
