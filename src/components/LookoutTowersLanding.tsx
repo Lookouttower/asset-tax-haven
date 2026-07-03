@@ -140,12 +140,17 @@ function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; siz
   );
 }
 
-function GlassStatCard({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
+function StatCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] hover:bg-white/15 transition">
-      <Icon className="w-5 h-5 text-brand-olive-light mb-3" strokeWidth={1.75} />
-      <div className="text-3xl font-bold text-white tracking-tight">{value}</div>
-      <div className="text-[11px] uppercase tracking-[0.15em] text-white/70 mt-1">{label}</div>
+    <div className="relative group bg-brand-noir-card py-10 flex flex-col items-center text-center transition-all duration-300 hover:bg-brand-noir-hover">
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-gold-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      <span className="font-serif text-4xl lg:text-5xl font-bold tracking-tight text-white mb-3">
+        {value}
+      </span>
+      <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold-soft">
+        {label}
+      </p>
+      <div className="mt-4 w-8 h-[1px] bg-brand-noir-border group-hover:w-16 transition-all duration-500" />
     </div>
   );
 }
