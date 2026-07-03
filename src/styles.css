@@ -6,6 +6,8 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", Georgia, serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --color-brand-white: #FFFFFF;
   --color-brand-sage: #F7F8F5;
   --color-brand-dark: #14261A;
@@ -16,6 +18,12 @@
   --color-brand-text: #1A1F16;
   --color-brand-muted: #5C6355;
   --color-brand-border: #E3E6DD;
+  --color-brand-noir: #0d0d0d;
+  --color-brand-noir-card: #0f0f0f;
+  --color-brand-noir-hover: #141414;
+  --color-brand-noir-border: #27272a;
+  --color-brand-gold-accent: #c9a84c;
+  --color-brand-gold-soft: rgba(201, 168, 76, 0.8);
 }
 
 /*

@@ -32,7 +32,7 @@ import asset18 from "@/assets/asset-18.jpeg.asset.json";
 import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
-  Landmark, ShieldCheck, Percent, TrendingUp, Layers, Wallet,
+  Landmark, ShieldCheck,
   Zap, Mail, Plane, CheckCircle2, PlaneTakeoff, Waves, Wind, PlaneLanding,
   Anchor, Sailboat, Ship, Mountain, Car, CarFront, Truck, Radio, Home,
   Leaf, Utensils, Tent, Construction, FileSignature, ShoppingCart, Handshake,
@@ -140,12 +140,17 @@ function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; siz
   );
 }
 
-function GlassStatCard({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
+function StatCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] hover:bg-white/15 transition">
-      <Icon className="w-5 h-5 text-brand-olive-light mb-3" strokeWidth={1.75} />
-      <div className="text-3xl font-bold text-white tracking-tight">{value}</div>
-      <div className="text-[11px] uppercase tracking-[0.15em] text-white/70 mt-1">{label}</div>
+    <div className="relative group bg-brand-noir-card py-10 flex flex-col items-center text-center transition-all duration-300 hover:bg-brand-noir-hover">
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-gold-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      <span className="font-serif text-4xl lg:text-5xl font-bold tracking-tight text-white mb-3">
+        {value}
+      </span>
+      <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold-soft">
+        {label}
+      </p>
+      <div className="mt-4 w-8 h-[1px] bg-brand-noir-border group-hover:w-16 transition-all duration-500" />
     </div>
   );
 }
@@ -294,11 +299,11 @@ function Hero() {
           style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, #0b120d 100%)" }}
         />
         <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <GlassStatCard icon={Percent} value="100%" label="Bonus Depreciation" />
-            <GlassStatCard icon={TrendingUp} value="12%" label="Preferred Return" />
-            <GlassStatCard icon={Layers} value="18" label="Asset Classes" />
-            <GlassStatCard icon={Wallet} value="6%" label="Monthly Cash" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-noir-border border border-brand-noir-border rounded-2xl overflow-hidden">
+            <StatCard value="100%" label="Bonus Depreciation" />
+            <StatCard value="12%" label="Preferred Return" />
+            <StatCard value="18" label="Asset Classes" />
+            <StatCard value="6%" label="Monthly Cash" />
           </div>
         </div>
       </section>
