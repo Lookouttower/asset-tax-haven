@@ -479,7 +479,19 @@ const CATS = ["All", "Air", "Marine", "Ground", "Lodging", "Development"];
 
 function Portfolio() {
   const [active, setActive] = useState("All");
+  const [selected, setSelected] = useState<typeof ASSETS[number] | null>(null);
   const filtered = active === "All" ? ASSETS : ASSETS.filter((a) => a.cat === active);
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSelected(null);
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [selected]);
   return (
     <section id="portfolio" className="py-24 bg-brand-sage border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-6">
@@ -516,7 +528,8 @@ function Portfolio() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all"
+              onClick={() => setSelected(a)}
+              className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all cursor-pointer"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-white">
                 <img
@@ -543,6 +556,58 @@ function Portfolio() {
           </AnimatePresence>
         </motion.div>
       </div>
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            key="asset-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelected(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-2xl shadow-2xl flex flex-col"
+            >
+              <button
+                onClick={() => setSelected(null)}
+                aria-label="Close"
+                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur transition"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <div className="relative w-full aspect-[16/9] bg-brand-sage overflow-hidden">
+                <img
+                  src={selected.img}
+                  alt={selected.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: selected.imgPos || "center" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <IconBadge icon={selected.icon} size="sm" />
+                </div>
+                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur ${selected.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/90 text-brand-olive-dark"}`}>
+                  {selected.tag}
+                </span>
+                <span className="absolute bottom-4 right-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded bg-white/90 text-brand-olive-dark backdrop-blur">
+                  {selected.cat}
+                </span>
+              </div>
+              <div className="p-8 overflow-y-auto">
+                <h3 className="text-2xl md:text-3xl font-semibold text-brand-text mb-3">{selected.name}</h3>
+                <p className="text-brand-muted leading-relaxed">{selected.desc}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
