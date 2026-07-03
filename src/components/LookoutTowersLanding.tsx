@@ -304,7 +304,6 @@ function Hero() {
 }
 
 function Pillars() {
-  const pillarWriteoff = new URL("../assets/pillar-writeoff.jpeg.asset.json", import.meta.url);
   const pillars = [
     { icon: Zap, title: "100% First-Year Write-Off", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
     { icon: Mail, title: "12% Preferred Return", body: "6% paid monthly in cash — direct to your account. 6% in annual travel credits redeemable through Interval International and RCI. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
