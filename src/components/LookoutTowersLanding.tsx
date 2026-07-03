@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
+  PieChart, Pie, Tooltip as RTooltip, Legend as RLegend,
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -90,17 +91,18 @@ function Navbar() {
 }
 
 function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; size?: "sm" | "md" | "lg"; tone?: "light" | "dark" }) {
-  const dim = size === "lg" ? "w-14 h-14" : size === "sm" ? "w-10 h-10" : "w-12 h-12";
-  const glyph = size === "lg" ? "w-6 h-6" : size === "sm" ? "w-4 h-4" : "w-5 h-5";
-  const gradient =
-    tone === "dark"
-      ? "bg-[linear-gradient(135deg,#7B9A4B_0%,#4B6B2F_100%)]"
-      : "bg-[linear-gradient(135deg,#7B9A4B_0%,#4B6B2F_100%)]";
+  const dim = size === "lg" ? "w-16 h-16" : size === "sm" ? "w-11 h-11" : "w-14 h-14";
+  const glyph = size === "lg" ? "w-8 h-8" : size === "sm" ? "w-5 h-5" : "w-7 h-7";
+  const glowColor =
+    tone === "dark" ? "rgba(123,154,75,0.55)" : "rgba(47,74,29,0.45)";
   return (
     <div
-      className={`${dim} ${gradient} rounded-full flex items-center justify-center shadow-[0_8px_20px_-6px_rgba(75,107,47,0.45)] ring-1 ring-white/40`}
+      className={`${dim} rounded-full flex items-center justify-center ring-1 ring-white/25 bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)]`}
+      style={{
+        boxShadow: `0 12px 28px -8px ${glowColor}, inset 0 1px 0 rgba(255,255,255,0.18)`,
+      }}
     >
-      <Icon className={`${glyph} text-white`} strokeWidth={1.75} />
+      <Icon className={`${glyph} text-white`} strokeWidth={1.5} />
     </div>
   );
 }
@@ -162,8 +164,10 @@ function Hero() {
             <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
             Reg D · Rule 506(c) · Accredited Investors Only
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-white max-w-5xl">
-            Hard Assets. <span className="text-[#D4B968]">100% Depreciation.</span> Mailbox Money.
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white max-w-5xl whitespace-normal">
+            <span className="block">Hard Assets.</span>
+            <span className="block text-[#D4B968]">100% Depreciation.</span>
+            <span className="block">Mailbox Money.</span>
           </h1>
           <p className="mt-8 text-xl text-white/80 max-w-3xl leading-relaxed">
             A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
