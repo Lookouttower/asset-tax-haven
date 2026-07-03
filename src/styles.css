@@ -9,17 +9,17 @@
   --font-serif: "Libre Baskerville", Georgia, serif;
   --font-display: "Urbanist", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Epilogue", ui-sans-serif, system-ui, sans-serif;
-  /* Noir & Gold luxury investor theme */
-  --color-brand-white: #f7f3ea;
-  --color-brand-sage: #0d0d0d;
-  --color-brand-dark: #050505;
-  --color-brand-olive: #c9a84c;
-  --color-brand-olive-light: #f0d78c;
-  --color-brand-olive-dark: #8a7333;
-  --color-brand-gold: #c9a84c;
-  --color-brand-text: #f0ebe0;
-  --color-brand-muted: #8a8578;
-  --color-brand-border: #2a2a2a;
+  /* Noir & Gold luxury investor theme (site-wide dark) */
+  --color-brand-white: #0d0d0d;         /* primary page background */
+  --color-brand-sage: #141414;          /* alt section background */
+  --color-brand-dark: #050505;          /* deepest surfaces / hero */
+  --color-brand-olive: #c9a84c;         /* primary gold accent */
+  --color-brand-olive-light: #f0d78c;   /* light gold */
+  --color-brand-olive-dark: #8a7333;    /* deep gold */
+  --color-brand-gold: #c9a84c;          /* gold */
+  --color-brand-text: #f0ebe0;          /* primary text on dark */
+  --color-brand-muted: #a39d8c;         /* muted text on dark */
+  --color-brand-border: #2a2a2a;        /* subtle divider */
   --color-brand-noir: #0d0d0d;
   --color-brand-noir-card: #0f0f0f;
   --color-brand-noir-hover: #141414;
