@@ -9,6 +9,9 @@ import redeemForest from "@/assets/redeem-forest.jpeg.asset.json";
 import pjetV2 from "@/assets/pjet-v2.jpeg.asset.json";
 import beachVillasImg from "@/assets/beach-villas.jpeg.asset.json";
 import glassHousesImg from "@/assets/glass-houses.jpeg.asset.json";
+import pillarWriteoffAsset from "@/assets/pillar-writeoff.jpeg.asset.json";
+import pillarReturnAsset from "@/assets/pillar-return.jpeg.asset.json";
+import pillarTravelAsset from "@/assets/pillar-travel.jpeg.asset.json";
 import asset1 from "@/assets/asset-1.jpeg.asset.json";
 import asset2 from "@/assets/asset-2.jpeg.asset.json";
 import asset3 from "@/assets/asset-3.jpeg.asset.json";
@@ -305,18 +308,40 @@ function Hero() {
 
 function Pillars() {
   const pillars = [
-    { icon: Zap, title: "100% First-Year Write-Off", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset." },
-    { icon: Mail, title: "12% Preferred Return", body: "6% paid monthly in cash — direct to your account. 6% in annual travel credits redeemable through Interval International and RCI. Consistent, predictable, and tied to hard-asset lease income." },
-    { icon: Plane, title: "Invest. Write Off. Travel.", body: "Your travel credits unlock a global network of resorts, villas, and experiences through Interval International and RCI — the same platforms used by the world's premier hospitality brands." },
+    { icon: Zap, title: "100% First-Year Write-Off", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
+    { icon: Mail, title: "12% Preferred Return", body: "6% paid monthly in cash — direct to your account. 6% in annual travel credits redeemable through Interval International and RCI. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
+    { icon: Plane, title: "Invest. Write Off. Travel.", body: "Your travel credits unlock a global network of resorts, villas, and experiences through Interval International and RCI — the same platforms used by the world's premier hospitality brands.", bg: pillarTravelAsset.url },
   ];
   return (
     <section id="pillars" className="py-20 bg-brand-sage border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
         {pillars.map((p, i) => (
-          <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
-            <div className="mb-6"><IconBadge icon={p.icon} size="lg" /></div>
-            <h3 className="text-xl font-semibold text-brand-text mb-3">{p.title}</h3>
-            <p className="text-brand-muted leading-relaxed text-[15px]">{p.body}</p>
+          <motion.div
+            key={p.title}
+            {...fadeIn}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            whileHover={{ y: -4 }}
+            className="group relative overflow-hidden rounded-2xl p-10 border transition-shadow duration-300 hover:shadow-2xl"
+            style={{ borderColor: "rgba(75,107,47,0.15)", backgroundColor: "#ffffff" }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${p.bg})`, opacity: 0.22, filter: "blur(2px)" }}
+              aria-hidden
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(247,248,245,0.88) 60%, rgba(75,107,47,0.10) 100%)" }}
+              aria-hidden
+            />
+            <div className="relative">
+              <div className="mb-6 relative inline-flex">
+                <div className="absolute inset-0 -m-2 rounded-full bg-brand-olive/25 blur-xl" aria-hidden />
+                <div className="relative"><IconBadge icon={p.icon} size="lg" /></div>
+              </div>
+              <h3 className="text-xl font-bold tracking-[0.01em] text-brand-text mb-3">{p.title}</h3>
+              <p className="text-brand-muted text-[15px]" style={{ lineHeight: 1.6 }}>{p.body}</p>
+            </div>
           </motion.div>
         ))}
       </div>
