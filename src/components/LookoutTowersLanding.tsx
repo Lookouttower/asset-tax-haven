@@ -32,7 +32,7 @@ import asset18 from "@/assets/asset-18.jpeg.asset.json";
 import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
-  Landmark, ShieldCheck, Percent, TrendingUp, Layers, Wallet,
+  Landmark, ShieldCheck, Zap, Mail, Plane, CheckCircle2, PlaneTakeoff, Waves, Wind, PlaneLanding,
   Zap, Mail, Plane, CheckCircle2, PlaneTakeoff, Waves, Wind, PlaneLanding,
   Anchor, Sailboat, Ship, Mountain, Car, CarFront, Truck, Radio, Home,
   Leaf, Utensils, Tent, Construction, FileSignature, ShoppingCart, Handshake,
