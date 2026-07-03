@@ -5,6 +5,9 @@ import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
 import redeemAlpine from "@/assets/redeem-alpine.jpeg.asset.json";
 import redeemForest from "@/assets/redeem-forest.jpeg.asset.json";
+import pjetV2 from "@/assets/pjet-v2.jpeg.asset.json";
+import beachVillasImg from "@/assets/beach-villas.jpeg.asset.json";
+import glassHousesImg from "@/assets/glass-houses.jpeg.asset.json";
 import asset1 from "@/assets/asset-1.jpeg.asset.json";
 import asset2 from "@/assets/asset-2.jpeg.asset.json";
 import asset3 from "@/assets/asset-3.jpeg.asset.json";
@@ -299,7 +302,7 @@ const PORTFOLIO_HERO_IMAGES = [
   { src: heroLookoutTower.url, caption: "Lookout Tower · Blue Ridge" },
   { src: heroGlassHouse.url, caption: "Glass House Retreat" },
   { src: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1600&q=80", caption: "Miami Yacht Charter" },
-  { src: heroPrivateJet.url, caption: "Private Jet Fleet" },
+  { src: pjetV2.url, caption: "Private Jet Fleet" },
 ];
 
 function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }) {
@@ -674,8 +677,8 @@ const TRAVEL_IMAGES = [
   { src: redeemAlpine.url, caption: "Alpine Retreats" },
   { src: redeemForest.url, caption: "Forest Lookouts" },
   { src: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1400&q=80", caption: "Island Resorts" },
-  { src: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1400&q=80", caption: "Beach Villas" },
-  { src: "https://images.unsplash.com/photo-1444084316824-dc26d6657664?auto=format&fit=crop&w=1400&q=80", caption: "Glass Houses" },
+  { src: beachVillasImg.url, caption: "Beach Villas" },
+  { src: glassHousesImg.url, caption: "Glass Houses" },
 ];
 
 function Travel() {
