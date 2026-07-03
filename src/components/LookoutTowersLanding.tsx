@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
