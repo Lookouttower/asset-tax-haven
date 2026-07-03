@@ -955,31 +955,35 @@ function Exit() {
 
 function Risks() {
   const risks = [
-    { icon: AlertTriangle, title: "Tax Risk", body: "IRS may challenge bonus depreciation eligibility. If disallowed, fund recomputes at fund level and investors bear tax, interest, and penalty burden." },
-    { icon: Lock, title: "Liquidity Risk", body: "Fund interests are illiquid. No public market. Investor terms of 1–3 years with limited redemption rights. Asset holds may extend 4–10 years." },
-    { icon: Users, title: "Operator Risk", body: "Lease income depends on operator performance. Defaults, vacancies, or underperformance may reduce distributions below preferred return." },
-    { icon: RotateCcw, title: "Recapture Risk", body: "§1245 recapture upon asset disposition is taxed as ordinary income. Recapture may exceed cash distributions received." },
+    { title: "Tax Risk", body: "IRS may challenge bonus depreciation eligibility. If disallowed, fund recomputes at fund level and investors bear tax, interest, and penalty burden." },
+    { title: "Liquidity Risk", body: "Fund interests are illiquid. No public market. Investor terms of 1–3 years with limited redemption rights. Asset holds may extend 4–10 years." },
+    { title: "Operator Risk", body: "Lease income depends on operator performance. Defaults, vacancies, or underperformance may reduce distributions below preferred return." },
+    { title: "Recapture Risk", body: "§1245 recapture upon asset disposition is taxed as ordinary income. Recapture may exceed cash distributions received." },
   ];
   return (
-    <section id="risks" className="relative py-24 bg-brand-dark overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
-        style={{ backgroundImage: "url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=2000&q=80)" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand-dark/85 to-brand-dark" />
-      <div className="relative max-w-7xl mx-auto px-6">
-        <SectionHeader dark eyebrow="Risk Factors" title="Material Risk Factors" />
-        <div className="grid md:grid-cols-2 gap-4 mb-10">
+    <section id="risks" className="relative py-24 bg-risk-bg overflow-hidden">
+      <div className="relative max-w-6xl mx-auto px-6">
+        <div className="mb-12 text-center">
+          <h2 className="font-display text-risk-heading text-3xl md:text-4xl mb-4 tracking-tight">Material Risk Factors</h2>
+          <p className="font-body text-risk-subtitle text-sm uppercase tracking-[0.2em] font-medium">Investor Disclosure Statement</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
           {risks.map((r, i) => (
-            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
-              <div className="mb-3"><IconBadge icon={r.icon} /></div>
-              <h4 className="font-semibold text-white mb-2">{r.title}</h4>
-              <p className="text-sm text-white/70 leading-relaxed">{r.body}</p>
+            <motion.div
+              key={r.title}
+              {...fadeIn}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="group relative p-8 rounded-2xl bg-risk-card border border-risk-border hover:border-brand-gold-accent/30 transition-all duration-300"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-risk-accent-bar rounded-l-2xl" />
+              <h3 className="font-display text-risk-accent text-xl mb-3">{r.title}</h3>
+              <p className="font-body text-risk-body text-sm leading-relaxed">{r.body}</p>
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="bg-white/5 border border-white/10 rounded-lg p-6">
-          <p className="text-xs text-white/60 leading-relaxed">
+        <motion.div {...fadeIn} className="rounded-xl border border-white/5 bg-black/20 p-6 text-center">
+          <p className="font-body text-risk-muted text-xs leading-relaxed max-w-3xl mx-auto">
+            <span className="font-semibold uppercase tracking-wider text-risk-subtitle mr-2">Important Notice:</span>
             This material is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. Offered only to accredited investors under Reg D Rule 506(c). Past performance is not indicative of future results. Consult your tax, legal, and financial advisors before investing.
           </p>
         </motion.div>
