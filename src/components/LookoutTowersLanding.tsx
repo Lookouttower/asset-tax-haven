@@ -213,6 +213,15 @@ function Hero() {
           }}
         />
 
+        {/* Light gradient accent */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, rgba(212,185,104,0.08) 65%, rgba(0,0,0,0.22) 100%)",
+          }}
+        />
+
         {/* Content: bottom-left headline */}
         <div className="absolute inset-0 flex items-end">
           <div className="w-full max-w-7xl mx-auto px-6 pb-[18vh]">
