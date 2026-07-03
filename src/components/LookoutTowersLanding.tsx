@@ -1,5 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
+import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
+import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
+import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
 import asset1 from "@/assets/asset-1.jpeg.asset.json";
 import asset2 from "@/assets/asset-2.jpeg.asset.json";
 import asset3 from "@/assets/asset-3.jpeg.asset.json";
@@ -291,10 +294,10 @@ function Thesis() {
 }
 
 const PORTFOLIO_HERO_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=80", caption: "Lookout Tower · Blue Ridge" },
-  { src: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1600&q=80", caption: "Glass House Retreat" },
+  { src: heroLookoutTower.url, caption: "Lookout Tower · Blue Ridge" },
+  { src: heroGlassHouse.url, caption: "Glass House Retreat" },
   { src: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1600&q=80", caption: "Miami Yacht Charter" },
-  { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80", caption: "Private Jet Fleet" },
+  { src: heroPrivateJet.url, caption: "Private Jet Fleet" },
 ];
 
 function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }) {
