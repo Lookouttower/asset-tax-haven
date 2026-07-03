@@ -4,6 +4,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-white: #FFFFFF;
+  --color-brand-sage: #F7F8F5;
+  --color-brand-dark: #14261A;
+  --color-brand-olive: #4B6B2F;
+  --color-brand-olive-light: #7B9A4B;
+  --color-brand-olive-dark: #2F4A1D;
+  --color-brand-gold: #B8955A;
+  --color-brand-text: #1A1F16;
+  --color-brand-muted: #5C6355;
+  --color-brand-border: #E3E6DD;
+}
+
 /*
  * Design system definition.
  *
