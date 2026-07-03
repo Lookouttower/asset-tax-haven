@@ -23,11 +23,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-audit --no-fund
       - name: Build
         run: npm run build
+      - name: Verify dist exists
+        run: |
+          if [ ! -d dist ]; then
+            echo "dist folder was not created"; exit 1;
+          fi
+          ls -la dist
       - name: Add SPA fallback and .nojekyll
         run: |
           touch dist/.nojekyll
