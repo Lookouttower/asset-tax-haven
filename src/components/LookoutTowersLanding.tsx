@@ -246,13 +246,26 @@ function Thesis() {
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-border border border-brand-border rounded-lg overflow-hidden">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-white p-6">
-              <div className="text-xs uppercase tracking-wider text-brand-muted mb-2">{s.label}</div>
-              <div className="font-semibold text-brand-text">{s.value}</div>
-            </div>
-          ))}
+        <motion.div {...fadeIn} className="mt-16 relative">
+          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-olive/40 to-transparent" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative flex flex-col items-center text-center bg-white border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
+              >
+                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)] text-white flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-[0_10px_25px_-6px_rgba(47,74,29,0.5)]">
+                  {i + 1}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.15em] text-brand-muted mb-2">{s.label}</div>
+                <div className="font-semibold text-brand-text text-sm">{s.value}</div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
