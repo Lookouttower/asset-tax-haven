@@ -80,10 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Lookout Towers Fund — Hard Assets. 100% Depreciation. Mailbox Money." },
       { name: "description", content: "A Reg D 506(c) hospitality equipment fund passing through 100% first-year bonus depreciation and a 12% preferred return to accredited investors." },
       { name: "author", content: "Lookout Towers Fund" },
-      { property: "og:title", content: "Lookout Towers Fund" },
-      { property: "og:description", content: "Hard assets. 100% depreciation. 12% preferred return. Accredited investors only." },
+      { property: "og:title", content: "Lookout Towers Fund — Hard Assets. 100% Depreciation. Mailbox Money." },
+      { property: "og:description", content: "A Reg D 506(c) hospitality equipment fund passing through 100% first-year bonus depreciation and a 12% preferred return to accredited investors." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Lookout Towers Fund — Hard Assets. 100% Depreciation. Mailbox Money." },
+      { name: "twitter:description", content: "A Reg D 506(c) hospitality equipment fund passing through 100% first-year bonus depreciation and a 12% preferred return to accredited investors." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/deacfe84-6aa5-4cd8-8767-e2ce09a54679/id-preview-91eb564c--b9d904d7-bd66-4a19-ab79-4bdee87672de.lovable.app-1783113975628.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/deacfe84-6aa5-4cd8-8767-e2ce09a54679/id-preview-91eb564c--b9d904d7-bd66-4a19-ab79-4bdee87672de.lovable.app-1783113975628.png" },
     ],
     links: [
       {
