@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
@@ -318,7 +319,7 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
 }
 
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
-type AssetWithImg = Asset & { img: string };
+type AssetWithImg = Asset & { img: string; imgPos?: string };
 const ASSETS: AssetWithImg[] = [
   { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80" },
   { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1583362287023-6de78d3b31b0?auto=format&fit=crop&w=1000&q=80" },
@@ -332,7 +333,7 @@ const ASSETS: AssetWithImg[] = [
   { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1533720421904-2ac1ef98d67c?auto=format&fit=crop&w=1000&q=80" },
   { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1000&q=80" },
   { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Radio, name: "Lookout Towers", desc: "Relocatable steel towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Radio, name: "Lookout Towers", desc: "Relocatable timber-frame towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: lookoutTowerAsset.url, imgPos: "75% 50%" },
   { icon: Home, name: "Ood Glass Houses", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=80" },
   { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1585500309254-1f6c19f47c4e?auto=format&fit=crop&w=1000&q=80" },
   { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "5-Yr MACRS", cat: "Development", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80" },
@@ -380,24 +381,25 @@ function Portfolio() {
               transition={{ duration: 0.45, delay: (i % 6) * 0.06 }}
               className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-brand-sage">
+              <div className="relative aspect-[4/3] overflow-hidden bg-white">
                 <img
                   src={a.img}
                   alt={a.name}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="absolute inset-x-0 top-0 h-[65%] w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  style={{ objectPosition: a.imgPos || "center" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-[65%] bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <div className="absolute top-3 left-3">
                   <IconBadge icon={a.icon} size="sm" />
                 </div>
                 <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/85 text-brand-olive-dark"}`}>
                   {a.tag}
                 </span>
-              </div>
-              <div className="p-5">
-                <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
-                <p className="text-sm text-brand-muted leading-relaxed">{a.desc}</p>
+                <div className="absolute inset-x-0 bottom-0 h-[35%] p-5 flex flex-col justify-center">
+                  <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
+                  <p className="text-sm text-brand-muted leading-relaxed line-clamp-2">{a.desc}</p>
+                </div>
               </div>
             </motion.div>
           ))}
