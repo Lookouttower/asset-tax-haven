@@ -29,7 +29,7 @@ import asset15 from "@/assets/asset-15.jpeg.asset.json";
 import asset16 from "@/assets/asset-16.jpeg.asset.json";
 import asset17 from "@/assets/asset-17.jpeg.asset.json";
 import asset18 from "@/assets/asset-18.jpeg.asset.json";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   Landmark, ShieldCheck, Percent, TrendingUp, Layers, Wallet,
@@ -506,14 +506,16 @@ function Portfolio() {
             </button>
           ))}
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((a, i) => (
+        <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <AnimatePresence mode="popLayout">
+          {filtered.map((a) => (
             <motion.div
               key={a.name}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: (i % 6) * 0.06 }}
+              layout
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
               className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-white">
@@ -538,7 +540,8 @@ function Portfolio() {
               </div>
             </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
