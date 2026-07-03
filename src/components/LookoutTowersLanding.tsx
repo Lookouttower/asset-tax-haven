@@ -3,6 +3,8 @@ import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
+import redeemAlpine from "@/assets/redeem-alpine.jpeg.asset.json";
+import redeemForest from "@/assets/redeem-forest.jpeg.asset.json";
 import asset1 from "@/assets/asset-1.jpeg.asset.json";
 import asset2 from "@/assets/asset-2.jpeg.asset.json";
 import asset3 from "@/assets/asset-3.jpeg.asset.json";
@@ -669,8 +671,8 @@ function Returns() {
 }
 
 const TRAVEL_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1400&q=80", caption: "Alpine Retreats" },
-  { src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1400&q=80", caption: "Forest Lookouts" },
+  { src: redeemAlpine.url, caption: "Alpine Retreats" },
+  { src: redeemForest.url, caption: "Forest Lookouts" },
   { src: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1400&q=80", caption: "Island Resorts" },
   { src: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1400&q=80", caption: "Beach Villas" },
   { src: "https://images.unsplash.com/photo-1444084316824-dc26d6657664?auto=format&fit=crop&w=1400&q=80", caption: "Glass Houses" },
