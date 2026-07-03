@@ -1,5 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
+import asset1 from "@/assets/asset-1.jpeg.asset.json";
+import asset2 from "@/assets/asset-2.jpeg.asset.json";
+import asset3 from "@/assets/asset-3.jpeg.asset.json";
+import asset4 from "@/assets/asset-4.jpeg.asset.json";
+import asset5 from "@/assets/asset-5.jpeg.asset.json";
+import asset6 from "@/assets/asset-6.jpeg.asset.json";
+import asset7 from "@/assets/asset-7.jpeg.asset.json";
+import asset8 from "@/assets/asset-8.jpeg.asset.json";
+import asset9 from "@/assets/asset-9.jpeg.asset.json";
+import asset10 from "@/assets/asset-10.jpeg.asset.json";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
@@ -321,16 +331,16 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
 type AssetWithImg = Asset & { img: string; imgPos?: string };
 const ASSETS: AssetWithImg[] = [
-  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80" },
-  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1583362287023-6de78d3b31b0?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&w=1000&q=80" },
-  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "5-Yr MACRS", cat: "Air", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "5-Yr MACRS", cat: "Marine", img: "https://images.unsplash.com/photo-1527431016407-e0aacab6ae15?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1610461888750-10bfc601b874?auto=format&fit=crop&w=1000&q=80" },
-  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1533720421904-2ac1ef98d67c?auto=format&fit=crop&w=1000&q=80" },
+  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "5-Yr MACRS", cat: "Air", img: asset1.url },
+  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "5-Yr MACRS", cat: "Air", img: asset2.url },
+  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "5-Yr MACRS", cat: "Air", img: asset3.url },
+  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "5-Yr MACRS", cat: "Air", img: asset4.url },
+  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "5-Yr MACRS", cat: "Air", img: asset5.url },
+  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "5-Yr MACRS", cat: "Marine", img: asset6.url },
+  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "5-Yr MACRS", cat: "Marine", img: asset7.url },
+  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "5-Yr MACRS", cat: "Marine", img: asset8.url },
+  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "5-Yr MACRS", cat: "Ground", img: asset9.url },
+  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "5-Yr MACRS", cat: "Ground", img: asset10.url },
   { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1000&q=80" },
   { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "5-Yr MACRS", cat: "Ground", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=80" },
   { icon: Radio, name: "Lookout Towers", desc: "Relocatable timber-frame towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: lookoutTowerAsset.url, imgPos: "75% 50%" },
