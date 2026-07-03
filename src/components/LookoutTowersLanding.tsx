@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
+import heroVideo from "@/assets/hero-web.mp4.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
@@ -35,6 +36,7 @@ import {
   FileCheck, Scale, AlertTriangle, Gavel, FileText, Ban, Building, Infinity,
   DollarSign, AlertCircle, LogOut, RefreshCw, TreeDeciduous, Lock, Users,
   RotateCcw, ChevronLeft, ChevronRight, X, ArrowRight, Menu,
+  Volume2, VolumeX, ChevronDown,
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
@@ -71,7 +73,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -79,36 +81,38 @@ function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-        scrolled ? "bg-white/95 backdrop-blur border-b border-brand-border" : "bg-white border-b border-transparent"
+        scrolled
+          ? "bg-[#0b120d]/85 backdrop-blur-xl border-b border-white/10"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
-          <Landmark className="w-6 h-6 text-brand-olive" />
-          <span className="font-semibold tracking-tight text-brand-text">Lookout Towers Fund</span>
+          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-olive-light" : "text-white"}`} />
+          <span className={`font-semibold tracking-tight ${scrolled ? "text-white" : "text-white"}`}>Lookout Towers Fund</span>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-brand-muted hover:text-brand-olive transition-colors">
+            <a key={l.href} href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
               {l.label}
             </a>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-md border border-brand-border hover:border-brand-olive text-brand-text transition">View Terms</a>
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-md bg-brand-olive text-white hover:bg-brand-olive-dark transition">Request Access</a>
+          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full border border-white/40 hover:border-white text-white transition backdrop-blur">View Terms</a>
+          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-[#D4B968] text-[#14261A] hover:bg-[#c9ab54] transition">Request Access</a>
         </div>
-        <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className="lg:hidden text-white" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-brand-border bg-white">
+        <div className="lg:hidden border-t border-white/10 bg-[#0b120d]/95 backdrop-blur-xl">
           <div className="px-6 py-4 flex flex-col gap-3">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-brand-text py-1">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-white/85 py-1">{l.label}</a>
             ))}
-            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-md bg-brand-olive text-white text-center">Request Access</a>
+            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-[#D4B968] text-[#14261A] text-center">Request Access</a>
           </div>
         </div>
       )}
@@ -173,48 +177,120 @@ function SectionHeader({ eyebrow, title, lead, dark }: { eyebrow: string; title:
 }
 
 function Hero() {
+  const [muted, setMuted] = useState(true);
+  const videoRef = useCallback((node: HTMLVideoElement | null) => {
+    if (node) {
+      node.muted = muted;
+      const p = node.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    }
+  }, [muted]);
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=80)",
-        }}
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(20,38,26,0.88),rgba(20,38,26,0.55))]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.5),transparent_60%)]" />
-      <div className="relative max-w-7xl mx-auto px-6 py-32 w-full">
-        <motion.div {...fadeIn}>
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-4 py-1.5 text-xs font-medium text-white mb-8">
-            <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
-            Reg D · Rule 506(c) · Accredited Investors Only
+    <>
+      <section
+        id="home"
+        className="relative w-screen overflow-hidden"
+        style={{ minHeight: "100vh", height: "100vh" }}
+      >
+        {/* Full-bleed video */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          src={heroVideo.url}
+          autoPlay
+          loop
+          muted={muted}
+          playsInline
+          preload="auto"
+        />
+
+        {/* Gradient overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0.5) 100%)",
+          }}
+        />
+
+        {/* Content: bottom-left headline */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="w-full max-w-7xl mx-auto px-6 pb-[18vh]">
+            <motion.div {...fadeIn}>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-4 py-1.5 text-xs font-medium text-white mb-6">
+                <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
+                Reg D · Rule 506(c) · Accredited Investors Only
+              </div>
+              <h1
+                className="font-bold tracking-tight text-white max-w-5xl"
+                style={{ fontSize: "clamp(48px, 8vw, 96px)", lineHeight: 1.1 }}
+              >
+                <span className="block">Hard Assets.</span>
+                <span className="block text-[#D4B968]">100% Depreciation.</span>
+                <span className="block">Mailbox Money.</span>
+              </h1>
+              <p
+                className="mt-6 text-lg md:text-xl leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.85)", maxWidth: 600 }}
+              >
+                A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#access"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#D4B968] text-[#14261A] font-semibold hover:bg-[#c9ab54] transition shadow-lg shadow-black/40"
+                >
+                  Request Access <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="#tax"
+                  className="inline-flex items-center px-7 py-3 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-white font-medium hover:bg-white/20 transition"
+                >
+                  Explore the Tax Engine
+                </a>
+              </div>
+            </motion.div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white max-w-5xl whitespace-normal">
-            <span className="block">Hard Assets.</span>
-            <span className="block text-[#D4B968]">100% Depreciation.</span>
-            <span className="block">Mailbox Money.</span>
-          </h1>
-          <p className="mt-8 text-xl text-white/80 max-w-3xl leading-relaxed">
-            A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-olive text-white font-medium hover:bg-brand-olive-dark transition shadow-lg shadow-black/30">
-              Request Access <ArrowRight className="w-4 h-4" />
-            </a>
-            <a href="#tax" className="inline-flex items-center px-6 py-3 rounded-md border border-white/40 text-white font-medium hover:bg-white/10 backdrop-blur transition">
-              Explore the Tax Engine
-            </a>
+        </div>
+
+        {/* Mute toggle */}
+        <button
+          type="button"
+          onClick={() => setMuted((m) => !m)}
+          aria-label={muted ? "Unmute video" : "Mute video"}
+          className="absolute bottom-6 right-6 z-20 w-11 h-11 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur border border-white/25 text-white flex items-center justify-center transition"
+        >
+          {muted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+        </button>
+
+        {/* Scroll indicator */}
+        <a
+          href="#pillars"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/70 hover:text-white transition"
+          aria-label="Scroll to explore"
+        >
+          <span className="text-[10px] uppercase tracking-[0.25em]">Scroll</span>
+          <ChevronDown className="w-5 h-5 animate-bounce" />
+        </a>
+      </section>
+
+      {/* Stat bar — seamlessly continues the dark gradient */}
+      <section className="relative bg-[#0b120d] border-b border-white/10">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 -top-16 h-16 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, #0b120d 100%)" }}
+        />
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <GlassStatCard icon={Percent} value="100%" label="Bonus Depreciation" />
+            <GlassStatCard icon={TrendingUp} value="12%" label="Preferred Return" />
+            <GlassStatCard icon={Layers} value="18" label="Asset Classes" />
+            <GlassStatCard icon={Wallet} value="6%" label="Monthly Cash" />
           </div>
-        </motion.div>
-        <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.15 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
-          <GlassStatCard icon={Percent} value="100%" label="Bonus Depreciation" />
-          <GlassStatCard icon={TrendingUp} value="12%" label="Preferred Return" />
-          <GlassStatCard icon={Layers} value="18" label="Asset Classes" />
-          <GlassStatCard icon={Wallet} value="6%" label="Monthly Cash" />
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 
