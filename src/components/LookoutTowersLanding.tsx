@@ -381,24 +381,25 @@ function Portfolio() {
               transition={{ duration: 0.45, delay: (i % 6) * 0.06 }}
               className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-brand-sage">
+              <div className="relative aspect-[4/3] overflow-hidden bg-brand-sage">
                 <img
                   src={a.img}
                   alt={a.name}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="absolute inset-x-0 top-0 h-[65%] w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  style={{ objectPosition: a.imgPos || "center" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-[65%] bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <div className="absolute top-3 left-3">
                   <IconBadge icon={a.icon} size="sm" />
                 </div>
                 <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/85 text-brand-olive-dark"}`}>
                   {a.tag}
                 </span>
-              </div>
-              <div className="p-5">
-                <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
-                <p className="text-sm text-brand-muted leading-relaxed">{a.desc}</p>
+                <div className="absolute inset-x-0 bottom-0 h-[35%] p-5 flex flex-col justify-center">
+                  <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
+                  <p className="text-sm text-brand-muted leading-relaxed line-clamp-2">{a.desc}</p>
+                </div>
               </div>
             </motion.div>
           ))}
