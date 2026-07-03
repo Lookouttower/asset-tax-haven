@@ -299,11 +299,11 @@ function Hero() {
           style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, #0b120d 100%)" }}
         />
         <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <GlassStatCard icon={Percent} value="100%" label="Bonus Depreciation" />
-            <GlassStatCard icon={TrendingUp} value="12%" label="Preferred Return" />
-            <GlassStatCard icon={Layers} value="18" label="Asset Classes" />
-            <GlassStatCard icon={Wallet} value="6%" label="Monthly Cash" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-noir-border border border-brand-noir-border rounded-2xl overflow-hidden">
+            <StatCard value="100%" label="Bonus Depreciation" />
+            <StatCard value="12%" label="Preferred Return" />
+            <StatCard value="18" label="Asset Classes" />
+            <StatCard value="6%" label="Monthly Cash" />
           </div>
         </div>
       </section>
