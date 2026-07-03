@@ -9,16 +9,17 @@
   --font-serif: "Libre Baskerville", Georgia, serif;
   --font-display: "Urbanist", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Epilogue", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-white: #FFFFFF;
-  --color-brand-sage: #F7F8F5;
-  --color-brand-dark: #14261A;
-  --color-brand-olive: #4B6B2F;
-  --color-brand-olive-light: #7B9A4B;
-  --color-brand-olive-dark: #2F4A1D;
-  --color-brand-gold: #B8955A;
-  --color-brand-text: #1A1F16;
-  --color-brand-muted: #5C6355;
-  --color-brand-border: #E3E6DD;
+  /* Noir & Gold luxury investor theme */
+  --color-brand-white: #f7f3ea;
+  --color-brand-sage: #0d0d0d;
+  --color-brand-dark: #050505;
+  --color-brand-olive: #c9a84c;
+  --color-brand-olive-light: #f0d78c;
+  --color-brand-olive-dark: #8a7333;
+  --color-brand-gold: #c9a84c;
+  --color-brand-text: #f0ebe0;
+  --color-brand-muted: #8a8578;
+  --color-brand-border: #2a2a2a;
   --color-brand-noir: #0d0d0d;
   --color-brand-noir-card: #0f0f0f;
   --color-brand-noir-hover: #141414;
