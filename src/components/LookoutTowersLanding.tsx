@@ -537,7 +537,7 @@ function Portfolio() {
     };
   }, [selected]);
   return (
-    <section id="portfolio" className="py-24 bg-brand-sage border-y border-brand-border">
+    <section id="portfolio" className="py-24 bg-brand-bg border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Portfolio"
@@ -552,10 +552,10 @@ function Portfolio() {
             <button
               key={c}
               onClick={() => setActive(c)}
-              className={`px-4 py-2 text-sm rounded-full border transition ${
+              className={`px-4 py-2 text-sm rounded-full border transition tracking-wide ${
                 active === c
-                  ? "bg-brand-olive text-white border-brand-olive"
-                  : "bg-white text-brand-text border-brand-border hover:border-brand-olive"
+                  ? "bg-brand-gold text-brand-bg border-brand-gold"
+                  : "bg-brand-card text-brand-cream border-brand-border hover:border-brand-gold"
               }`}
             >
               {c}
@@ -573,9 +573,9 @@ function Portfolio() {
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
               onClick={() => setSelected(a)}
-              className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all cursor-pointer"
+              className="group bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-gold-light transition-all cursor-pointer"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-white">
+              <div className="relative aspect-[4/3] overflow-hidden bg-brand-card">
                 <img
                   src={a.img}
                   alt={a.name}
@@ -587,12 +587,12 @@ function Portfolio() {
                 <div className="absolute top-3 left-3">
                   <IconBadge icon={a.icon} size="sm" />
                 </div>
-                <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/85 text-brand-olive-dark"}`}>
+                <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-gold/90 text-brand-bg" : "bg-brand-cream/85 text-brand-bg"}`}>
                   {a.tag}
                 </span>
                 <div className="absolute inset-x-0 bottom-0 h-[35%] p-5 flex flex-col justify-center">
-                  <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
-                  <p className="text-sm text-brand-muted leading-relaxed line-clamp-2">{a.desc}</p>
+                  <h4 className="font-medium text-brand-cream mb-1.5">{a.name}</h4>
+                  <p className="text-sm text-brand-muted font-light leading-relaxed line-clamp-2">{a.desc}</p>
                 </div>
               </div>
             </motion.div>
@@ -617,16 +617,16 @@ function Portfolio() {
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-2xl shadow-2xl flex flex-col"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-brand-card rounded-2xl shadow-2xl flex flex-col"
             >
               <button
                 onClick={() => setSelected(null)}
                 aria-label="Close"
-                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur transition"
+                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/50 hover:bg-black/70 text-brand-cream flex items-center justify-center backdrop-blur transition"
               >
                 <X className="h-5 w-5" />
               </button>
-              <div className="relative w-full aspect-[16/9] bg-brand-sage overflow-hidden">
+              <div className="relative w-full aspect-[16/9] bg-brand-bg-light overflow-hidden">
                 <img
                   src={selected.img}
                   alt={selected.name}
@@ -637,17 +637,18 @@ function Portfolio() {
                 <div className="absolute top-4 left-4">
                   <IconBadge icon={selected.icon} size="sm" />
                 </div>
-                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur ${selected.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/90 text-brand-olive-dark"}`}>
+                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur ${selected.tag === "Personal Property" ? "bg-brand-gold/90 text-brand-bg" : "bg-brand-cream/90 text-brand-bg"}`}>
                   {selected.tag}
                 </span>
-                <span className="absolute bottom-4 right-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded bg-white/90 text-brand-olive-dark backdrop-blur">
+                <span className="absolute bottom-4 right-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded bg-brand-cream/90 text-brand-bg backdrop-blur">
                   {selected.cat}
                 </span>
               </div>
               <div className="p-8 overflow-y-auto">
-                <h3 className="text-2xl md:text-3xl font-semibold text-brand-text mb-3">{selected.name}</h3>
-                <p className="text-brand-muted leading-relaxed">{selected.desc}</p>
+                <h3 className="text-2xl md:text-3xl font-serif font-medium text-brand-cream mb-3">{selected.name}</h3>
+                <p className="text-brand-muted font-light leading-relaxed tracking-wide">{selected.desc}</p>
               </div>
+
             </motion.div>
           </motion.div>
         )}
