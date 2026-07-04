@@ -240,25 +240,55 @@ function Hero() {
       </section>
 
 
-      {/* Three-pillar investor strip */}
-      <section id="pillars" className="relative bg-brand-bg border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 1</div>
-              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">100%+ First-Year Write-Off</h3>
-              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1.</p>
-            </motion.div>
-            <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 2</div>
-              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">6% Paid Monthly, Direct to You</h3>
-              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Fixed preferred return paid monthly — cash in your account every month on committed capital.</p>
-            </motion.div>
-            <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 3</div>
-              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">6% in Annual Travel Credits</h3>
-              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide.</p>
-            </motion.div>
+      {/* Section divider */}
+      <section className="relative bg-brand-bg border-b border-white/10">
+        <div className="max-w-4xl mx-auto px-6 py-16 text-center">
+          <p className="font-serif italic text-[22px] text-[#e8c84a] leading-relaxed">
+            One fund. Three benefits. Built for the investor who demands more from their capital.
+          </p>
+        </div>
+      </section>
+
+      {/* Three Pillars */}
+      <section id="pillars" className="bg-brand-bg py-[120px] border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#e8c84a]">
+              THE THREE PILLARS
+            </span>
+          </motion.div>
+          <div className="grid md:grid-cols-3 md:divide-x md:divide-[#e8c84a]/40">
+            {[
+              { num: "01", icon: Receipt, title: "100%+ First-Year Write-Off", body: "Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1." },
+              { num: "02", icon: DollarSign, title: "6% Paid Monthly, Direct to You", body: "Fixed preferred return paid monthly — cash in your account every month on committed capital." },
+              { num: "03", icon: Globe, title: "6% in Annual Travel Credits", body: "Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide." },
+            ].map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <motion.div
+                  key={p.num}
+                  {...fadeIn}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="relative px-8 py-4 text-center"
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 font-serif text-[72px] font-medium text-[#e8c84a] opacity-30 pointer-events-none select-none leading-none">
+                    {p.num}
+                  </div>
+                  <div className="relative z-10 pt-16">
+                    <div className="mb-6 flex justify-center">
+                      <Icon className="w-10 h-10 text-[#e8c84a]" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-serif text-[36px] font-medium text-brand-cream mb-4 leading-tight">
+                      {p.title}
+                    </h3>
+                    <div className="w-[60px] h-[2px] bg-[#e8c84a] mx-auto mb-6" />
+                    <p className="text-[16px] font-light leading-[1.8] text-brand-muted mx-auto" style={{ maxWidth: 280 }}>
+                      {p.body}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
