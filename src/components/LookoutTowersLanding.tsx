@@ -396,7 +396,19 @@ function CinematicPillar({
         >
           {title}
         </h3>
-        <div style={{ width: 48, height: 1, background: "#c9a84c", margin: "28px 0" }} />
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+          style={{
+            width: 48,
+            height: 1,
+            background: "#c9a84c",
+            margin: "28px 0",
+            transformOrigin: "left center",
+          }}
+        />
         <p
           className="pillar-body"
           style={{
