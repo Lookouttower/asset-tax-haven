@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
 import heroVideo from "@/assets/hero.mp4.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
@@ -32,7 +32,7 @@ import asset15 from "@/assets/asset-15.jpeg.asset.json";
 import asset16 from "@/assets/asset-16.jpeg.asset.json";
 import asset17 from "@/assets/asset-17.jpeg.asset.json";
 import asset18 from "@/assets/asset-18.jpeg.asset.json";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   Landmark,
