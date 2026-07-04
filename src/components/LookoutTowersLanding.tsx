@@ -106,7 +106,7 @@ function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="uppercase hover:text-brand-gold transition-colors duration-300"
+              className="nav-link uppercase hover:text-brand-gold"
               style={{
                 fontFamily: "'Jost', sans-serif",
                 fontWeight: 400,
@@ -141,8 +141,8 @@ function Navbar() {
         <div className="hidden md:flex items-center gap-4 justify-self-end">
           <a
             href="#access"
-            className="lux-nav text-brand-gold border border-brand-gold/60 hover:bg-brand-gold hover:text-brand-bg transition-all duration-500"
-            style={{ padding: "12px 28px" }}
+            className="lux-cta-ghost"
+            style={{ padding: "12px 26px", fontSize: "10.5px" }}
           >
             Request Access
           </a>
