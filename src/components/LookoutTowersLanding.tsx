@@ -480,6 +480,14 @@ function Hero() {
               "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.75) 100%)",
           }}
         />
+        {/* Cinematic vignette + film-frame gradient */}
+        <div className="hero-vignette" aria-hidden />
+
+        {/* Corner frame marks */}
+        <div aria-hidden className="hero-frame-corner hidden md:block" style={{ top: 96, left: 40, borderTop: "1px solid", borderLeft: "1px solid" }} />
+        <div aria-hidden className="hero-frame-corner hidden md:block" style={{ top: 96, right: 40, borderTop: "1px solid", borderRight: "1px solid" }} />
+        <div aria-hidden className="hero-frame-corner hidden md:block" style={{ bottom: 96, left: 40, borderBottom: "1px solid", borderLeft: "1px solid" }} />
+        <div aria-hidden className="hero-frame-corner hidden md:block" style={{ bottom: 96, right: 40, borderBottom: "1px solid", borderRight: "1px solid" }} />
 
         {/* Content: centered headline */}
         <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 10 }}>
@@ -542,33 +550,26 @@ function Hero() {
             >
               <a
                 href="#access"
-                className="inline-block uppercase"
-                style={{
-                  fontFamily: "'Jost', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "11px",
-                  letterSpacing: "0.3em",
-                  color: "#c9a84c",
-                  border: "1px solid #c9a84c",
-                  padding: "16px 48px",
-                  borderRadius: 0,
-                  background: "transparent",
-                  transition: "all 0.4s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#c9a84c";
-                  e.currentTarget.style.color = "#0a0806";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#c9a84c";
-                }}
+                className="lux-cta"
+                style={{ padding: "16px 44px" }}
               >
                 Request Investor Access
               </a>
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 1.4 }}
+          className="hero-scroll-cue hidden md:flex"
+          aria-hidden
+        >
+          <span>Scroll</span>
+          <span className="line" />
+        </motion.div>
 
       </section>
 
