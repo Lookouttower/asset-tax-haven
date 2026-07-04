@@ -137,7 +137,7 @@ function Navbar() {
               whiteSpace: "nowrap",
             }}
           >
-            100% Depreciation Fund
+            Signature Capital - Depreciation Fund
           </span>
         </a>
 
@@ -1677,7 +1677,7 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2 mb-4">
             <Landmark className="w-6 h-6 text-brand-gold-light" />
-            <span className="font-medium tracking-tight">100% Depreciation Fund</span>
+            <span className="font-medium tracking-tight">Signature Capital - Depreciation Fund</span>
           </div>
           <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Income.</p>
         </div>
@@ -1694,7 +1694,7 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-8 space-y-4">
-          <p className="text-xs text-brand-cream/40 font-light tracking-wide">© 2025 100% Depreciation Fund&nbsp;LLC · All Rights Reserved</p>
+          <p className="text-xs text-brand-cream/40 font-light tracking-wide">© 2025 Signature Capital - Depreciation Fund&nbsp;LLC · All Rights Reserved</p>
           <p className="text-xs text-brand-cream/40 font-light leading-relaxed tracking-wide max-w-4xl">
             This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Securities offered through private placement under Regulation D, Rule 506(c) of the Securities Act of 1933. Available to accredited investors only. Investing involves risk including loss of principal.
           </p>
