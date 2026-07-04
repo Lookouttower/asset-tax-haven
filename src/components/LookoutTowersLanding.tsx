@@ -553,7 +553,7 @@ function Hero() {
                 maxWidth: 640,
               }}
             >
-              Hard assets · Tax efficiency · Monthly income
+              Brilliant Tax Strategists. Exceptional Assets. World-Class Operators.
             </motion.p>
 
             {/* Gold divider */}
