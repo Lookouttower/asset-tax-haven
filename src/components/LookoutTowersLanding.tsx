@@ -128,18 +128,19 @@ function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; siz
   const dim = size === "lg" ? "w-16 h-16" : size === "sm" ? "w-11 h-11" : "w-14 h-14";
   const glyph = size === "lg" ? "w-8 h-8" : size === "sm" ? "w-5 h-5" : "w-7 h-7";
   const glowColor =
-    tone === "dark" ? "rgba(123,154,75,0.55)" : "rgba(47,74,29,0.45)";
+    tone === "dark" ? "rgba(184,150,12,0.55)" : "rgba(138,112,9,0.45)";
   return (
     <div
-      className={`${dim} rounded-full flex items-center justify-center ring-1 ring-white/25 bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)]`}
+      className={`${dim} rounded-full flex items-center justify-center ring-1 ring-white/25 bg-[linear-gradient(135deg,#B8960C_0%,#8A7009_100%)]`}
       style={{
         boxShadow: `0 12px 28px -8px ${glowColor}, inset 0 1px 0 rgba(255,255,255,0.18)`,
       }}
     >
-      <Icon className={`${glyph} text-white`} strokeWidth={1.5} />
+      <Icon className={`${glyph} text-brand-cream`} strokeWidth={1.5} />
     </div>
   );
 }
+
 
 
 function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: string; alt: string; height?: string; caption?: string }) {
