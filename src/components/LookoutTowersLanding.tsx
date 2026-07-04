@@ -234,23 +234,23 @@ function Hero() {
         <div className="absolute inset-0 flex items-end">
           <div className="w-full max-w-7xl mx-auto px-6 pb-[18vh]">
             <motion.div {...fadeIn}>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-4 py-1.5 text-xs font-medium text-white mb-6">
-                <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
+              <div className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-2.5 py-1 text-[10px] font-medium text-white/75 mb-6 uppercase tracking-[0.15em]">
+                <ShieldCheck className="w-3 h-3" strokeWidth={1.75} />
                 Reg D · Rule 506(c) · Accredited Investors Only
               </div>
               <h1
                 className="font-bold tracking-tight text-white max-w-5xl"
                 style={{ fontSize: "clamp(48px, 8vw, 96px)", lineHeight: 1.1 }}
               >
-                <span className="block">Hard Assets.</span>
                 <span className="block text-[#D4B968]">100% Depreciation.</span>
-                <span className="block">Mailbox Money.</span>
+                <span className="block">Monthly Income.</span>
+                <span className="block">Travel Credits.</span>
               </h1>
               <p
                 className="mt-6 text-lg md:text-xl leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.85)", maxWidth: 600 }}
               >
-                A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
+                A hospitality hard-asset fund designed for accredited investors seeking first-year depreciation, recurring monthly cash income, and annual travel-credit value.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -260,10 +260,10 @@ function Hero() {
                   Request Access <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="#tax"
+                  href="#how"
                   className="inline-flex items-center px-7 py-3 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-white font-medium hover:bg-white/20 transition"
                 >
-                  Explore the Tax Engine
+                  View How It Works
                 </a>
               </div>
             </motion.div>
