@@ -843,13 +843,13 @@ function TaxEngine() {
 
 function Returns() {
   const terms = [
+    ["Depreciation", "100% First-Year"],
+    ["Monthly Cash Income", "6% Annual"],
+    ["Travel Credits", "6% Annual"],
     ["Preferred Return", "12% Annual"],
-    ["Cash Component", "6% Monthly"],
-    ["Travel Component", "6% Annual"],
+    ["Investor Eligibility", "Accredited Investors Only"],
+    ["Tax Document", "Schedule K-1"],
     ["Investor Term", "1–3 Years"],
-    ["Rollover", "Available"],
-    ["Recapture Deferral", "Roll to new vintage"],
-    ["Recapture Elimination", "§1014 step-up at death"],
   ];
   const splitData = [
     { name: "6% Cash (Monthly)", value: 6, color: "#4B6B2F" },
