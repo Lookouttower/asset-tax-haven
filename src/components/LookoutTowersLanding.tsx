@@ -4,6 +4,7 @@ import heroVideo from "@/assets/hero.mp4.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
+import heroOod from "@/assets/hero-ood.jpg.asset.json";
 import redeemAlpine from "@/assets/redeem-alpine.jpeg.asset.json";
 import redeemForest from "@/assets/redeem-forest.jpeg.asset.json";
 import pjetV2 from "@/assets/pjet-v2.jpeg.asset.json";
