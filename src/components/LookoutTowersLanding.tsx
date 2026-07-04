@@ -407,7 +407,7 @@ function Thesis() {
     { label: "Annual Dollar Cap", value: "None (Unlike §179)" },
   ];
   return (
-    <section id="thesis" className="py-24 bg-white">
+    <section id="thesis" className="py-24 bg-brand-bg-light border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Investment Thesis"
@@ -417,16 +417,16 @@ function Thesis() {
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-6">
           {points.map((p, i) => (
             <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.05 }} className="flex gap-4">
-              <CheckCircle2 className="w-5 h-5 text-brand-olive flex-shrink-0 mt-1" />
+              <CheckCircle2 className="w-5 h-5 text-brand-gold flex-shrink-0 mt-1" />
               <div>
-                <h4 className="font-semibold text-brand-text mb-1">{p.title}</h4>
-                <p className="text-brand-muted text-[15px] leading-relaxed">{p.body}</p>
+                <h4 className="font-medium text-brand-cream mb-1">{p.title}</h4>
+                <p className="text-brand-muted text-[15px] font-light leading-relaxed tracking-wide">{p.body}</p>
               </div>
             </motion.div>
           ))}
         </div>
         <motion.div {...fadeIn} className="mt-16 relative">
-          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-olive/40 to-transparent" />
+          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <motion.div
@@ -435,13 +435,13 @@ function Thesis() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center bg-white border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
+                className="relative flex flex-col items-center text-center bg-brand-card border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
               >
-                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)] text-white flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-[0_10px_25px_-6px_rgba(47,74,29,0.5)]">
+                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#B8960C_0%,#8A7009_100%)] text-brand-cream flex items-center justify-center font-bold text-lg ring-4 ring-brand-bg-light shadow-[0_10px_25px_-6px_rgba(184,150,12,0.5)]">
                   {i + 1}
                 </div>
                 <div className="text-[10px] uppercase tracking-[0.15em] text-brand-muted mb-2">{s.label}</div>
-                <div className="font-semibold text-brand-text text-sm">{s.value}</div>
+                <div className="font-medium text-brand-cream text-sm">{s.value}</div>
               </motion.div>
             ))}
           </div>
@@ -449,6 +449,7 @@ function Thesis() {
       </div>
     </section>
   );
+
 }
 
 const PORTFOLIO_HERO_IMAGES = [
