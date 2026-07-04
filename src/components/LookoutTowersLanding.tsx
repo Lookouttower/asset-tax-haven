@@ -254,27 +254,28 @@ function Hero() {
 
 
       {/* Three-pillar investor strip */}
-      <section id="pillars" className="relative bg-[#0b120d] border-b border-white/10">
+      <section id="pillars" className="relative bg-brand-bg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 1</div>
-              <h3 className="text-2xl font-bold text-white mb-3">100%+ First-Year Write-Off</h3>
-              <p className="text-white/70 leading-relaxed">Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1.</p>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 1</div>
+              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">100%+ First-Year Write-Off</h3>
+              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1.</p>
             </motion.div>
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 2</div>
-              <h3 className="text-2xl font-bold text-white mb-3">6% Paid Monthly, Direct to You</h3>
-              <p className="text-white/70 leading-relaxed">Fixed preferred return paid monthly — cash in your account every month on committed capital.</p>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 2</div>
+              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">6% Paid Monthly, Direct to You</h3>
+              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Fixed preferred return paid monthly — cash in your account every month on committed capital.</p>
             </motion.div>
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 3</div>
-              <h3 className="text-2xl font-bold text-white mb-3">6% in Annual Travel Credits</h3>
-              <p className="text-white/70 leading-relaxed">Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide.</p>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 3</div>
+              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">6% in Annual Travel Credits</h3>
+              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide.</p>
             </motion.div>
           </div>
         </div>
       </section>
+
 
     </>
   );
