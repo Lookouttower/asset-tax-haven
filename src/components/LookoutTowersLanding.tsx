@@ -474,27 +474,28 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
           {slides.map((s, i) => (
-            <div key={i} className="relative flex-[0_0_100%] aspect-[16/7] bg-brand-sage">
+            <div key={i} className="relative flex-[0_0_100%] aspect-[16/7] bg-brand-bg-light">
               <img src={s.src} alt={s.caption} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white font-medium text-lg">{s.caption}</div>
+              <div className="absolute bottom-6 left-6 text-brand-cream font-light text-lg tracking-wide">{s.caption}</div>
             </div>
           ))}
         </div>
       </div>
-      <button onClick={() => embla?.scrollPrev()} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow" aria-label="Previous">
-        <ChevronLeft className="w-5 h-5 text-brand-text" />
+      <button onClick={() => embla?.scrollPrev()} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-cream/90 hover:bg-brand-cream flex items-center justify-center shadow" aria-label="Previous">
+        <ChevronLeft className="w-5 h-5 text-brand-bg" />
       </button>
-      <button onClick={() => embla?.scrollNext()} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow" aria-label="Next">
-        <ChevronRight className="w-5 h-5 text-brand-text" />
+      <button onClick={() => embla?.scrollNext()} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-cream/90 hover:bg-brand-cream flex items-center justify-center shadow" aria-label="Next">
+        <ChevronRight className="w-5 h-5 text-brand-bg" />
       </button>
       <div className="absolute bottom-4 right-6 flex gap-1.5">
         {slides.map((_, i) => (
-          <button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition ${selected === i ? "bg-white w-6" : "bg-white/50"}`} aria-label={`Slide ${i + 1}`} />
+          <button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition ${selected === i ? "bg-brand-cream w-6" : "bg-brand-cream/50"}`} aria-label={`Slide ${i + 1}`} />
         ))}
       </div>
     </div>
   );
+
 }
 
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
