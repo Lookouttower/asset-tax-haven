@@ -208,3 +208,20 @@
   font-style: italic;
   letter-spacing: 0.03em;
 }
+
+/* Pillar "Learn how this works" underline slide-in */
+.pillar-learn-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: #c9a84c;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s ease;
+}
+.pillar-learn-link:hover .pillar-learn-underline::after {
+  transform: scaleX(1);
+}
