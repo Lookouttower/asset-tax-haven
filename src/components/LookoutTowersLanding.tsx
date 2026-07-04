@@ -32,15 +32,16 @@ import asset18 from "@/assets/asset-18.jpeg.asset.json";
 import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import {
-  Landmark, ShieldCheck,
+  Landmark,
   Zap, Mail, Plane, CheckCircle2, PlaneTakeoff, Waves, Wind, PlaneLanding,
   Anchor, Sailboat, Ship, Mountain, Car, CarFront, Truck, Radio, Home,
   Leaf, Utensils, Tent, Construction, FileSignature, ShoppingCart, Handshake,
   FileCheck, Scale, AlertTriangle, Gavel, FileText, Ban, Building, Infinity,
   DollarSign, AlertCircle, LogOut, RefreshCw, TreeDeciduous, Lock, Users,
   RotateCcw, ChevronLeft, ChevronRight, X, ArrowRight, Menu,
-  Volume2, VolumeX, ChevronDown,
+  ChevronDown,
 } from "lucide-react";
+
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
   PieChart, Pie, Tooltip as RTooltip, Legend as RLegend,
