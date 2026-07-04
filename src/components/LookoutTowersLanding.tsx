@@ -617,27 +617,54 @@ function Thesis() {
     { label: "Annual Dollar Cap", value: "None (Unlike §179)" },
   ];
   return (
-    <section id="thesis" className="py-24 bg-brand-bg-light border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="thesis"
+      className="border-b border-brand-gold/15"
+      style={{ background: "#0a0806", padding: "clamp(80px, 10vw, 140px) clamp(24px, 8vw, 120px)" }}
+    >
+      <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Investment Thesis"
           title="Where Tax Law Meets Hospitality Hard Assets"
           lead="The fund is purpose-built at the intersection of three durable trends: permanent bonus depreciation, the experiential travel boom, and institutional demand for hard-asset income."
         />
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-6">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 mt-4">
           {points.map((p, i) => (
-            <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.05 }} className="flex gap-4">
-              <CheckCircle2 className="w-5 h-5 text-brand-gold flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-medium text-brand-cream mb-1">{p.title}</h4>
-                <p className="text-brand-muted text-[15px] font-light leading-relaxed tracking-wide">{p.body}</p>
-              </div>
+            <motion.div
+              key={p.title}
+              {...fadeIn}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              style={{ borderLeft: "2px solid #c9a84c", paddingLeft: 16 }}
+            >
+              <h4
+                className="mb-3"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 400,
+                  textTransform: "uppercase",
+                  fontSize: "10px",
+                  letterSpacing: "0.25em",
+                  color: "#c9a84c",
+                }}
+              >
+                {p.title}
+              </h4>
+              <p
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 300,
+                  fontSize: "14px",
+                  lineHeight: 1.8,
+                  color: "rgba(240,236,228,0.6)",
+                }}
+              >
+                {p.body}
+              </p>
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="mt-16 relative">
-          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <motion.div {...fadeIn} className="mt-20 relative">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -645,13 +672,49 @@ function Thesis() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center bg-brand-card border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(201,168,76,0.2)",
+                  borderRadius: 0,
+                  padding: "32px 28px",
+                }}
               >
-                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#B8960C_0%,#8A7009_100%)] text-brand-cream flex items-center justify-center font-bold text-lg ring-4 ring-brand-bg-light shadow-[0_10px_25px_-6px_rgba(184,150,12,0.5)]">
-                  {i + 1}
+                <div
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontStyle: "italic",
+                    fontWeight: 300,
+                    fontSize: "48px",
+                    lineHeight: 1,
+                    color: "#c9a84c",
+                    marginBottom: 20,
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="text-[10px] uppercase tracking-[0.15em] text-brand-muted mb-2">{s.label}</div>
-                <div className="font-medium text-brand-cream text-sm">{s.value}</div>
+                <div
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 400,
+                    textTransform: "uppercase",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    color: "rgba(240,236,228,0.4)",
+                    marginBottom: 8,
+                  }}
+                >
+                  {s.label}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "14px",
+                    color: "#f0ece4",
+                  }}
+                >
+                  {s.value}
+                </div>
               </motion.div>
             ))}
           </div>
