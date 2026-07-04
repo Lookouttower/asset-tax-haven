@@ -292,20 +292,21 @@ function Hero() {
         />
 
         {/* Content: centered headline */}
-        <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
-          <div className="w-full max-w-4xl mx-auto px-6 text-center">
+        <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 10 }}>
+          <div className="w-full mx-auto px-6 text-center" style={{ maxWidth: 700 }}>
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="text-brand-cream"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 300,
                 fontStyle: "italic",
-                fontSize: "clamp(52px, 9vw, 96px)",
+                fontSize: "clamp(36px, 8vw, 88px)",
                 lineHeight: 1.05,
-                letterSpacing: "0.05em",
+                letterSpacing: "0.03em",
+                color: "#f0ece4",
+                textShadow: "0 2px 40px rgba(0,0,0,0.5)",
               }}
             >
               Harmony of Forms
@@ -315,13 +316,14 @@ function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
-              className="mt-8 mx-auto uppercase"
+              className="mx-auto uppercase"
               style={{
                 fontFamily: "'Jost', sans-serif",
-                fontWeight: 300,
-                fontSize: "14px",
-                letterSpacing: "0.2em",
-                color: "rgba(240,236,228,0.7)",
+                fontWeight: 400,
+                fontSize: "clamp(11px, 1vw, 12px)",
+                letterSpacing: "0.35em",
+                color: "rgba(240,236,228,0.75)",
+                marginTop: 20,
                 maxWidth: 640,
               }}
             >
@@ -346,7 +348,7 @@ function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
-              className="mt-10"
+              style={{ marginTop: 36 }}
             >
               <a
                 href="#access"
@@ -358,12 +360,14 @@ function Hero() {
                   letterSpacing: "0.3em",
                   color: "#c9a84c",
                   border: "1px solid #c9a84c",
-                  padding: "14px 40px",
+                  padding: "16px 48px",
+                  borderRadius: 0,
+                  background: "transparent",
                   transition: "all 0.4s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "#c9a84c";
-                  e.currentTarget.style.color = "#0a0a0a";
+                  e.currentTarget.style.color = "#0a0806";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
