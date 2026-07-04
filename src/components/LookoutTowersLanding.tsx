@@ -207,15 +207,15 @@ function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: stri
 
 function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
   return (
-    <motion.div {...fadeIn} className="max-w-3xl mb-14">
+    <motion.div {...fadeIn} className="max-w-3xl mx-auto mb-16 text-center flex flex-col items-center">
       <div
-        className={`mb-5 ${dark ? "text-brand-gold" : "text-brand-gold"}`}
+        className="mb-6 text-brand-gold"
         style={{
           fontFamily: "'Jost', sans-serif",
           fontWeight: 400,
           textTransform: "uppercase",
-          letterSpacing: "0.3em",
-          fontSize: "11px",
+          letterSpacing: "0.35em",
+          fontSize: "12px",
         }}
       >
         {eyebrow}
@@ -226,23 +226,28 @@ function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string;
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 300,
           fontStyle: "italic",
-          fontSize: "clamp(36px, 5vw, 56px)",
+          fontSize: "clamp(40px, 5.5vw, 68px)",
           lineHeight: 1.15,
           letterSpacing: "0.02em",
+          textAlign: "center",
+          maxWidth: 780,
         }}
       >
         {title}
       </h2>
-      <div className="mt-6 mb-2" style={{ width: 60, height: 1, background: "#c9a84c" }} />
+      <div className="mt-8 mb-2 mx-auto" style={{ width: 60, height: 1, background: "#c9a84c" }} />
       {lead && (
         <p
-          className="mt-6 text-brand-muted"
+          className="mt-6 mx-auto"
           style={{
             fontFamily: "'Jost', sans-serif",
             fontWeight: 300,
-            fontSize: "15px",
+            fontSize: "17px",
             lineHeight: 1.9,
             letterSpacing: "0.02em",
+            color: "rgba(240,236,228,0.7)",
+            maxWidth: 640,
+            textAlign: "center",
           }}
         >
           {lead}
@@ -273,6 +278,7 @@ function CinematicPillar({
   });
   // Parallax: image moves slower than scroll (0.4x)
   const imgY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
 
   return (
     <section
@@ -280,13 +286,15 @@ function CinematicPillar({
       className="relative overflow-hidden flex items-center"
       style={{ height: "100vh", width: "100%", background: "#0a0806", margin: 0, padding: 0 }}
     >
-      {/* Background image with parallax */}
+      {/* Background image with parallax + slow Ken Burns zoom */}
       <motion.img
         src={image}
         alt=""
         aria-hidden
+        className="pillar-kenburns"
         style={{
           y: imgY,
+          scale: imgScale,
           position: "absolute",
           top: 0,
           left: 0,
@@ -295,6 +303,7 @@ function CinematicPillar({
           objectFit: "cover",
           objectPosition: "center",
           zIndex: 0,
+          transformOrigin: "center",
         }}
       />
 
@@ -312,6 +321,23 @@ function CinematicPillar({
             "linear-gradient(to right, rgba(8,6,3,0.90) 0%, rgba(8,6,3,0.55) 50%, rgba(8,6,3,0.10) 100%)",
         }}
       />
+
+      {/* Vignette for cinematic depth */}
+      <div
+        aria-hidden
+        className="pointer-events-none"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)",
+        }}
+      />
+
+      {/* Ornamental gold corner marks */}
+      <div aria-hidden className="hidden md:block absolute pointer-events-none" style={{ top: 32, right: 32, width: 56, height: 56, borderTop: "1px solid rgba(201,168,76,0.5)", borderRight: "1px solid rgba(201,168,76,0.5)", zIndex: 3 }} />
+      <div aria-hidden className="hidden md:block absolute pointer-events-none" style={{ bottom: 32, left: 32, width: 56, height: 56, borderBottom: "1px solid rgba(201,168,76,0.5)", borderLeft: "1px solid rgba(201,168,76,0.5)", zIndex: 3 }} />
 
       {/* Giant faded numeral */}
       <div
@@ -370,7 +396,19 @@ function CinematicPillar({
         >
           {title}
         </h3>
-        <div style={{ width: 48, height: 1, background: "#c9a84c", margin: "28px 0" }} />
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+          style={{
+            width: 48,
+            height: 1,
+            background: "#c9a84c",
+            margin: "28px 0",
+            transformOrigin: "left center",
+          }}
+        />
         <p
           className="pillar-body"
           style={{
