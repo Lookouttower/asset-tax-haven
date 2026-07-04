@@ -1182,21 +1182,21 @@ function Footer() {
     { title: "Contact", links: ["Request Access", "Schedule a Call", "Investor Relations"] },
   ];
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="bg-brand-bg text-brand-cream border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <Landmark className="w-6 h-6 text-brand-olive-light" />
-            <span className="font-semibold">Lookout Towers Fund</span>
+            <Landmark className="w-6 h-6 text-brand-gold-light" />
+            <span className="font-medium tracking-tight">Lookout Towers Fund</span>
           </div>
-          <p className="text-sm text-white/60 leading-relaxed">Hard Assets. Tax Efficiency. Mailbox Money.</p>
+          <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Mailbox Money.</p>
         </div>
         {cols.map((c) => (
           <div key={c.title}>
-            <div className="text-xs uppercase tracking-wider font-semibold text-white/60 mb-4">{c.title}</div>
+            <div className="text-xs uppercase tracking-wider font-semibold text-brand-cream/60 mb-4">{c.title}</div>
             <ul className="space-y-2.5">
               {c.links.map((l) => (
-                <li key={l}><a href="#access" className="text-sm text-white/80 hover:text-white transition">{l}</a></li>
+                <li key={l}><a href="#access" className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition tracking-wide">{l}</a></li>
               ))}
             </ul>
           </div>
@@ -1204,8 +1204,8 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-8 space-y-4">
-          <p className="text-xs text-white/40">© 2025 Lookout Towers Fund LLC · All Rights Reserved</p>
-          <p className="text-xs text-white/40 leading-relaxed max-w-4xl">
+          <p className="text-xs text-brand-cream/40 font-light tracking-wide">© 2025 Lookout Towers Fund LLC · All Rights Reserved</p>
+          <p className="text-xs text-brand-cream/40 font-light leading-relaxed tracking-wide max-w-4xl">
             This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Securities offered through private placement under Regulation D, Rule 506(c) of the Securities Act of 1933. Available to accredited investors only. Investing involves risk including loss of principal.
           </p>
         </div>
@@ -1213,6 +1213,7 @@ function Footer() {
     </footer>
   );
 }
+
 
 export default function LookoutTowersLanding() {
   return (
