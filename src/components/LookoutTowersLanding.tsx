@@ -738,7 +738,7 @@ function CoreBenefits() {
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold">Summary</div>
             <h4 className="mt-1 text-2xl font-bold text-brand-text tracking-tight">12% Preferred Return</h4>
-            <p className="mt-1 text-sm text-brand-muted">6% monthly cash income + 6% travel credits.</p>
+            <p className="mt-1 text-sm text-brand-muted">6% monthly income + 6% travel credits.</p>
           </div>
           <a
             href="#access"
@@ -1139,7 +1139,7 @@ function HowItWorks() {
     ["Offering Type", "Reg D, Rule 506(c)"],
     ["Investor Eligibility", "Accredited Only"],
     ["Tax Document", "Schedule K-1"],
-    ["Cash Distribution", "Monthly (6% Pref.)"],
+    ["Income Distribution", "Monthly (6% Pref.)"],
     ["Travel Credits", "Annual (6% Pref.)"],
     ["Investor Term", "1–3 Years"],
     ["Asset Hold Period", "4–10 Years"],
@@ -1210,7 +1210,7 @@ function TaxEngine() {
   const chartData = [
     { name: "Capital Deployed", value: 500000, color: "#5C6355" },
     { name: "§168(k) Depreciation", value: -500000, color: "#4B6B2F" },
-    { name: "6% Cash Dist.", value: 30000, color: "#7B9A4B" },
+    { name: "6% Income Dist.", value: 30000, color: "#7B9A4B" },
     { name: "6% Travel Credits", value: 30000, color: "#B8955A" },
     { name: "Net Taxable Y1", value: -440000, color: "#2F4A1D" },
   ];
@@ -1286,7 +1286,7 @@ function TaxEngine() {
 function Returns() {
   const terms = [
     ["Depreciation", "100% Depreciation"],
-    ["Monthly Cash Income", "6% Annual"],
+    ["Monthly Income", "6% Annual"],
     ["Travel Credits", "6% Annual"],
     ["Preferred Return", "12% Annual"],
     ["Investor Eligibility", "Accredited Investors Only"],
@@ -1294,7 +1294,7 @@ function Returns() {
     ["Investor Term", "1–3 Years"],
   ];
   const splitData = [
-    { name: "6% Cash (Monthly)", value: 6, color: "#B8960C" },
+    { name: "6% Income (Monthly)", value: 6, color: "#B8960C" },
     { name: "6% Travel Credits (Annual)", value: 6, color: "#D4B968" },
   ];
   return (
