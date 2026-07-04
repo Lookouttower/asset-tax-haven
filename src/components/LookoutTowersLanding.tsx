@@ -175,14 +175,6 @@ function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string;
 
 
 function Hero() {
-  const [muted, setMuted] = useState(true);
-  const videoRef = useCallback((node: HTMLVideoElement | null) => {
-    if (node) {
-      node.muted = muted;
-      const p = node.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    }
-  }, [muted]);
   return (
     <>
       <section
@@ -190,16 +182,11 @@ function Hero() {
         className="relative w-screen overflow-hidden"
         style={{ minHeight: "100vh", height: "100vh" }}
       >
-        {/* Full-bleed video */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          src={heroVideo.url}
-          autoPlay
-          loop
-          muted={muted}
-          playsInline
-          preload="auto"
+        {/* Full-bleed background image */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroLuxuryJet.url})` }}
+          aria-hidden
         />
 
         {/* Gradient overlay */}
