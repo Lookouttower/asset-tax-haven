@@ -237,6 +237,9 @@
   padding-left: 24px;
   padding-right: 24px;
   width: 100%;
+  max-width: 560px;
+  position: relative;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   .pillar-text-block {
@@ -250,6 +253,11 @@
     padding-right: 40px;
   }
 }
+
+/* Zero-gap continuous cinematic scroll */
+.cinematic-pillar + .cinematic-pillar { margin-top: 0 !important; }
+#pillars { margin: 0; padding: 0; }
+#pillars > .cinematic-pillar { margin: 0; padding: 0; border: 0; }
 
 .pillar-headline {
   font-size: 38px;

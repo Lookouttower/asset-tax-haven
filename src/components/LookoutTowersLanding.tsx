@@ -15,6 +15,9 @@ import pillarTravelAsset from "@/assets/pillar-travel.jpeg.asset.json";
 import pillarWriteoffV2 from "@/assets/pillar-writeoff-v2.jpeg.asset.json";
 import pillarIncomeV2 from "@/assets/pillar-income-v2.jpeg.asset.json";
 import pillarTravelV2 from "@/assets/pillar-travel-v2.jpeg.asset.json";
+import pillar1Documents from "@/assets/pillar-1-documents.jpg.asset.json";
+import pillar2Seal from "@/assets/pillar-2-seal.jpg.asset.json";
+import pillar3Villa from "@/assets/pillar-3-villa.jpg.asset.json";
 import asset1 from "@/assets/asset-1.jpeg.asset.json";
 import asset2 from "@/assets/asset-2.jpeg.asset.json";
 import asset3 from "@/assets/asset-3.jpeg.asset.json";
@@ -283,8 +286,16 @@ function CinematicPillar({
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden flex items-center"
-      style={{ height: "100vh", width: "100%", background: "#0a0806", margin: 0, padding: 0 }}
+      className="cinematic-pillar relative overflow-hidden flex items-center"
+      style={{
+        height: "100vh",
+        width: "100vw",
+        background: "#0a0806",
+        margin: 0,
+        padding: 0,
+        display: "flex",
+        alignItems: "center",
+      }}
     >
       {/* Background image with parallax + slow Ken Burns zoom */}
       <motion.img
@@ -312,13 +323,10 @@ function CinematicPillar({
         className="pointer-events-none"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
+          inset: 0,
           zIndex: 1,
           background:
-            "linear-gradient(to right, rgba(8,6,3,0.90) 0%, rgba(8,6,3,0.55) 50%, rgba(8,6,3,0.10) 100%)",
+            "linear-gradient(to right, rgba(8,6,3,0.92) 0%, rgba(8,6,3,0.50) 55%, rgba(8,6,3,0.05) 100%)",
         }}
       />
 
@@ -584,27 +592,27 @@ function Hero() {
       </section>
 
       {/* Three Pillars — cinematic full-screen scroll */}
-      <div id="pillars" style={{ background: "#0a0806" }}>
+      <div id="pillars" style={{ background: "#0a0806", margin: 0, padding: 0 }}>
         <CinematicPillar
           number="01"
           label="PILLAR 01"
           title={<>100%+ First-Year <em style={{ fontStyle: "italic" }}>Write-Off</em></>}
           body="Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap."
-          image={pillarWriteoffV2.url}
+          image={pillar1Documents.url}
         />
         <CinematicPillar
           number="02"
           label="PILLAR 02"
           title={<>6% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
           body="Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month."
-          image={pillarIncomeV2.url}
+          image={pillar2Seal.url}
         />
         <CinematicPillar
           number="03"
           label="PILLAR 03"
           title={<>6% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
           body="Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide."
-          image={pillarTravelV2.url}
+          image={pillar3Villa.url}
         />
       </div>
 
