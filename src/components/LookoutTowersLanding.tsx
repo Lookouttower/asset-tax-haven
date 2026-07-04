@@ -244,36 +244,91 @@ function Hero() {
           style={{
             zIndex: 1,
             background:
-              "linear-gradient(to bottom, rgba(10,8,4,0.35) 0%, rgba(10,8,4,0.65) 100%)",
+              "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.75) 100%)",
           }}
         />
 
         {/* Content: centered headline */}
-        <div className="absolute inset-0 flex items-center" style={{ zIndex: 2 }}>
-          <div className="w-full max-w-4xl mx-auto px-6">
-            <motion.div {...fadeIn} className="text-center">
-              <h1
-                className="font-serif font-semibold tracking-tight text-brand-cream"
-                style={{ fontSize: "clamp(42px, 7vw, 88px)", lineHeight: 1.1 }}
+        <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
+          <div className="w-full max-w-4xl mx-auto px-6 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-brand-cream"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 300,
+                fontStyle: "italic",
+                fontSize: "clamp(52px, 9vw, 96px)",
+                lineHeight: 1.05,
+                letterSpacing: "0.05em",
+              }}
+            >
+              Harmony of Forms
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+              className="mt-8 mx-auto uppercase"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 300,
+                fontSize: "14px",
+                letterSpacing: "0.2em",
+                color: "rgba(240,236,228,0.7)",
+                maxWidth: 640,
+              }}
+            >
+              Hard assets · Tax efficiency · Monthly income
+            </motion.p>
+
+            {/* Gold divider */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.55 }}
+              className="mx-auto mt-10"
+              style={{
+                width: 60,
+                height: 1,
+                background: "#c9a84c",
+                transformOrigin: "center",
+              }}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
+              className="mt-10"
+            >
+              <a
+                href="#access"
+                className="inline-block uppercase"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "11px",
+                  letterSpacing: "0.3em",
+                  color: "#c9a84c",
+                  border: "1px solid #c9a84c",
+                  padding: "14px 40px",
+                  transition: "all 0.4s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#c9a84c";
+                  e.currentTarget.style.color = "#0a0a0a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = "#c9a84c";
+                }}
               >
-                <span className="block text-brand-gold-light">100%+ Depreciation.</span>
-                <span className="block">Monthly Income.</span>
-                <span className="block">Travel Credits.</span>
-              </h1>
-              <p
-                className="mt-6 text-lg md:text-xl font-light leading-relaxed tracking-wide mx-auto"
-                style={{ color: "rgba(245,240,232,0.85)", maxWidth: 640 }}
-              >
-                One fund. Three benefits. Built for accredited investors who want a first-year write-off, cash every month, and real travel value — backed by hard assets.
-              </p>
-              <div className="mt-8">
-                <a
-                  href="#access"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold text-brand-bg font-medium hover:bg-brand-gold-light transition shadow-lg shadow-black/40 tracking-wide"
-                >
-                  Request Investor Access <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
+                Request Investor Access
+              </a>
             </motion.div>
           </div>
         </div>
