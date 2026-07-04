@@ -96,7 +96,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
           <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-gold-light" : "text-brand-cream"}`} />
-          <span className={`font-medium tracking-tight ${scrolled ? "text-brand-cream" : "text-brand-cream"}`}>Lookout Towers Fund</span>
+          <span className={`font-medium tracking-tight ${scrolled ? "text-brand-cream" : "text-brand-cream"}`}>100% Depreciation Fund</span>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((l) => (
