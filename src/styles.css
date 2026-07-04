@@ -6,25 +6,33 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Libre Baskerville", Georgia, serif;
-  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-white: #FFFFFF;
-  --color-brand-sage: #F7F8F5;
-  --color-brand-dark: #14261A;
-  --color-brand-olive: #4B6B2F;
-  --color-brand-olive-light: #7B9A4B;
-  --color-brand-olive-dark: #2F4A1D;
-  --color-brand-gold: #B8955A;
-  --color-brand-text: #1A1F16;
-  --color-brand-muted: #5C6355;
-  --color-brand-border: #E3E6DD;
-  --color-brand-noir: #0d0d0d;
-  --color-brand-noir-card: #0f0f0f;
-  --color-brand-noir-hover: #141414;
-  --color-brand-noir-border: #27272a;
-  --color-brand-gold-accent: #c9a84c;
-  --color-brand-gold-soft: rgba(201, 168, 76, 0.8);
+  --font-serif: "Cormorant Garamond", "Libre Baskerville", Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-white: #F5F0E8;
+  --color-brand-cream: #F5F0E8;
+  --color-brand-sage: #1A0F0A;
+  --color-brand-dark: #1A0F0A;
+  --color-brand-bg: #1A0F0A;
+  --color-brand-bg-light: #2A1A12;
+  --color-brand-card: #24150F;
+  --color-brand-card-hover: #2E1B13;
+  --color-brand-olive: #B8960C;
+  --color-brand-olive-light: #D4B968;
+  --color-brand-olive-dark: #8A7009;
+  --color-brand-gold: #B8960C;
+  --color-brand-gold-light: #D4B968;
+  --color-brand-gold-dark: #8A7009;
+  --color-brand-text: #F5F0E8;
+  --color-brand-muted: #A89A8A;
+  --color-brand-border: rgba(255, 255, 255, 0.1);
+  --color-brand-noir: #1A0F0A;
+  --color-brand-noir-card: #24150F;
+  --color-brand-noir-hover: #2E1B13;
+  --color-brand-noir-border: rgba(255, 255, 255, 0.1);
+  --color-brand-gold-accent: #D4B968;
+  --color-brand-gold-soft: rgba(184, 150, 12, 0.8);
 }
+
 
 /*
  * Design system definition.
