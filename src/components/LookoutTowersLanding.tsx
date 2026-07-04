@@ -162,15 +162,16 @@ function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: stri
   );
 }
 
-function SectionHeader({ eyebrow, title, lead, dark }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
+function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
   return (
     <motion.div {...fadeIn} className="max-w-3xl mb-14">
-      <div className={`text-xs uppercase tracking-[0.2em] font-semibold mb-4 ${dark ? "text-brand-olive-light" : "text-brand-olive"}`}>{eyebrow}</div>
-      <h2 className={`text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] ${dark ? "text-white" : "text-brand-text"}`}>{title}</h2>
-      {lead && <p className={`mt-5 text-lg leading-relaxed ${dark ? "text-white/70" : "text-brand-muted"}`}>{lead}</p>}
+      <div className={`text-xs uppercase tracking-[0.2em] font-semibold mb-4 ${dark ? "text-brand-gold-light" : "text-brand-gold"}`}>{eyebrow}</div>
+      <h2 className={`text-4xl md:text-5xl font-serif font-semibold tracking-tight leading-[1.1] ${dark ? "text-brand-cream" : "text-brand-text"}`}>{title}</h2>
+      {lead && <p className={`mt-5 text-lg font-light leading-relaxed tracking-wide ${dark ? "text-brand-muted" : "text-brand-muted"}`}>{lead}</p>}
     </motion.div>
   );
 }
+
 
 function Hero() {
   const [muted, setMuted] = useState(true);
