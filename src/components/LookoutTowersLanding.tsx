@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
-import heroLuxuryJet from "@/assets/hero-luxury-jet.jpg.asset.json";
+import heroVideo from "@/assets/hero.mp4.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
@@ -185,33 +185,38 @@ function Hero() {
         className="relative w-screen overflow-hidden"
         style={{ minHeight: "100vh", height: "100vh" }}
       >
-        {/* Full-bleed background image */}
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroLuxuryJet.url})` }}
+        {/* Full-bleed background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-hidden
-        />
-
-        {/* Gradient overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
           style={{
-            background:
-              "linear-gradient(to top, rgba(26,15,10,0.82) 0%, rgba(26,15,10,0.28) 45%, rgba(26,15,10,0.42) 100%)",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 0,
           }}
-        />
+        >
+          <source src={heroVideo.url} type="video/mp4" />
+        </video>
 
-        {/* Light gradient accent */}
+        {/* Dark overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
+            zIndex: 1,
             background:
-              "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 35%, rgba(212,185,104,0.04) 65%, rgba(26,15,10,0.12) 100%)",
+              "linear-gradient(to bottom, rgba(10,8,4,0.35) 0%, rgba(10,8,4,0.65) 100%)",
           }}
         />
 
         {/* Content: centered headline */}
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 flex items-center" style={{ zIndex: 2 }}>
           <div className="w-full max-w-4xl mx-auto px-6">
             <motion.div {...fadeIn} className="text-center">
               <h1
