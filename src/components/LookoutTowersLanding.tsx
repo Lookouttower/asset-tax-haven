@@ -194,7 +194,7 @@ function Hero() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0.5) 100%)",
+              "linear-gradient(to top, rgba(26,15,10,0.82) 0%, rgba(26,15,10,0.28) 45%, rgba(26,15,10,0.42) 100%)",
           }}
         />
 
@@ -203,7 +203,7 @@ function Hero() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, rgba(212,185,104,0.08) 65%, rgba(0,0,0,0.22) 100%)",
+              "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 35%, rgba(212,185,104,0.04) 65%, rgba(26,15,10,0.12) 100%)",
           }}
         />
 
