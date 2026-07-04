@@ -229,66 +229,37 @@ function Hero() {
           }}
         />
 
-        {/* Content: bottom-left headline */}
-        <div className="absolute inset-0 flex items-end">
-          <div className="w-full max-w-7xl mx-auto px-6 pb-[18vh]">
-            <motion.div {...fadeIn}>
-              <div className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-2.5 py-1 text-[10px] font-medium text-white/75 mb-6 uppercase tracking-[0.15em]">
-                <ShieldCheck className="w-3 h-3" strokeWidth={1.75} />
-                Reg D · Rule 506(c) · Accredited Investors Only
-              </div>
+        {/* Content: centered headline */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full max-w-4xl mx-auto px-6">
+            <motion.div {...fadeIn} className="text-center">
               <h1
-                className="font-bold tracking-tight text-white max-w-5xl"
-                style={{ fontSize: "clamp(48px, 8vw, 96px)", lineHeight: 1.1 }}
+                className="font-bold tracking-tight text-white"
+                style={{ fontSize: "clamp(42px, 7vw, 88px)", lineHeight: 1.1 }}
               >
-                <span className="block text-[#D4B968]">100% Depreciation.</span>
+                <span className="block text-[#D4B968]">100%+ Depreciation.</span>
                 <span className="block">Monthly Income.</span>
                 <span className="block">Travel Credits.</span>
               </h1>
               <p
-                className="mt-6 text-lg md:text-xl leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.85)", maxWidth: 600 }}
+                className="mt-6 text-lg md:text-xl leading-relaxed mx-auto"
+                style={{ color: "rgba(255,255,255,0.85)", maxWidth: 640 }}
               >
-                A hospitality hard-asset fund designed for accredited investors seeking first-year depreciation, recurring monthly cash income, and annual travel-credit value.
+                One fund. Three benefits. Built for accredited investors who want a first-year write-off, cash every month, and real travel value — backed by hard assets.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8">
                 <a
                   href="#access"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#D4B968] text-[#14261A] font-semibold hover:bg-[#c9ab54] transition shadow-lg shadow-black/40"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#D4B968] text-[#14261A] font-semibold hover:bg-[#c9ab54] transition shadow-lg shadow-black/40"
                 >
-                  Request Access <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="#how"
-                  className="inline-flex items-center px-7 py-3 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-white font-medium hover:bg-white/20 transition"
-                >
-                  View How It Works
+                  Request Investor Access <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </motion.div>
           </div>
         </div>
-
-        {/* Mute toggle */}
-        <button
-          type="button"
-          onClick={() => setMuted((m) => !m)}
-          aria-label={muted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-6 right-6 z-20 w-11 h-11 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur border border-white/25 text-white flex items-center justify-center transition"
-        >
-          {muted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-        </button>
-
-        {/* Scroll indicator */}
-        <a
-          href="#benefits"
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/70 hover:text-white transition"
-          aria-label="Scroll to explore"
-        >
-          <span className="text-[10px] uppercase tracking-[0.25em]">Scroll</span>
-          <ChevronDown className="w-5 h-5 animate-bounce" />
-        </a>
       </section>
+
 
       {/* Stat bar — seamlessly continues the dark gradient */}
       <section className="relative bg-[#0b120d] border-b border-white/10">
