@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
-import heroVideo from "@/assets/hero-web.mp4.asset.json";
+import heroLuxuryJet from "@/assets/hero-luxury-jet.jpg.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
@@ -175,14 +175,6 @@ function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string;
 
 
 function Hero() {
-  const [muted, setMuted] = useState(true);
-  const videoRef = useCallback((node: HTMLVideoElement | null) => {
-    if (node) {
-      node.muted = muted;
-      const p = node.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    }
-  }, [muted]);
   return (
     <>
       <section
@@ -190,16 +182,11 @@ function Hero() {
         className="relative w-screen overflow-hidden"
         style={{ minHeight: "100vh", height: "100vh" }}
       >
-        {/* Full-bleed video */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          src={heroVideo.url}
-          autoPlay
-          loop
-          muted={muted}
-          playsInline
-          preload="auto"
+        {/* Full-bleed background image */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroLuxuryJet.url})` }}
+          aria-hidden
         />
 
         {/* Gradient overlay */}
@@ -207,7 +194,7 @@ function Hero() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0.5) 100%)",
+              "linear-gradient(to top, rgba(26,15,10,0.82) 0%, rgba(26,15,10,0.28) 45%, rgba(26,15,10,0.42) 100%)",
           }}
         />
 
@@ -216,7 +203,7 @@ function Hero() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, rgba(212,185,104,0.08) 65%, rgba(0,0,0,0.22) 100%)",
+              "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 35%, rgba(212,185,104,0.04) 65%, rgba(26,15,10,0.12) 100%)",
           }}
         />
 
