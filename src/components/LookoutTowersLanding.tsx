@@ -250,7 +250,7 @@ function Hero() {
 
 
       {/* Three-pillar investor strip */}
-      <section className="relative bg-[#0b120d] border-b border-white/10">
+      <section id="pillars" className="relative bg-[#0b120d] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0 }}>
