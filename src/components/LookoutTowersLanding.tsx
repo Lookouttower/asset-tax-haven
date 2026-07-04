@@ -64,13 +64,14 @@ const fadeIn = {
 } as const;
 
 const NAV_LINKS = [
-  { href: "#benefits", label: "Benefits" },
-  { href: "#how", label: "How It Works" },
+  { href: "#pillars", label: "Three Pillars" },
+  { href: "#thesis", label: "Why Now" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#travel", label: "Travel" },
   { href: "#opp", label: "Investor Terms" },
-  { href: "#risks", label: "Risk Factors" },
+  { href: "#risks", label: "Risks" },
+  { href: "#access", label: "Request Access" },
 ];
+
 
 function Navbar() {
   const [open, setOpen] = useState(false);
