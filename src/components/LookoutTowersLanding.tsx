@@ -106,7 +106,14 @@ function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="lux-nav text-brand-cream/75 hover:text-brand-gold transition-colors duration-300"
+              className="uppercase hover:text-brand-gold transition-colors duration-300"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 400,
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                color: "rgba(240,236,228,0.8)",
+              }}
             >
               {l.label}
             </a>
@@ -114,16 +121,15 @@ function Navbar() {
         </nav>
 
         {/* Center: logo */}
-        <a href="#home" className="flex items-center justify-center gap-2 justify-self-center">
-          <Landmark className="w-5 h-5 text-brand-gold" strokeWidth={1.25} />
+        <a href="#home" className="flex items-center justify-center justify-self-center">
           <span
-            className="text-brand-cream"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 300,
               fontStyle: "italic",
               fontSize: "18px",
-              letterSpacing: "0.08em",
+              letterSpacing: "0.05em",
+              color: "#f0ece4",
               whiteSpace: "nowrap",
             }}
           >
@@ -286,20 +292,21 @@ function Hero() {
         />
 
         {/* Content: centered headline */}
-        <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
-          <div className="w-full max-w-4xl mx-auto px-6 text-center">
+        <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 10 }}>
+          <div className="w-full mx-auto px-6 text-center" style={{ maxWidth: 700 }}>
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="text-brand-cream"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 300,
                 fontStyle: "italic",
-                fontSize: "clamp(52px, 9vw, 96px)",
+                fontSize: "clamp(36px, 8vw, 88px)",
                 lineHeight: 1.05,
-                letterSpacing: "0.05em",
+                letterSpacing: "0.03em",
+                color: "#f0ece4",
+                textShadow: "0 2px 40px rgba(0,0,0,0.5)",
               }}
             >
               Harmony of Forms
@@ -309,13 +316,14 @@ function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
-              className="mt-8 mx-auto uppercase"
+              className="mx-auto uppercase"
               style={{
                 fontFamily: "'Jost', sans-serif",
-                fontWeight: 300,
-                fontSize: "14px",
-                letterSpacing: "0.2em",
-                color: "rgba(240,236,228,0.7)",
+                fontWeight: 400,
+                fontSize: "clamp(11px, 1vw, 12px)",
+                letterSpacing: "0.35em",
+                color: "rgba(240,236,228,0.75)",
+                marginTop: 20,
                 maxWidth: 640,
               }}
             >
@@ -340,7 +348,7 @@ function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
-              className="mt-10"
+              style={{ marginTop: 36 }}
             >
               <a
                 href="#access"
@@ -352,12 +360,14 @@ function Hero() {
                   letterSpacing: "0.3em",
                   color: "#c9a84c",
                   border: "1px solid #c9a84c",
-                  padding: "14px 40px",
+                  padding: "16px 48px",
+                  borderRadius: 0,
+                  background: "transparent",
                   transition: "all 0.4s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "#c9a84c";
-                  e.currentTarget.style.color = "#0a0a0a";
+                  e.currentTarget.style.color = "#0a0806";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
@@ -383,7 +393,7 @@ function Hero() {
       </section>
 
       {/* Three Pillars */}
-      <section id="pillars" className="bg-[#1a1209] border-b border-white/10">
+      <section id="pillars" className="border-b border-brand-gold/15" style={{ background: "#0a0806" }}>
         {[
           { num: "01", label: "PILLAR 01", title: "100%+ First-Year Write-Off", body: "Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap.", img: pillarWriteoffV2.url, imageLeft: true },
           { num: "02", label: "PILLAR 02", title: "6% Paid Monthly, Direct to You", body: "Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month.", img: pillarIncomeV2.url, imageLeft: false },
@@ -403,8 +413,8 @@ function Hero() {
                 className="absolute inset-0 pointer-events-none hidden md:block"
                 style={{
                   background: p.imageLeft
-                    ? "linear-gradient(to right, transparent 60%, #1a1209 100%)"
-                    : "linear-gradient(to left, transparent 60%, #1a1209 100%)",
+                    ? "linear-gradient(to right, transparent 60%, #0a0806 100%)"
+                    : "linear-gradient(to left, transparent 60%, #0a0806 100%)",
                 }}
               />
             </div>
@@ -412,21 +422,65 @@ function Hero() {
             <motion.div
               {...fadeIn}
               transition={{ duration: 0.6, delay: i * 0.05 }}
-              className={`flex items-center bg-[#1a1209] px-8 md:px-16 py-16 ${p.imageLeft ? "md:order-2" : "md:order-1"}`}
+              className={`flex items-center px-8 md:px-16 py-16 ${p.imageLeft ? "md:order-2" : "md:order-1"}`}
+              style={{ background: "#0a0806" }}
             >
               <div className="max-w-md">
-                <div className="text-[12px] uppercase tracking-[0.2em] font-semibold text-[#e8c84a] mb-6">
+                <div
+                  className="mb-6"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 400,
+                    textTransform: "uppercase",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    color: "#c9a84c",
+                  }}
+                >
                   {p.label}
                 </div>
-                <h3 className="font-serif text-[48px] font-medium text-white leading-[1.1] mb-5">
+                <h3
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 300,
+                    fontStyle: "italic",
+                    fontSize: "clamp(36px, 5vw, 52px)",
+                    lineHeight: 1.15,
+                    color: "#f0ece4",
+                    letterSpacing: "0.02em",
+                  }}
+                >
                   {p.title}
                 </h3>
-                <div className="w-[40px] h-[2px] bg-[#e8c84a] mb-6" />
-                <p className="text-[16px] font-light leading-[1.8] text-[#b8a98a]" style={{ maxWidth: 320 }}>
+                <div style={{ width: 40, height: 1, background: "#c9a84c", margin: "16px 0" }} />
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "14px",
+                    lineHeight: 1.9,
+                    color: "rgba(240,236,228,0.6)",
+                    maxWidth: 360,
+                  }}
+                >
                   {p.body}
                 </p>
-                <a href="#thesis" className="inline-block mt-8 text-[13px] uppercase tracking-[0.15em] font-semibold text-[#e8c84a] hover:text-white transition-colors">
-                  Learn how this works →
+                <a
+                  href="#thesis"
+                  className="pillar-learn-link group inline-flex items-center gap-2 mt-8"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 400,
+                    textTransform: "uppercase",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    color: "#c9a84c",
+                  }}
+                >
+                  <span className="pillar-learn-underline relative">
+                    Learn how this works
+                  </span>
+                  <span aria-hidden>→</span>
                 </a>
               </div>
             </motion.div>
@@ -563,27 +617,54 @@ function Thesis() {
     { label: "Annual Dollar Cap", value: "None (Unlike §179)" },
   ];
   return (
-    <section id="thesis" className="py-24 bg-brand-bg-light border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="thesis"
+      className="border-b border-brand-gold/15"
+      style={{ background: "#0a0806", padding: "clamp(80px, 10vw, 140px) clamp(24px, 8vw, 120px)" }}
+    >
+      <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Investment Thesis"
           title="Where Tax Law Meets Hospitality Hard Assets"
           lead="The fund is purpose-built at the intersection of three durable trends: permanent bonus depreciation, the experiential travel boom, and institutional demand for hard-asset income."
         />
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-6">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 mt-4">
           {points.map((p, i) => (
-            <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.05 }} className="flex gap-4">
-              <CheckCircle2 className="w-5 h-5 text-brand-gold flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-medium text-brand-cream mb-1">{p.title}</h4>
-                <p className="text-brand-muted text-[15px] font-light leading-relaxed tracking-wide">{p.body}</p>
-              </div>
+            <motion.div
+              key={p.title}
+              {...fadeIn}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              style={{ borderLeft: "2px solid #c9a84c", paddingLeft: 16 }}
+            >
+              <h4
+                className="mb-3"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 400,
+                  textTransform: "uppercase",
+                  fontSize: "10px",
+                  letterSpacing: "0.25em",
+                  color: "#c9a84c",
+                }}
+              >
+                {p.title}
+              </h4>
+              <p
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 300,
+                  fontSize: "14px",
+                  lineHeight: 1.8,
+                  color: "rgba(240,236,228,0.6)",
+                }}
+              >
+                {p.body}
+              </p>
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="mt-16 relative">
-          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <motion.div {...fadeIn} className="mt-20 relative">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -591,13 +672,49 @@ function Thesis() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center bg-brand-card border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(201,168,76,0.2)",
+                  borderRadius: 0,
+                  padding: "32px 28px",
+                }}
               >
-                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#B8960C_0%,#8A7009_100%)] text-brand-cream flex items-center justify-center font-bold text-lg ring-4 ring-brand-bg-light shadow-[0_10px_25px_-6px_rgba(184,150,12,0.5)]">
-                  {i + 1}
+                <div
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontStyle: "italic",
+                    fontWeight: 300,
+                    fontSize: "48px",
+                    lineHeight: 1,
+                    color: "#c9a84c",
+                    marginBottom: 20,
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="text-[10px] uppercase tracking-[0.15em] text-brand-muted mb-2">{s.label}</div>
-                <div className="font-medium text-brand-cream text-sm">{s.value}</div>
+                <div
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 400,
+                    textTransform: "uppercase",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    color: "rgba(240,236,228,0.4)",
+                    marginBottom: 8,
+                  }}
+                >
+                  {s.label}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "14px",
+                    color: "#f0ece4",
+                  }}
+                >
+                  {s.value}
+                </div>
               </motion.div>
             ))}
           </div>
