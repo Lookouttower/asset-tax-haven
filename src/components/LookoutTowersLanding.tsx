@@ -63,13 +63,12 @@ const fadeIn = {
 } as const;
 
 const NAV_LINKS = [
-  { href: "#thesis", label: "Thesis" },
+  { href: "#benefits", label: "Benefits" },
+  { href: "#how", label: "How It Works" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#tax", label: "Tax Engine" },
-  { href: "#opp", label: "Returns" },
   { href: "#travel", label: "Travel" },
-  { href: "#exit", label: "Exit" },
-  { href: "#destinations", label: "Destinations" },
+  { href: "#opp", label: "Investor Terms" },
+  { href: "#risks", label: "Risk Factors" },
 ];
 
 function Navbar() {
@@ -234,23 +233,23 @@ function Hero() {
         <div className="absolute inset-0 flex items-end">
           <div className="w-full max-w-7xl mx-auto px-6 pb-[18vh]">
             <motion.div {...fadeIn}>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-4 py-1.5 text-xs font-medium text-white mb-6">
-                <ShieldCheck className="w-4 h-4" strokeWidth={1.75} />
+              <div className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-2.5 py-1 text-[10px] font-medium text-white/75 mb-6 uppercase tracking-[0.15em]">
+                <ShieldCheck className="w-3 h-3" strokeWidth={1.75} />
                 Reg D · Rule 506(c) · Accredited Investors Only
               </div>
               <h1
                 className="font-bold tracking-tight text-white max-w-5xl"
                 style={{ fontSize: "clamp(48px, 8vw, 96px)", lineHeight: 1.1 }}
               >
-                <span className="block">Hard Assets.</span>
                 <span className="block text-[#D4B968]">100% Depreciation.</span>
-                <span className="block">Mailbox Money.</span>
+                <span className="block">Monthly Income.</span>
+                <span className="block">Travel Credits.</span>
               </h1>
               <p
                 className="mt-6 text-lg md:text-xl leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.85)", maxWidth: 600 }}
               >
-                A hospitality-focused equipment fund that acquires depreciable assets — aircraft, marine vessels, lookout towers, and more — leases them to premier operators, and passes through first-year tax write-offs alongside a 12% preferred return.
+                A hospitality hard-asset fund designed for accredited investors seeking first-year depreciation, recurring monthly cash income, and annual travel-credit value.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -260,10 +259,10 @@ function Hero() {
                   Request Access <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
-                  href="#tax"
+                  href="#how"
                   className="inline-flex items-center px-7 py-3 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-white font-medium hover:bg-white/20 transition"
                 >
-                  Explore the Tax Engine
+                  View How It Works
                 </a>
               </div>
             </motion.div>
@@ -282,7 +281,7 @@ function Hero() {
 
         {/* Scroll indicator */}
         <a
-          href="#pillars"
+          href="#benefits"
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/70 hover:text-white transition"
           aria-label="Scroll to explore"
         >
@@ -349,6 +348,74 @@ function Pillars() {
             </div>
           </motion.div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function CoreBenefits() {
+  const cards = [
+    {
+      icon: Zap,
+      title: "100% Depreciation",
+      stat: "100%",
+      body: "First-year depreciation on qualifying hospitality hard assets, passed through to investors on a Schedule K-1.",
+    },
+    {
+      icon: DollarSign,
+      title: "Monthly Income",
+      stat: "6%",
+      body: "Cash income target paid monthly from operator lease income.",
+    },
+    {
+      icon: Plane,
+      title: "Travel Credits",
+      stat: "6%",
+      body: "Annual travel-credit value through a third-party exchange or points platform.",
+    },
+  ];
+  return (
+    <section id="benefits" className="py-24 bg-white border-b border-brand-border">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="The Investor Offer"
+          title="Three Benefits. One Fund."
+          lead="A focused, investor-grade offer built around first-year depreciation, recurring monthly income, and annual travel-credit value."
+        />
+        <div className="grid md:grid-cols-3 gap-6">
+          {cards.map((c, i) => (
+            <motion.div
+              key={c.title}
+              {...fadeIn}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              whileHover={{ y: -4 }}
+              className="relative rounded-2xl border border-brand-border bg-white p-10 shadow-sm hover:shadow-2xl transition-shadow"
+            >
+              <div className="mb-6"><IconBadge icon={c.icon} size="lg" /></div>
+              <div className="font-serif text-6xl font-bold tracking-tight text-brand-olive-dark leading-none">
+                {c.stat}
+              </div>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-brand-text">{c.title}</h3>
+              <p className="mt-3 text-brand-muted text-[15px] leading-relaxed">{c.body}</p>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div
+          {...fadeIn}
+          className="mt-6 rounded-2xl border border-brand-olive/30 bg-brand-olive/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-4"
+        >
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold">Summary</div>
+            <h4 className="mt-1 text-2xl font-bold text-brand-text tracking-tight">12% Preferred Return</h4>
+            <p className="mt-1 text-sm text-brand-muted">6% monthly cash income + 6% travel credits.</p>
+          </div>
+          <a
+            href="#access"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-olive text-white font-medium hover:bg-brand-olive-dark transition"
+          >
+            Request Access <ArrowRight className="w-4 h-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
@@ -502,8 +569,8 @@ function Portfolio() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Portfolio"
-          title="18 Asset Classes. One Guest Journey."
-          lead="Every asset is mapped to a stage of the premium hospitality experience — from the moment a guest departs to the moment they arrive home."
+          title="Portfolio Gallery"
+          lead="The portfolio supports the three-part investor offer by placing income-producing hospitality assets with operators across aviation, marine, lodging, mobility, food, employee housing, and development."
         />
         <motion.div {...fadeIn} className="mb-10">
           <HeroCarousel slides={PORTFOLIO_HERO_IMAGES} />
@@ -775,13 +842,13 @@ function TaxEngine() {
 
 function Returns() {
   const terms = [
+    ["Depreciation", "100% First-Year"],
+    ["Monthly Cash Income", "6% Annual"],
+    ["Travel Credits", "6% Annual"],
     ["Preferred Return", "12% Annual"],
-    ["Cash Component", "6% Monthly"],
-    ["Travel Component", "6% Annual"],
+    ["Investor Eligibility", "Accredited Investors Only"],
+    ["Tax Document", "Schedule K-1"],
     ["Investor Term", "1–3 Years"],
-    ["Rollover", "Available"],
-    ["Recapture Deferral", "Roll to new vintage"],
-    ["Recapture Elimination", "§1014 step-up at death"],
   ];
   const splitData = [
     { name: "6% Cash (Monthly)", value: 6, color: "#4B6B2F" },
@@ -790,7 +857,11 @@ function Returns() {
   return (
     <section id="opp" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="The Opportunity" title="The 12% Preferred Return" />
+        <SectionHeader
+          eyebrow="Investor Terms"
+          title="Investor Terms at a Glance"
+          lead="100% depreciation, 6% monthly cash income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
+        />
         <motion.div {...fadeIn} className="mb-12 bg-white border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="h-72">
@@ -874,7 +945,11 @@ function Travel() {
   return (
     <section id="travel" className="py-24 bg-brand-sage border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="Travel Integration" title="Your Return. Redeemable Anywhere." />
+        <SectionHeader
+          eyebrow="Travel Credits"
+          title="Travel Credits, Part of the Preferred Return."
+          lead="Travel credits are part of the preferred return structure. They are delivered through a third-party platform and are separate from free use of fund-owned assets."
+        />
         <motion.div {...fadeIn} className="mb-10">
           <HeroCarousel slides={TRAVEL_IMAGES} />
         </motion.div>
@@ -1168,18 +1243,12 @@ export default function LookoutTowersLanding() {
       <Navbar />
       <main>
         <Hero />
-        <Pillars />
-        <Thesis />
-        <Portfolio />
-        <PhotoBanner src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80" alt="Coastal hospitality" caption="Where hard assets meet the horizon" />
+        <CoreBenefits />
         <HowItWorks />
-        <TaxEngine />
-        <Returns />
+        <Portfolio />
         <Travel />
-        <PhotoBanner src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=80" alt="Forest retreats" caption="Off-grid. On-portfolio." />
-        <Exit />
+        <Returns />
         <Risks />
-        <Destinations />
         <AccessForm />
       </main>
       <Footer />
