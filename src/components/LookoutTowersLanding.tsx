@@ -1011,31 +1011,32 @@ function Risks() {
     { icon: RotateCcw, title: "Recapture Risk", body: "§1245 recapture upon asset disposition is taxed as ordinary income. Recapture may exceed cash distributions received." },
   ];
   return (
-    <section id="risks" className="relative py-24 bg-brand-dark overflow-hidden">
+    <section id="risks" className="relative py-24 bg-brand-bg overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.12]"
         style={{ backgroundImage: "url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=2000&q=80)" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand-dark/85 to-brand-dark" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/70 via-brand-bg/85 to-brand-bg" />
       <div className="relative max-w-7xl mx-auto px-6">
         <SectionHeader dark eyebrow="Risk Factors" title="Material Risk Factors" />
         <div className="grid md:grid-cols-2 gap-4 mb-10">
           {risks.map((r, i) => (
-            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
+            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-brand-card/50 border border-white/10 rounded-xl p-6 backdrop-blur">
               <div className="mb-3"><IconBadge icon={r.icon} /></div>
-              <h4 className="font-semibold text-white mb-2">{r.title}</h4>
-              <p className="text-sm text-white/70 leading-relaxed">{r.body}</p>
+              <h4 className="font-medium text-brand-cream mb-2">{r.title}</h4>
+              <p className="text-sm text-brand-cream/70 font-light leading-relaxed tracking-wide">{r.body}</p>
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="bg-white/5 border border-white/10 rounded-lg p-6">
-          <p className="text-xs text-white/60 leading-relaxed">
+        <motion.div {...fadeIn} className="bg-brand-card/50 border border-white/10 rounded-lg p-6">
+          <p className="text-xs text-brand-cream/60 font-light leading-relaxed tracking-wide">
             This material is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. Offered only to accredited investors under Reg D Rule 506(c). Past performance is not indicative of future results. Consult your tax, legal, and financial advisors before investing.
           </p>
         </motion.div>
       </div>
     </section>
   );
+
 }
 
 const DESTINATIONS = [
