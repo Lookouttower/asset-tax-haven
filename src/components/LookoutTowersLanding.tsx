@@ -87,39 +87,72 @@ function Navbar() {
   }, []);
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-        scrolled
-          ? "bg-brand-bg/85 backdrop-blur-xl border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 animate-fade-in"
+      style={{
+        animationDelay: "0.3s",
+        animationFillMode: "backwards",
+        background: scrolled ? "rgba(10,10,10,0.7)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(201,168,76,0.15)"
+          : "1px solid transparent",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-gold-light" : "text-brand-cream"}`} />
-          <span className={`font-medium tracking-tight ${scrolled ? "text-brand-cream" : "text-brand-cream"}`}>100% Depreciation Fund</span>
-        </a>
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition-colors tracking-wide">
+      <div className="max-w-7xl mx-auto px-6 h-20 grid grid-cols-3 items-center">
+        {/* Left: nav links */}
+        <nav className="hidden lg:flex items-center gap-8 justify-self-start">
+          {NAV_LINKS.slice(0, 4).map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="lux-nav text-brand-cream/75 hover:text-brand-gold transition-colors duration-300"
+            >
               {l.label}
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-2">
-          <a href="#access" className="px-4 py-2 text-sm font-light rounded-full border border-brand-cream/40 hover:border-brand-cream text-brand-cream transition backdrop-blur tracking-wide">View Terms</a>
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg hover:bg-brand-gold-light transition tracking-wide">Request Access</a>
+
+        {/* Center: logo */}
+        <a href="#home" className="flex items-center justify-center gap-2 justify-self-center">
+          <Landmark className="w-5 h-5 text-brand-gold" strokeWidth={1.25} />
+          <span
+            className="text-brand-cream"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 300,
+              fontStyle: "italic",
+              fontSize: "18px",
+              letterSpacing: "0.08em",
+              whiteSpace: "nowrap",
+            }}
+          >
+            100% Depreciation Fund
+          </span>
+        </a>
+
+        {/* Right: CTA */}
+        <div className="hidden md:flex items-center gap-4 justify-self-end">
+          <a
+            href="#access"
+            className="lux-nav text-brand-gold border border-brand-gold/60 hover:bg-brand-gold hover:text-brand-bg transition-all duration-500"
+            style={{ padding: "12px 28px" }}
+          >
+            Request Access
+          </a>
         </div>
-        <button className="lg:hidden text-brand-cream" onClick={() => setOpen(!open)} aria-label="Menu">
+
+        <button className="lg:hidden text-brand-cream justify-self-end col-start-3" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-brand-bg/95 backdrop-blur-xl">
-          <div className="px-6 py-4 flex flex-col gap-3">
+        <div className="lg:hidden border-t border-brand-gold/20" style={{ background: "rgba(10,10,10,0.96)", backdropFilter: "blur(12px)" }}>
+          <div className="px-6 py-6 flex flex-col gap-5">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-light text-brand-cream/85 py-1 tracking-wide">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="lux-nav text-brand-cream/85 py-1">{l.label}</a>
             ))}
-            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg text-center tracking-wide">Request Access</a>
+            <a href="#access" onClick={() => setOpen(false)} className="lux-nav mt-2 py-3 text-brand-gold border border-brand-gold/60 text-center">Request Access</a>
           </div>
         </div>
       )}
