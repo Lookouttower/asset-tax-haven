@@ -1210,7 +1210,7 @@ function Footer() {
             <div className="text-xs uppercase tracking-wider font-semibold text-brand-cream/60 mb-4">{c.title}</div>
             <ul className="space-y-2.5">
               {c.links.map((l) => (
-                <li key={l}><a href="#access" className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition tracking-wide">{l}</a></li>
+                <li key={l.label}><a href={l.href} className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition tracking-wide">{l.label}</a></li>
               ))}
             </ul>
           </div>
