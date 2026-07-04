@@ -278,6 +278,7 @@ function CinematicPillar({
   });
   // Parallax: image moves slower than scroll (0.4x)
   const imgY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
 
   return (
     <section
@@ -285,13 +286,15 @@ function CinematicPillar({
       className="relative overflow-hidden flex items-center"
       style={{ height: "100vh", width: "100%", background: "#0a0806", margin: 0, padding: 0 }}
     >
-      {/* Background image with parallax */}
+      {/* Background image with parallax + slow Ken Burns zoom */}
       <motion.img
         src={image}
         alt=""
         aria-hidden
+        className="pillar-kenburns"
         style={{
           y: imgY,
+          scale: imgScale,
           position: "absolute",
           top: 0,
           left: 0,
@@ -300,6 +303,7 @@ function CinematicPillar({
           objectFit: "cover",
           objectPosition: "center",
           zIndex: 0,
+          transformOrigin: "center",
         }}
       />
 
@@ -317,6 +321,23 @@ function CinematicPillar({
             "linear-gradient(to right, rgba(8,6,3,0.90) 0%, rgba(8,6,3,0.55) 50%, rgba(8,6,3,0.10) 100%)",
         }}
       />
+
+      {/* Vignette for cinematic depth */}
+      <div
+        aria-hidden
+        className="pointer-events-none"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)",
+        }}
+      />
+
+      {/* Ornamental gold corner marks */}
+      <div aria-hidden className="hidden md:block absolute pointer-events-none" style={{ top: 32, right: 32, width: 56, height: 56, borderTop: "1px solid rgba(201,168,76,0.5)", borderRight: "1px solid rgba(201,168,76,0.5)", zIndex: 3 }} />
+      <div aria-hidden className="hidden md:block absolute pointer-events-none" style={{ bottom: 32, left: 32, width: 56, height: 56, borderBottom: "1px solid rgba(201,168,76,0.5)", borderLeft: "1px solid rgba(201,168,76,0.5)", zIndex: 3 }} />
 
       {/* Giant faded numeral */}
       <div
