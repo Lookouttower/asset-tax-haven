@@ -616,7 +616,7 @@ function Hero() {
         <CinematicPillar
           number="01"
           label="PILLAR 01"
-          title={<>100%+ First-Year <em style={{ fontStyle: "italic" }}>Write-Off</em></>}
+          title={<>100% <em style={{ fontStyle: "italic" }}>Depreciation</em></>}
           body="Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap."
           image={pillar1Documents.url}
         />
@@ -624,14 +624,14 @@ function Hero() {
           number="02"
           label="PILLAR 02"
           title={<>6% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
-          body="Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month."
+          body="Income is produced by industry-leading leases to established operators."
           image={pillar2Seal.url}
         />
         <CinematicPillar
           number="03"
           label="PILLAR 03"
           title={<>6% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
-          body="Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide."
+          body="Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc."
           image={pillar3Villa.url}
         />
       </div>
@@ -643,9 +643,9 @@ function Hero() {
 
 function Pillars() {
   const pillars = [
-    { icon: Zap, title: "100% First-Year Write-Off", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
-    { icon: Mail, title: "12% Preferred Return", body: "6% paid monthly in cash — direct to your account. 6% in annual travel credits redeemable through Interval International and RCI. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
-    { icon: Plane, title: "Invest. Write Off. Travel.", body: "Your travel credits unlock a global network of resorts, villas, and experiences through Interval International and RCI — the same platforms used by the world's premier hospitality brands.", bg: pillarTravelAsset.url },
+    { icon: Zap, title: "100% Depreciation", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
+    { icon: Mail, title: "12% Preferred Return", body: "Income is produced by industry-leading leases to established operators. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
+    { icon: Plane, title: "Invest. Depreciate. Travel.", body: "Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.", bg: pillarTravelAsset.url },
   ];
   return (
     <section id="pillars" className="py-20 bg-brand-sage border-y border-brand-border">
@@ -696,7 +696,7 @@ function CoreBenefits() {
       icon: DollarSign,
       title: "Monthly Income",
       stat: "6%",
-      body: "Cash income target paid monthly from operator lease income.",
+      body: "Income is produced by industry-leading leases to established operators.",
     },
     {
       icon: Plane,
@@ -738,7 +738,7 @@ function CoreBenefits() {
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold">Summary</div>
             <h4 className="mt-1 text-2xl font-bold text-brand-text tracking-tight">12% Preferred Return</h4>
-            <p className="mt-1 text-sm text-brand-muted">6% monthly cash income + 6% travel credits.</p>
+            <p className="mt-1 text-sm text-brand-muted">6% monthly income + 6% travel credits.</p>
           </div>
           <a
             href="#access"
@@ -755,7 +755,7 @@ function CoreBenefits() {
 function Thesis() {
   const points = [
     { title: "Permanent Law", body: "P.L. 119-21 removed the uncertainty of sunset provisions. Investors can plan multi-year tax strategies with confidence that §168(k) will not phase down." },
-    { title: "Asset-Backed Security", body: "Every dollar invested is backed by a tangible, titled asset. Personal property depreciates faster and qualifies for immediate write-off — giving investors both income and tax shelter." },
+    { title: "Asset-Backed Security", body: "Every dollar invested is backed by a tangible, titled asset. Personal property depreciates faster and qualifies for immediate 100% first-year depreciation — giving investors both income and tax shelter." },
     { title: "True-Lease Structure", body: "The fund retains ownership and residual risk, leasing assets to operators. This preserves the fund as tax owner, enabling full depreciation pass-through via K-1." },
   ];
   const stats = [
@@ -922,24 +922,24 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
 type AssetWithImg = Asset & { img: string; imgPos?: string };
 const ASSETS: AssetWithImg[] = [
-  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "100% Write-Off", cat: "Air", img: asset1.url },
-  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "100% Write-Off", cat: "Air", img: asset2.url },
-  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "100% Write-Off", cat: "Air", img: asset3.url },
-  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "100% Write-Off", cat: "Air", img: asset4.url },
-  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "100% Write-Off", cat: "Air", img: asset5.url },
-  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "100% Write-Off", cat: "Marine", img: asset6.url },
-  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "100% Write-Off", cat: "Marine", img: asset7.url },
-  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "100% Write-Off", cat: "Marine", img: asset8.url },
-  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "100% Write-Off", cat: "Ground", img: asset9.url },
-  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "100% Write-Off", cat: "Ground", img: asset10.url },
-  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "100% Write-Off", cat: "Ground", img: asset11.url },
-  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "100% Write-Off", cat: "Ground", img: asset12.url },
+  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "100% Depreciation", cat: "Air", img: asset1.url },
+  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "100% Depreciation", cat: "Air", img: asset2.url },
+  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "100% Depreciation", cat: "Air", img: asset3.url },
+  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "100% Depreciation", cat: "Air", img: asset4.url },
+  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "100% Depreciation", cat: "Air", img: asset5.url },
+  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "100% Depreciation", cat: "Marine", img: asset6.url },
+  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "100% Depreciation", cat: "Marine", img: asset7.url },
+  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "100% Depreciation", cat: "Marine", img: asset8.url },
+  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "100% Depreciation", cat: "Ground", img: asset9.url },
+  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "100% Depreciation", cat: "Ground", img: asset10.url },
+  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "100% Depreciation", cat: "Ground", img: asset11.url },
+  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "100% Depreciation", cat: "Ground", img: asset12.url },
   { icon: Radio, name: "Lookout Towers", desc: "Relocatable timber-frame towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: lookoutTowerAsset.url, imgPos: "75% 50%" },
   { icon: Home, name: "Glass House STR · Ood", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: asset14.url },
-  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "100% Write-Off", cat: "Development", img: asset15.url },
-  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "100% Write-Off", cat: "Development", img: asset16.url },
-  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "100% Write-Off", cat: "Development", img: asset17.url },
-  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "100% Write-Off", cat: "Development", img: asset18.url },
+  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "100% Depreciation", cat: "Development", img: asset15.url },
+  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "100% Depreciation", cat: "Development", img: asset16.url },
+  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "100% Depreciation", cat: "Development", img: asset17.url },
+  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "100% Depreciation", cat: "Development", img: asset18.url },
 ];
 const CATS = ["All", "Air", "Marine", "Ground", "Lodging", "Development"];
 
@@ -1040,7 +1040,7 @@ function Portfolio() {
                     boxShadow: "0 2px 8px rgba(184,150,12,0.4)",
                   }}
                 >
-                  ✦ 100% Write-Off
+                  ✦ 100% Depreciation
                 </span>
                 <div className="absolute inset-x-0 bottom-0 h-[35%] p-5 flex flex-col justify-center">
                   <h4 className="font-medium text-brand-cream mb-1.5">{a.name}</h4>
@@ -1099,7 +1099,7 @@ function Portfolio() {
                     boxShadow: "0 2px 8px rgba(184,150,12,0.4)",
                   }}
                 >
-                  ✦ 100% Write-Off
+                  ✦ 100% Depreciation
                 </span>
                 <span
                   className="absolute bottom-4 right-4 text-[10px] font-semibold uppercase px-2.5 py-1 rounded-full"
@@ -1132,14 +1132,14 @@ function HowItWorks() {
     { icon: FileSignature, title: "Investor Subscribes", body: "Accredited investors subscribe under Reg D, Rule 506(c). Capital is pooled into the fund LLC and deployed into qualifying depreciable assets within the first operating year." },
     { icon: ShoppingCart, title: "Fund Acquires Assets", body: "The fund purchases 18 classes of hospitality equipment — aircraft, marine vessels, towers, vehicles, and structures. All assets are titled to the fund, preserving the fund as tax owner and enabling pass-through depreciation." },
     { icon: Handshake, title: "Assets Are Leased to Operators", body: "Each asset is leased under a true lease: rent payments (not interest), FMV purchase options only, lease terms shorter than useful life, and genuine residual risk retained by the fund." },
-    { icon: FileCheck, title: "Investors Receive K-1 + Distributions", body: "Each year: (a) Schedule K-1 with allocated depreciation deductions; (b) 6% annual cash preferred return paid monthly; and (c) 6% annual travel credits redeemable through Interval International / RCI." },
+    { icon: FileCheck, title: "Investors Receive K-1 + Distributions", body: "Each year: (a) Schedule K-1 with allocated depreciation deductions; (b) 6% annual preferred return paid monthly; and (c) 6% annual travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc." },
   ];
   const terms = [
     ["Fund Structure", "Delaware LLC"],
     ["Offering Type", "Reg D, Rule 506(c)"],
     ["Investor Eligibility", "Accredited Only"],
     ["Tax Document", "Schedule K-1"],
-    ["Cash Distribution", "Monthly (6% Pref.)"],
+    ["Income Distribution", "Monthly (6% Pref.)"],
     ["Travel Credits", "Annual (6% Pref.)"],
     ["Investor Term", "1–3 Years"],
     ["Asset Hold Period", "4–10 Years"],
@@ -1210,7 +1210,7 @@ function TaxEngine() {
   const chartData = [
     { name: "Capital Deployed", value: 500000, color: "#5C6355" },
     { name: "§168(k) Depreciation", value: -500000, color: "#4B6B2F" },
-    { name: "6% Cash Dist.", value: 30000, color: "#7B9A4B" },
+    { name: "6% Income Dist.", value: 30000, color: "#7B9A4B" },
     { name: "6% Travel Credits", value: 30000, color: "#B8955A" },
     { name: "Net Taxable Y1", value: -440000, color: "#2F4A1D" },
   ];
@@ -1227,7 +1227,7 @@ function TaxEngine() {
         <SectionHeader
           eyebrow="The Tax Engine"
           title="100% Depreciation. Permanent Law. No Cap."
-          lead="P.L. 119-21 permanently restored bonus depreciation under IRC §168(k). For qualifying property placed in service on or after January 19, 2025, the write-off is 100% — in the year of placement."
+          lead="P.L. 119-21 permanently restored bonus depreciation under IRC §168(k). For qualifying property placed in service on or after January 19, 2025, 100% first-year depreciation is available — in the year of placement."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
           {cards.map((c, i) => (
@@ -1285,8 +1285,8 @@ function TaxEngine() {
 
 function Returns() {
   const terms = [
-    ["Depreciation", "100% First-Year"],
-    ["Monthly Cash Income", "6% Annual"],
+    ["Depreciation", "100% Depreciation"],
+    ["Monthly Income", "6% Annual"],
     ["Travel Credits", "6% Annual"],
     ["Preferred Return", "12% Annual"],
     ["Investor Eligibility", "Accredited Investors Only"],
@@ -1294,7 +1294,7 @@ function Returns() {
     ["Investor Term", "1–3 Years"],
   ];
   const splitData = [
-    { name: "6% Cash (Monthly)", value: 6, color: "#B8960C" },
+    { name: "6% Income (Monthly)", value: 6, color: "#B8960C" },
     { name: "6% Travel Credits (Annual)", value: 6, color: "#D4B968" },
   ];
   return (
@@ -1303,7 +1303,7 @@ function Returns() {
         <SectionHeader
           eyebrow="Investor Terms"
           title="Investor Terms at a Glance"
-          lead="100% depreciation, 6% monthly cash income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
+          lead="100% depreciation, 6% monthly income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
         />
         <motion.div {...fadeIn} className="mb-12 bg-brand-card border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -1321,7 +1321,7 @@ function Returns() {
             <div>
               <div className="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3">Return Composition</div>
               <h4 className="text-3xl font-serif font-medium text-brand-cream tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
-              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
+              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly income — predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.</p>
             </div>
           </div>
         </motion.div>
@@ -1345,14 +1345,14 @@ function Returns() {
             <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={DollarSign} /></div>
               <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
-              <div className="text-lg font-medium text-brand-cream mt-2">Cash Return</div>
-              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
+              <div className="text-lg font-medium text-brand-cream mt-2">Income</div>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly. Tied to hard-asset lease income from the fund's operator network.</p>
             </motion.div>
             <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={Plane} /></div>
               <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
               <div className="text-lg font-medium text-brand-cream mt-2">Travel Credits</div>
-              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.</p>
             </motion.div>
           </div>
         </div>
@@ -1381,7 +1381,7 @@ const TRAVEL_IMAGES = [
 
 function Travel() {
   const rows = [
-    ["Platform", "Interval International / RCI"],
+    ["Platform", "The Investors Travel Group & Partners"],
     ["Credit Value", "6% of Capital Annually"],
     ["Redemption", "Global Resort Network"],
     ["Taxability", "Taxable as Ordinary Income"],
@@ -1400,14 +1400,14 @@ function Travel() {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <motion.div {...fadeIn}>
             <p className="text-lg text-brand-muted leading-relaxed">
-              Travel credits are issued annually equal to 6% of invested capital. Redeemable through Interval International and RCI — the global timeshare exchange networks used by Marriott, Hyatt, Hilton, and IHG.
+              Travel credits are issued annually equal to 6% of invested capital. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.
             </p>
             <div className="mt-6 bg-white border-l-4 rounded-lg p-6 border border-brand-border" style={{ borderLeftColor: "#B8955A" }}>
               <div className="flex items-center gap-2 mb-3">
                 <AlertCircle className="w-5 h-5 text-brand-gold" />
                 <h4 className="font-semibold text-brand-text">Personal Use Guardrail</h4>
               </div>
-              <p className="text-sm text-brand-muted leading-relaxed">Investors receive travel credits redeemable through third-party platforms (Interval International/RCI), NOT free use of fund assets. Direct personal use of fund aircraft, yacht, or vessels by investors is prohibited. Market-rate chartering is permitted as business income.</p>
+              <p className="text-sm text-brand-muted leading-relaxed">Investors receive travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc., NOT free use of fund assets. Direct personal use of fund aircraft, yacht, or vessels by investors is prohibited. Market-rate chartering is permitted as business income.</p>
             </div>
           </motion.div>
           <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg overflow-hidden">
@@ -1563,7 +1563,7 @@ function AccessForm() {
     ["Offering Type", "Reg D 506(c)"],
     ["Min. Investment", "$100,000"],
     ["Preferred Return", "12% Annual"],
-    ["Cash Distributions", "Monthly"],
+    ["Distributions", "Monthly"],
     ["Travel Credits", "Annual"],
   ];
   const onSubmit = (e: React.FormEvent) => {
@@ -1678,7 +1678,7 @@ function Footer() {
             <Landmark className="w-6 h-6 text-brand-gold-light" />
             <span className="font-medium tracking-tight">100% Depreciation Fund</span>
           </div>
-          <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Mailbox Money.</p>
+          <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Income.</p>
         </div>
         {cols.map((c) => (
           <div key={c.title}>
