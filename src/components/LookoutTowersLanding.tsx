@@ -140,20 +140,6 @@ function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; siz
   );
 }
 
-function StatCard({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="relative group bg-brand-noir-card py-10 flex flex-col items-center text-center transition-all duration-300 hover:bg-brand-noir-hover">
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-gold-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      <span className="font-serif text-4xl lg:text-5xl font-bold tracking-tight text-white mb-3">
-        {value}
-      </span>
-      <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold-soft">
-        {label}
-      </p>
-      <div className="mt-4 w-8 h-[1px] bg-brand-noir-border group-hover:w-16 transition-all duration-500" />
-    </div>
-  );
-}
 
 function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: string; alt: string; height?: string; caption?: string }) {
   return (
@@ -262,22 +248,29 @@ function Hero() {
       </section>
 
 
-      {/* Stat bar — seamlessly continues the dark gradient */}
+      {/* Three-pillar investor strip */}
       <section className="relative bg-[#0b120d] border-b border-white/10">
-        <div
-          aria-hidden
-          className="absolute inset-x-0 -top-16 h-16 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, #0b120d 100%)" }}
-        />
-        <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-noir-border border border-brand-noir-border rounded-2xl overflow-hidden">
-            <StatCard value="100%" label="Bonus Depreciation" />
-            <StatCard value="12%" label="Preferred Return" />
-            <StatCard value="18" label="Asset Classes" />
-            <StatCard value="6%" label="Monthly Cash" />
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0 }}>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 1</div>
+              <h3 className="text-2xl font-bold text-white mb-3">100%+ First-Year Write-Off</h3>
+              <p className="text-white/70 leading-relaxed">Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1.</p>
+            </motion.div>
+            <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 2</div>
+              <h3 className="text-2xl font-bold text-white mb-3">6% Paid Monthly, Direct to You</h3>
+              <p className="text-white/70 leading-relaxed">Fixed preferred return paid monthly — cash in your account every month on committed capital.</p>
+            </motion.div>
+            <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }}>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 3</div>
+              <h3 className="text-2xl font-bold text-white mb-3">6% in Annual Travel Credits</h3>
+              <p className="text-white/70 leading-relaxed">Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide.</p>
+            </motion.div>
           </div>
         </div>
       </section>
+
     </>
   );
 }
