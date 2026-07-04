@@ -570,8 +570,8 @@ function Portfolio() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Portfolio"
-          title="18 Asset Classes. One Guest Journey."
-          lead="Every asset is mapped to a stage of the premium hospitality experience — from the moment a guest departs to the moment they arrive home."
+          title="Portfolio Gallery"
+          lead="The portfolio supports the three-part investor offer by placing income-producing hospitality assets with operators across aviation, marine, lodging, mobility, food, employee housing, and development."
         />
         <motion.div {...fadeIn} className="mb-10">
           <HeroCarousel slides={PORTFOLIO_HERO_IMAGES} />
