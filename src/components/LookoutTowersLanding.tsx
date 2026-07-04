@@ -86,60 +86,62 @@ function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all ${
         scrolled
-          ? "bg-[#0b120d]/85 backdrop-blur-xl border-b border-white/10"
+          ? "bg-brand-bg/85 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
-          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-olive-light" : "text-white"}`} />
-          <span className={`font-semibold tracking-tight ${scrolled ? "text-white" : "text-white"}`}>Lookout Towers Fund</span>
+          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-gold-light" : "text-brand-cream"}`} />
+          <span className={`font-medium tracking-tight ${scrolled ? "text-brand-cream" : "text-brand-cream"}`}>Lookout Towers Fund</span>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
+            <a key={l.href} href={l.href} className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition-colors tracking-wide">
               {l.label}
             </a>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full border border-white/40 hover:border-white text-white transition backdrop-blur">View Terms</a>
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-[#D4B968] text-[#14261A] hover:bg-[#c9ab54] transition">Request Access</a>
+          <a href="#access" className="px-4 py-2 text-sm font-light rounded-full border border-brand-cream/40 hover:border-brand-cream text-brand-cream transition backdrop-blur tracking-wide">View Terms</a>
+          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg hover:bg-brand-gold-light transition tracking-wide">Request Access</a>
         </div>
-        <button className="lg:hidden text-white" onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className="lg:hidden text-brand-cream" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-[#0b120d]/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-white/10 bg-brand-bg/95 backdrop-blur-xl">
           <div className="px-6 py-4 flex flex-col gap-3">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-white/85 py-1">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-light text-brand-cream/85 py-1 tracking-wide">{l.label}</a>
             ))}
-            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-[#D4B968] text-[#14261A] text-center">Request Access</a>
+            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg text-center tracking-wide">Request Access</a>
           </div>
         </div>
       )}
     </header>
   );
+
 }
 
 function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; size?: "sm" | "md" | "lg"; tone?: "light" | "dark" }) {
   const dim = size === "lg" ? "w-16 h-16" : size === "sm" ? "w-11 h-11" : "w-14 h-14";
   const glyph = size === "lg" ? "w-8 h-8" : size === "sm" ? "w-5 h-5" : "w-7 h-7";
   const glowColor =
-    tone === "dark" ? "rgba(123,154,75,0.55)" : "rgba(47,74,29,0.45)";
+    tone === "dark" ? "rgba(184,150,12,0.55)" : "rgba(138,112,9,0.45)";
   return (
     <div
-      className={`${dim} rounded-full flex items-center justify-center ring-1 ring-white/25 bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)]`}
+      className={`${dim} rounded-full flex items-center justify-center ring-1 ring-white/25 bg-[linear-gradient(135deg,#B8960C_0%,#8A7009_100%)]`}
       style={{
         boxShadow: `0 12px 28px -8px ${glowColor}, inset 0 1px 0 rgba(255,255,255,0.18)`,
       }}
     >
-      <Icon className={`${glyph} text-white`} strokeWidth={1.5} />
+      <Icon className={`${glyph} text-brand-cream`} strokeWidth={1.5} />
     </div>
   );
 }
+
 
 
 function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: string; alt: string; height?: string; caption?: string }) {
@@ -161,15 +163,16 @@ function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: stri
   );
 }
 
-function SectionHeader({ eyebrow, title, lead, dark }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
+function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
   return (
     <motion.div {...fadeIn} className="max-w-3xl mb-14">
-      <div className={`text-xs uppercase tracking-[0.2em] font-semibold mb-4 ${dark ? "text-brand-olive-light" : "text-brand-olive"}`}>{eyebrow}</div>
-      <h2 className={`text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] ${dark ? "text-white" : "text-brand-text"}`}>{title}</h2>
-      {lead && <p className={`mt-5 text-lg leading-relaxed ${dark ? "text-white/70" : "text-brand-muted"}`}>{lead}</p>}
+      <div className={`text-xs uppercase tracking-[0.2em] font-semibold mb-4 ${dark ? "text-brand-gold-light" : "text-brand-gold"}`}>{eyebrow}</div>
+      <h2 className={`text-4xl md:text-5xl font-serif font-semibold tracking-tight leading-[1.1] ${dark ? "text-brand-cream" : "text-brand-text"}`}>{title}</h2>
+      {lead && <p className={`mt-5 text-lg font-light leading-relaxed tracking-wide ${dark ? "text-brand-muted" : "text-brand-muted"}`}>{lead}</p>}
     </motion.div>
   );
 }
+
 
 function Hero() {
   const [muted, setMuted] = useState(true);
@@ -222,23 +225,23 @@ function Hero() {
           <div className="w-full max-w-4xl mx-auto px-6">
             <motion.div {...fadeIn} className="text-center">
               <h1
-                className="font-bold tracking-tight text-white"
+                className="font-serif font-semibold tracking-tight text-brand-cream"
                 style={{ fontSize: "clamp(42px, 7vw, 88px)", lineHeight: 1.1 }}
               >
-                <span className="block text-[#D4B968]">100%+ Depreciation.</span>
+                <span className="block text-brand-gold-light">100%+ Depreciation.</span>
                 <span className="block">Monthly Income.</span>
                 <span className="block">Travel Credits.</span>
               </h1>
               <p
-                className="mt-6 text-lg md:text-xl leading-relaxed mx-auto"
-                style={{ color: "rgba(255,255,255,0.85)", maxWidth: 640 }}
+                className="mt-6 text-lg md:text-xl font-light leading-relaxed tracking-wide mx-auto"
+                style={{ color: "rgba(245,240,232,0.85)", maxWidth: 640 }}
               >
                 One fund. Three benefits. Built for accredited investors who want a first-year write-off, cash every month, and real travel value — backed by hard assets.
               </p>
               <div className="mt-8">
                 <a
                   href="#access"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#D4B968] text-[#14261A] font-semibold hover:bg-[#c9ab54] transition shadow-lg shadow-black/40"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold text-brand-bg font-medium hover:bg-brand-gold-light transition shadow-lg shadow-black/40 tracking-wide"
                 >
                   Request Investor Access <ArrowRight className="w-4 h-4" />
                 </a>
@@ -246,31 +249,33 @@ function Hero() {
             </motion.div>
           </div>
         </div>
+
       </section>
 
 
       {/* Three-pillar investor strip */}
-      <section id="pillars" className="relative bg-[#0b120d] border-b border-white/10">
+      <section id="pillars" className="relative bg-brand-bg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 1</div>
-              <h3 className="text-2xl font-bold text-white mb-3">100%+ First-Year Write-Off</h3>
-              <p className="text-white/70 leading-relaxed">Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1.</p>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 1</div>
+              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">100%+ First-Year Write-Off</h3>
+              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1.</p>
             </motion.div>
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 2</div>
-              <h3 className="text-2xl font-bold text-white mb-3">6% Paid Monthly, Direct to You</h3>
-              <p className="text-white/70 leading-relaxed">Fixed preferred return paid monthly — cash in your account every month on committed capital.</p>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 2</div>
+              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">6% Paid Monthly, Direct to You</h3>
+              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Fixed preferred return paid monthly — cash in your account every month on committed capital.</p>
             </motion.div>
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D4B968] mb-3">Pillar 3</div>
-              <h3 className="text-2xl font-bold text-white mb-3">6% in Annual Travel Credits</h3>
-              <p className="text-white/70 leading-relaxed">Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide.</p>
+              <div className="text-xs uppercase tracking-[0.2em] font-semibold text-brand-gold-light mb-3">Pillar 3</div>
+              <h3 className="text-2xl font-serif font-medium text-brand-cream mb-3">6% in Annual Travel Credits</h3>
+              <p className="text-brand-cream/70 font-light leading-relaxed tracking-wide">Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide.</p>
             </motion.div>
           </div>
         </div>
       </section>
+
 
     </>
   );
@@ -402,7 +407,7 @@ function Thesis() {
     { label: "Annual Dollar Cap", value: "None (Unlike §179)" },
   ];
   return (
-    <section id="thesis" className="py-24 bg-white">
+    <section id="thesis" className="py-24 bg-brand-bg-light border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Investment Thesis"
@@ -412,16 +417,16 @@ function Thesis() {
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-6">
           {points.map((p, i) => (
             <motion.div key={p.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.05 }} className="flex gap-4">
-              <CheckCircle2 className="w-5 h-5 text-brand-olive flex-shrink-0 mt-1" />
+              <CheckCircle2 className="w-5 h-5 text-brand-gold flex-shrink-0 mt-1" />
               <div>
-                <h4 className="font-semibold text-brand-text mb-1">{p.title}</h4>
-                <p className="text-brand-muted text-[15px] leading-relaxed">{p.body}</p>
+                <h4 className="font-medium text-brand-cream mb-1">{p.title}</h4>
+                <p className="text-brand-muted text-[15px] font-light leading-relaxed tracking-wide">{p.body}</p>
               </div>
             </motion.div>
           ))}
         </div>
         <motion.div {...fadeIn} className="mt-16 relative">
-          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-olive/40 to-transparent" />
+          <div className="hidden md:block absolute left-8 right-8 top-8 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <motion.div
@@ -430,13 +435,13 @@ function Thesis() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center bg-white border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
+                className="relative flex flex-col items-center text-center bg-brand-card border border-brand-border rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow"
               >
-                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#4B6B2F_0%,#2F4A1D_100%)] text-white flex items-center justify-center font-bold text-lg ring-4 ring-white shadow-[0_10px_25px_-6px_rgba(47,74,29,0.5)]">
+                <div className="relative -mt-14 mb-4 w-16 h-16 rounded-full bg-[linear-gradient(135deg,#B8960C_0%,#8A7009_100%)] text-brand-cream flex items-center justify-center font-bold text-lg ring-4 ring-brand-bg-light shadow-[0_10px_25px_-6px_rgba(184,150,12,0.5)]">
                   {i + 1}
                 </div>
                 <div className="text-[10px] uppercase tracking-[0.15em] text-brand-muted mb-2">{s.label}</div>
-                <div className="font-semibold text-brand-text text-sm">{s.value}</div>
+                <div className="font-medium text-brand-cream text-sm">{s.value}</div>
               </motion.div>
             ))}
           </div>
@@ -444,6 +449,7 @@ function Thesis() {
       </div>
     </section>
   );
+
 }
 
 const PORTFOLIO_HERO_IMAGES = [
@@ -468,27 +474,28 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
           {slides.map((s, i) => (
-            <div key={i} className="relative flex-[0_0_100%] aspect-[16/7] bg-brand-sage">
+            <div key={i} className="relative flex-[0_0_100%] aspect-[16/7] bg-brand-bg-light">
               <img src={s.src} alt={s.caption} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white font-medium text-lg">{s.caption}</div>
+              <div className="absolute bottom-6 left-6 text-brand-cream font-light text-lg tracking-wide">{s.caption}</div>
             </div>
           ))}
         </div>
       </div>
-      <button onClick={() => embla?.scrollPrev()} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow" aria-label="Previous">
-        <ChevronLeft className="w-5 h-5 text-brand-text" />
+      <button onClick={() => embla?.scrollPrev()} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-cream/90 hover:bg-brand-cream flex items-center justify-center shadow" aria-label="Previous">
+        <ChevronLeft className="w-5 h-5 text-brand-bg" />
       </button>
-      <button onClick={() => embla?.scrollNext()} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow" aria-label="Next">
-        <ChevronRight className="w-5 h-5 text-brand-text" />
+      <button onClick={() => embla?.scrollNext()} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-cream/90 hover:bg-brand-cream flex items-center justify-center shadow" aria-label="Next">
+        <ChevronRight className="w-5 h-5 text-brand-bg" />
       </button>
       <div className="absolute bottom-4 right-6 flex gap-1.5">
         {slides.map((_, i) => (
-          <button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition ${selected === i ? "bg-white w-6" : "bg-white/50"}`} aria-label={`Slide ${i + 1}`} />
+          <button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition ${selected === i ? "bg-brand-cream w-6" : "bg-brand-cream/50"}`} aria-label={`Slide ${i + 1}`} />
         ))}
       </div>
     </div>
   );
+
 }
 
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
@@ -531,7 +538,7 @@ function Portfolio() {
     };
   }, [selected]);
   return (
-    <section id="portfolio" className="py-24 bg-brand-sage border-y border-brand-border">
+    <section id="portfolio" className="py-24 bg-brand-bg border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Portfolio"
@@ -546,10 +553,10 @@ function Portfolio() {
             <button
               key={c}
               onClick={() => setActive(c)}
-              className={`px-4 py-2 text-sm rounded-full border transition ${
+              className={`px-4 py-2 text-sm rounded-full border transition tracking-wide ${
                 active === c
-                  ? "bg-brand-olive text-white border-brand-olive"
-                  : "bg-white text-brand-text border-brand-border hover:border-brand-olive"
+                  ? "bg-brand-gold text-brand-bg border-brand-gold"
+                  : "bg-brand-card text-brand-cream border-brand-border hover:border-brand-gold"
               }`}
             >
               {c}
@@ -567,9 +574,9 @@ function Portfolio() {
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
               onClick={() => setSelected(a)}
-              className="group bg-white border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-olive-light transition-all cursor-pointer"
+              className="group bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-gold-light transition-all cursor-pointer"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-white">
+              <div className="relative aspect-[4/3] overflow-hidden bg-brand-card">
                 <img
                   src={a.img}
                   alt={a.name}
@@ -581,12 +588,12 @@ function Portfolio() {
                 <div className="absolute top-3 left-3">
                   <IconBadge icon={a.icon} size="sm" />
                 </div>
-                <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/85 text-brand-olive-dark"}`}>
+                <span className={`absolute top-3 right-3 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded backdrop-blur ${a.tag === "Personal Property" ? "bg-brand-gold/90 text-brand-bg" : "bg-brand-cream/85 text-brand-bg"}`}>
                   {a.tag}
                 </span>
                 <div className="absolute inset-x-0 bottom-0 h-[35%] p-5 flex flex-col justify-center">
-                  <h4 className="font-semibold text-brand-text mb-1.5">{a.name}</h4>
-                  <p className="text-sm text-brand-muted leading-relaxed line-clamp-2">{a.desc}</p>
+                  <h4 className="font-medium text-brand-cream mb-1.5">{a.name}</h4>
+                  <p className="text-sm text-brand-muted font-light leading-relaxed line-clamp-2">{a.desc}</p>
                 </div>
               </div>
             </motion.div>
@@ -611,16 +618,16 @@ function Portfolio() {
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-2xl shadow-2xl flex flex-col"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-brand-card rounded-2xl shadow-2xl flex flex-col"
             >
               <button
                 onClick={() => setSelected(null)}
                 aria-label="Close"
-                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur transition"
+                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full bg-black/50 hover:bg-black/70 text-brand-cream flex items-center justify-center backdrop-blur transition"
               >
                 <X className="h-5 w-5" />
               </button>
-              <div className="relative w-full aspect-[16/9] bg-brand-sage overflow-hidden">
+              <div className="relative w-full aspect-[16/9] bg-brand-bg-light overflow-hidden">
                 <img
                   src={selected.img}
                   alt={selected.name}
@@ -631,17 +638,18 @@ function Portfolio() {
                 <div className="absolute top-4 left-4">
                   <IconBadge icon={selected.icon} size="sm" />
                 </div>
-                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur ${selected.tag === "Personal Property" ? "bg-brand-olive/90 text-white" : "bg-white/90 text-brand-olive-dark"}`}>
+                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur ${selected.tag === "Personal Property" ? "bg-brand-gold/90 text-brand-bg" : "bg-brand-cream/90 text-brand-bg"}`}>
                   {selected.tag}
                 </span>
-                <span className="absolute bottom-4 right-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded bg-white/90 text-brand-olive-dark backdrop-blur">
+                <span className="absolute bottom-4 right-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded bg-brand-cream/90 text-brand-bg backdrop-blur">
                   {selected.cat}
                 </span>
               </div>
               <div className="p-8 overflow-y-auto">
-                <h3 className="text-2xl md:text-3xl font-semibold text-brand-text mb-3">{selected.name}</h3>
-                <p className="text-brand-muted leading-relaxed">{selected.desc}</p>
+                <h3 className="text-2xl md:text-3xl font-serif font-medium text-brand-cream mb-3">{selected.name}</h3>
+                <p className="text-brand-muted font-light leading-relaxed tracking-wide">{selected.desc}</p>
               </div>
+
             </motion.div>
           </motion.div>
         )}
@@ -817,18 +825,18 @@ function Returns() {
     ["Investor Term", "1–3 Years"],
   ];
   const splitData = [
-    { name: "6% Cash (Monthly)", value: 6, color: "#4B6B2F" },
-    { name: "6% Travel Credits (Annual)", value: 6, color: "#B8955A" },
+    { name: "6% Cash (Monthly)", value: 6, color: "#B8960C" },
+    { name: "6% Travel Credits (Annual)", value: 6, color: "#D4B968" },
   ];
   return (
-    <section id="opp" className="py-24 bg-white">
+    <section id="opp" className="py-24 bg-brand-bg-light border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Investor Terms"
           title="Investor Terms at a Glance"
           lead="100% depreciation, 6% monthly cash income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
         />
-        <motion.div {...fadeIn} className="mb-12 bg-white border border-brand-border rounded-xl p-8 shadow-md">
+        <motion.div {...fadeIn} className="mb-12 bg-brand-card border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="h-72">
               <ResponsiveContainer width="100%" height="100%">
@@ -842,54 +850,55 @@ function Returns() {
               </ResponsiveContainer>
             </div>
             <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold mb-3">Return Composition</div>
-              <h4 className="text-3xl font-bold text-brand-text tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
-              <p className="text-brand-muted leading-relaxed">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
+              <div className="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3">Return Composition</div>
+              <h4 className="text-3xl font-serif font-medium text-brand-cream tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
+              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
             </div>
           </div>
         </motion.div>
         <div className="grid lg:grid-cols-2 gap-6 items-start">
-          <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg overflow-hidden">
-            <div className="px-6 py-4 bg-brand-sage border-b border-brand-border">
-              <h4 className="font-semibold text-brand-text">Deal Terms</h4>
+          <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-lg overflow-hidden">
+            <div className="px-6 py-4 bg-brand-bg border-b border-brand-border">
+              <h4 className="font-medium text-brand-cream">Deal Terms</h4>
             </div>
             <table className="w-full text-sm">
               <tbody>
                 {terms.map(([k, v]) => (
                   <tr key={k} className="border-b border-brand-border last:border-0">
-                    <td className="px-6 py-3 text-brand-muted">{k}</td>
-                    <td className="px-6 py-3 text-right font-medium text-brand-text">{v}</td>
+                    <td className="px-6 py-3 text-brand-muted font-light">{k}</td>
+                    <td className="px-6 py-3 text-right font-medium text-brand-cream">{v}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </motion.div>
           <div className="space-y-4">
-            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={DollarSign} /></div>
-              <div className="text-5xl font-bold text-brand-text tracking-tight">6%</div>
-              <div className="text-lg font-semibold text-brand-text mt-2">Cash Return</div>
-              <p className="text-sm text-brand-muted mt-2 leading-relaxed">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
+              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
+              <div className="text-lg font-medium text-brand-cream mt-2">Cash Return</div>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
             </motion.div>
-            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={Plane} /></div>
-              <div className="text-5xl font-bold text-brand-text tracking-tight">6%</div>
-              <div className="text-lg font-semibold text-brand-text mt-2">Travel Credits</div>
-              <p className="text-sm text-brand-muted mt-2 leading-relaxed">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
+              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
+              <div className="text-lg font-medium text-brand-cream mt-2">Travel Credits</div>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
             </motion.div>
           </div>
         </div>
-        <motion.div {...fadeIn} className="mt-14 bg-brand-dark rounded-xl p-10 flex flex-wrap items-center justify-between gap-6">
+        <motion.div {...fadeIn} className="mt-14 bg-brand-bg rounded-xl p-10 flex flex-wrap items-center justify-between gap-6 border border-brand-border">
           <div>
-            <h3 className="text-3xl font-bold text-white tracking-tight">Ready to Deploy Capital?</h3>
-            <p className="text-white/70 mt-2">Request the Private Placement Memorandum.</p>
+            <h3 className="text-3xl font-serif font-medium text-brand-cream tracking-tight">Ready to Deploy Capital?</h3>
+            <p className="text-brand-cream/70 mt-2 font-light tracking-wide">Request the Private Placement Memorandum.</p>
           </div>
-          <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-olive-light text-white font-medium hover:bg-brand-olive transition">
+          <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-gold text-brand-bg font-medium hover:bg-brand-gold-light transition tracking-wide">
             Request the PPM <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
     </section>
+
   );
 }
 
@@ -1002,31 +1011,32 @@ function Risks() {
     { icon: RotateCcw, title: "Recapture Risk", body: "§1245 recapture upon asset disposition is taxed as ordinary income. Recapture may exceed cash distributions received." },
   ];
   return (
-    <section id="risks" className="relative py-24 bg-brand-dark overflow-hidden">
+    <section id="risks" className="relative py-24 bg-brand-bg overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.15]"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.12]"
         style={{ backgroundImage: "url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=2000&q=80)" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand-dark/85 to-brand-dark" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/70 via-brand-bg/85 to-brand-bg" />
       <div className="relative max-w-7xl mx-auto px-6">
         <SectionHeader dark eyebrow="Risk Factors" title="Material Risk Factors" />
         <div className="grid md:grid-cols-2 gap-4 mb-10">
           {risks.map((r, i) => (
-            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
+            <motion.div key={r.title} {...fadeIn} transition={{ duration: 0.5, delay: i * 0.06 }} className="bg-brand-card/50 border border-white/10 rounded-xl p-6 backdrop-blur">
               <div className="mb-3"><IconBadge icon={r.icon} /></div>
-              <h4 className="font-semibold text-white mb-2">{r.title}</h4>
-              <p className="text-sm text-white/70 leading-relaxed">{r.body}</p>
+              <h4 className="font-medium text-brand-cream mb-2">{r.title}</h4>
+              <p className="text-sm text-brand-cream/70 font-light leading-relaxed tracking-wide">{r.body}</p>
             </motion.div>
           ))}
         </div>
-        <motion.div {...fadeIn} className="bg-white/5 border border-white/10 rounded-lg p-6">
-          <p className="text-xs text-white/60 leading-relaxed">
+        <motion.div {...fadeIn} className="bg-brand-card/50 border border-white/10 rounded-lg p-6">
+          <p className="text-xs text-brand-cream/60 font-light leading-relaxed tracking-wide">
             This material is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. Offered only to accredited investors under Reg D Rule 506(c). Past performance is not indicative of future results. Consult your tax, legal, and financial advisors before investing.
           </p>
         </motion.div>
       </div>
     </section>
   );
+
 }
 
 const DESTINATIONS = [
@@ -1101,66 +1111,67 @@ function AccessForm() {
     setForm({ firstName: "", lastName: "", email: "", phone: "", range: "", source: "", accredited: false });
   };
   return (
-    <section id="access" className="py-24 bg-white">
+    <section id="access" className="py-24 bg-brand-bg border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader eyebrow="Get Access" title="Request the Private Placement Memorandum" />
         <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-brand-border border border-brand-border rounded-lg overflow-hidden mb-10">
           {stats.map(([k, v]) => (
-            <div key={k} className="bg-white p-5">
+            <div key={k} className="bg-brand-card p-5">
               <div className="text-[10px] uppercase tracking-wider text-brand-muted mb-1.5">{k}</div>
-              <div className="font-semibold text-brand-text text-sm">{v}</div>
+              <div className="font-medium text-brand-cream text-sm">{v}</div>
             </div>
           ))}
         </div>
-        <motion.form {...fadeIn} onSubmit={onSubmit} className="bg-white border border-brand-border rounded-xl p-8 grid md:grid-cols-2 gap-5">
+        <motion.form {...fadeIn} onSubmit={onSubmit} className="bg-brand-card border border-brand-border rounded-xl p-8 grid md:grid-cols-2 gap-5">
           <div>
-            <Label htmlFor="fn">First Name</Label>
-            <Input id="fn" required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} className="mt-2" />
+            <Label htmlFor="fn" className="text-brand-cream/80 font-light">First Name</Label>
+            <Input id="fn" required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} className="mt-2 bg-brand-bg-light border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label htmlFor="ln">Last Name</Label>
-            <Input id="ln" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} className="mt-2" />
+            <Label htmlFor="ln" className="text-brand-cream/80 font-light">Last Name</Label>
+            <Input id="ln" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} className="mt-2 bg-brand-bg-light border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label htmlFor="em">Email</Label>
-            <Input id="em" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-2" />
+            <Label htmlFor="em" className="text-brand-cream/80 font-light">Email</Label>
+            <Input id="em" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-2 bg-brand-bg-light border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label htmlFor="ph">Phone</Label>
-            <Input id="ph" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-2" />
+            <Label htmlFor="ph" className="text-brand-cream/80 font-light">Phone</Label>
+            <Input id="ph" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-2 bg-brand-bg-light border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label>Investment Range</Label>
+            <Label className="text-brand-cream/80 font-light">Investment Range</Label>
             <Select value={form.range} onValueChange={(v) => setForm({ ...form, range: v })}>
-              <SelectTrigger className="mt-2"><SelectValue placeholder="Select a range" /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="u100">Under $100K</SelectItem>
-                <SelectItem value="100-250">$100K–$250K</SelectItem>
-                <SelectItem value="250-500">$250K–$500K</SelectItem>
-                <SelectItem value="500-1m">$500K–$1M</SelectItem>
-                <SelectItem value="1m+">$1M+</SelectItem>
+              <SelectTrigger className="mt-2 bg-brand-bg-light border-brand-border text-brand-cream"><SelectValue placeholder="Select a range" /></SelectTrigger>
+              <SelectContent className="bg-brand-card border-brand-border">
+                <SelectItem value="u100" className="text-brand-cream focus:bg-brand-bg-light-light focus:text-brand-cream">Under $100K</SelectItem>
+                <SelectItem value="100-250" className="text-brand-cream focus:bg-brand-bg-light-light focus:text-brand-cream">$100K–$250K</SelectItem>
+                <SelectItem value="250-500" className="text-brand-cream focus:bg-brand-bg-light-light focus:text-brand-cream">$250K–$500K</SelectItem>
+                <SelectItem value="500-1m" className="text-brand-cream focus:bg-brand-bg-light-light focus:text-brand-cream">$500K–$1M</SelectItem>
+                <SelectItem value="1m+" className="text-brand-cream focus:bg-brand-bg-light-light focus:text-brand-cream">$1M+</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div>
-            <Label htmlFor="src">How did you hear about us</Label>
-            <Input id="src" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className="mt-2" />
+            <Label htmlFor="src" className="text-brand-cream/80 font-light">How did you hear about us</Label>
+            <Input id="src" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className="mt-2 bg-brand-bg-light border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div className="md:col-span-2 flex items-start gap-3 pt-2">
-            <Checkbox id="acc" checked={form.accredited} onCheckedChange={(v) => setForm({ ...form, accredited: v === true })} className="mt-1" />
-            <Label htmlFor="acc" className="text-sm text-brand-muted leading-relaxed font-normal">
+            <Checkbox id="acc" checked={form.accredited} onCheckedChange={(v) => setForm({ ...form, accredited: v === true })} className="mt-1 border-brand-border data-[state=checked]:bg-brand-gold data-[state=checked]:text-brand-bg" />
+            <Label htmlFor="acc" className="text-sm text-brand-muted font-light leading-relaxed font-normal">
               I confirm I am an accredited investor as defined under SEC Rule 501(a) and understand this offering is available only to accredited investors.
             </Label>
           </div>
           <div className="md:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-2">
-            <p className="text-xs text-brand-muted max-w-md">Your information is kept strictly confidential. This is not a commitment to invest.</p>
-            <Button type="submit" className="bg-brand-olive hover:bg-brand-olive-dark text-white px-6 py-6 h-auto">
+            <p className="text-xs text-brand-muted font-light tracking-wide max-w-md">Your information is kept strictly confidential. This is not a commitment to invest.</p>
+            <Button type="submit" className="bg-brand-gold hover:bg-brand-gold-light text-brand-bg px-6 py-6 h-auto tracking-wide">
               Request the PPM
             </Button>
           </div>
         </motion.form>
       </div>
     </section>
+
   );
 }
 
@@ -1171,21 +1182,21 @@ function Footer() {
     { title: "Contact", links: ["Request Access", "Schedule a Call", "Investor Relations"] },
   ];
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="bg-brand-bg text-brand-cream border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <Landmark className="w-6 h-6 text-brand-olive-light" />
-            <span className="font-semibold">Lookout Towers Fund</span>
+            <Landmark className="w-6 h-6 text-brand-gold-light" />
+            <span className="font-medium tracking-tight">Lookout Towers Fund</span>
           </div>
-          <p className="text-sm text-white/60 leading-relaxed">Hard Assets. Tax Efficiency. Mailbox Money.</p>
+          <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Mailbox Money.</p>
         </div>
         {cols.map((c) => (
           <div key={c.title}>
-            <div className="text-xs uppercase tracking-wider font-semibold text-white/60 mb-4">{c.title}</div>
+            <div className="text-xs uppercase tracking-wider font-semibold text-brand-cream/60 mb-4">{c.title}</div>
             <ul className="space-y-2.5">
               {c.links.map((l) => (
-                <li key={l}><a href="#access" className="text-sm text-white/80 hover:text-white transition">{l}</a></li>
+                <li key={l}><a href="#access" className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition tracking-wide">{l}</a></li>
               ))}
             </ul>
           </div>
@@ -1193,8 +1204,8 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-8 space-y-4">
-          <p className="text-xs text-white/40">© 2025 Lookout Towers Fund LLC · All Rights Reserved</p>
-          <p className="text-xs text-white/40 leading-relaxed max-w-4xl">
+          <p className="text-xs text-brand-cream/40 font-light tracking-wide">© 2025 Lookout Towers Fund LLC · All Rights Reserved</p>
+          <p className="text-xs text-brand-cream/40 font-light leading-relaxed tracking-wide max-w-4xl">
             This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security. Securities offered through private placement under Regulation D, Rule 506(c) of the Securities Act of 1933. Available to accredited investors only. Investing involves risk including loss of principal.
           </p>
         </div>
@@ -1203,9 +1214,10 @@ function Footer() {
   );
 }
 
+
 export default function LookoutTowersLanding() {
   return (
-    <div className="bg-white text-brand-text min-h-screen font-sans">
+    <div className="bg-brand-bg text-brand-text min-h-screen font-sans">
       <Navbar />
       <main>
         <Hero />
