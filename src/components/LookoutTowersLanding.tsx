@@ -1205,7 +1205,7 @@ function Footer() {
 
 export default function LookoutTowersLanding() {
   return (
-    <div className="bg-white text-brand-text min-h-screen font-sans">
+    <div className="bg-brand-bg text-brand-text min-h-screen font-sans">
       <Navbar />
       <main>
         <Hero />
