@@ -592,27 +592,27 @@ function Hero() {
       </section>
 
       {/* Three Pillars — cinematic full-screen scroll */}
-      <div id="pillars" style={{ background: "#0a0806" }}>
+      <div id="pillars" style={{ background: "#0a0806", margin: 0, padding: 0 }}>
         <CinematicPillar
           number="01"
           label="PILLAR 01"
           title={<>100%+ First-Year <em style={{ fontStyle: "italic" }}>Write-Off</em></>}
           body="Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap."
-          image={pillarWriteoffV2.url}
+          image={pillar1Documents.url}
         />
         <CinematicPillar
           number="02"
           label="PILLAR 02"
           title={<>6% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
           body="Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month."
-          image={pillarIncomeV2.url}
+          image={pillar2Seal.url}
         />
         <CinematicPillar
           number="03"
           label="PILLAR 03"
           title={<>6% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
           body="Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide."
-          image={pillarTravelV2.url}
+          image={pillar3Villa.url}
         />
       </div>
 
