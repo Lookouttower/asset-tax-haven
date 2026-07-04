@@ -106,7 +106,14 @@ function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="lux-nav text-brand-cream/75 hover:text-brand-gold transition-colors duration-300"
+              className="uppercase hover:text-brand-gold transition-colors duration-300"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 400,
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                color: "rgba(240,236,228,0.8)",
+              }}
             >
               {l.label}
             </a>
@@ -114,16 +121,15 @@ function Navbar() {
         </nav>
 
         {/* Center: logo */}
-        <a href="#home" className="flex items-center justify-center gap-2 justify-self-center">
-          <Landmark className="w-5 h-5 text-brand-gold" strokeWidth={1.25} />
+        <a href="#home" className="flex items-center justify-center justify-self-center">
           <span
-            className="text-brand-cream"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 300,
               fontStyle: "italic",
               fontSize: "18px",
-              letterSpacing: "0.08em",
+              letterSpacing: "0.05em",
+              color: "#f0ece4",
               whiteSpace: "nowrap",
             }}
           >
