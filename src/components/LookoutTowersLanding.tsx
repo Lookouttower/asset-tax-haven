@@ -392,101 +392,30 @@ function Hero() {
         </div>
       </section>
 
-      {/* Three Pillars */}
-      <section id="pillars" className="border-b border-brand-gold/15" style={{ background: "#0a0806" }}>
-        {[
-          { num: "01", label: "PILLAR 01", title: "100%+ First-Year Write-Off", body: "Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap.", img: pillarWriteoffV2.url, imageLeft: true },
-          { num: "02", label: "PILLAR 02", title: "6% Paid Monthly, Direct to You", body: "Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month.", img: pillarIncomeV2.url, imageLeft: false },
-          { num: "03", label: "PILLAR 03", title: "6% in Annual Travel Credits", body: "Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide.", img: pillarTravelV2.url, imageLeft: true },
-        ].map((p, i) => (
-          <div
-            key={p.num}
-            className="grid grid-cols-1 md:grid-cols-2"
-            style={{ minHeight: 600 }}
-          >
-            {/* Image */}
-            <div
-              className={`relative min-h-[400px] md:min-h-[600px] ${p.imageLeft ? "md:order-1" : "md:order-2"}`}
-            >
-              <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
-              <div
-                className="absolute inset-0 pointer-events-none hidden md:block"
-                style={{
-                  background: p.imageLeft
-                    ? "linear-gradient(to right, transparent 60%, #0a0806 100%)"
-                    : "linear-gradient(to left, transparent 60%, #0a0806 100%)",
-                }}
-              />
-            </div>
-            {/* Text */}
-            <motion.div
-              {...fadeIn}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
-              className={`flex items-center px-8 md:px-16 py-16 ${p.imageLeft ? "md:order-2" : "md:order-1"}`}
-              style={{ background: "#0a0806" }}
-            >
-              <div className="max-w-md">
-                <div
-                  className="mb-6"
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                    fontSize: "10px",
-                    letterSpacing: "0.3em",
-                    color: "#c9a84c",
-                  }}
-                >
-                  {p.label}
-                </div>
-                <h3
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 300,
-                    fontStyle: "italic",
-                    fontSize: "clamp(36px, 5vw, 52px)",
-                    lineHeight: 1.15,
-                    color: "#f0ece4",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  {p.title}
-                </h3>
-                <div style={{ width: 40, height: 1, background: "#c9a84c", margin: "16px 0" }} />
-                <p
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontWeight: 300,
-                    fontSize: "14px",
-                    lineHeight: 1.9,
-                    color: "rgba(240,236,228,0.6)",
-                    maxWidth: 360,
-                  }}
-                >
-                  {p.body}
-                </p>
-                <a
-                  href="#thesis"
-                  className="pillar-learn-link group inline-flex items-center gap-2 mt-8"
-                  style={{
-                    fontFamily: "'Jost', sans-serif",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                    fontSize: "10px",
-                    letterSpacing: "0.3em",
-                    color: "#c9a84c",
-                  }}
-                >
-                  <span className="pillar-learn-underline relative">
-                    Learn how this works
-                  </span>
-                  <span aria-hidden>→</span>
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        ))}
-      </section>
+      {/* Three Pillars — cinematic full-screen scroll */}
+      <div id="pillars" style={{ background: "#0a0806" }}>
+        <CinematicPillar
+          number="01"
+          label="PILLAR 01"
+          title={<>100%+ First-Year <em style={{ fontStyle: "italic" }}>Write-Off</em></>}
+          body="Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap."
+          image={pillarWriteoffV2.url}
+        />
+        <CinematicPillar
+          number="02"
+          label="PILLAR 02"
+          title={<>6% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
+          body="Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month."
+          image={pillarIncomeV2.url}
+        />
+        <CinematicPillar
+          number="03"
+          label="PILLAR 03"
+          title={<>6% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
+          body="Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide."
+          image={pillarTravelV2.url}
+        />
+      </div>
 
 
     </>
