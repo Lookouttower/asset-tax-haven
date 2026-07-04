@@ -25,6 +25,7 @@ import asset4 from "@/assets/asset-4.jpeg.asset.json";
 import asset5 from "@/assets/asset-5.jpeg.asset.json";
 import asset6 from "@/assets/asset-6.jpeg.asset.json";
 import asset7 from "@/assets/asset-7.jpeg.asset.json";
+import yachtVandutch from "@/assets/yacht-vandutch.jpg.asset.json";
 import asset8 from "@/assets/asset-8.jpeg.asset.json";
 import asset9 from "@/assets/asset-9.jpeg.asset.json";
 import asset10 from "@/assets/asset-10.jpeg.asset.json";
@@ -928,7 +929,7 @@ const ASSETS: AssetWithImg[] = [
   { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "100% Depreciation", cat: "Air", img: asset4.url },
   { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "100% Depreciation", cat: "Air", img: asset5.url },
   { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "100% Depreciation", cat: "Marine", img: asset6.url },
-  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "100% Depreciation", cat: "Marine", img: asset7.url },
+  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "100% Depreciation", cat: "Marine", img: yachtVandutch.url },
   { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "100% Depreciation", cat: "Marine", img: asset8.url },
   { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "100% Depreciation", cat: "Ground", img: asset9.url },
   { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "100% Depreciation", cat: "Ground", img: asset10.url },
