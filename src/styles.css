@@ -5,32 +5,32 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Cormorant Garamond", "Libre Baskerville", Georgia, serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-white: #F5F0E8;
-  --color-brand-cream: #F5F0E8;
-  --color-brand-sage: #1A0F0A;
-  --color-brand-dark: #1A0F0A;
-  --color-brand-bg: #1A0F0A;
-  --color-brand-bg-light: #2A1A12;
-  --color-brand-card: #24150F;
-  --color-brand-card-hover: #2E1B13;
-  --color-brand-olive: #B8960C;
-  --color-brand-olive-light: #D4B968;
-  --color-brand-olive-dark: #8A7009;
-  --color-brand-gold: #B8960C;
-  --color-brand-gold-light: #D4B968;
-  --color-brand-gold-dark: #8A7009;
-  --color-brand-text: #F5F0E8;
-  --color-brand-muted: #A89A8A;
-  --color-brand-border: rgba(255, 255, 255, 0.1);
-  --color-brand-noir: #1A0F0A;
-  --color-brand-noir-card: #24150F;
-  --color-brand-noir-hover: #2E1B13;
-  --color-brand-noir-border: rgba(255, 255, 255, 0.1);
-  --color-brand-gold-accent: #D4B968;
-  --color-brand-gold-soft: rgba(184, 150, 12, 0.8);
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-white: #f0ece4;
+  --color-brand-cream: #f0ece4;
+  --color-brand-sage: #0a0a0a;
+  --color-brand-dark: #0a0a0a;
+  --color-brand-bg: #0a0a0a;
+  --color-brand-bg-light: #141414;
+  --color-brand-card: #111111;
+  --color-brand-card-hover: #171717;
+  --color-brand-olive: #c9a84c;
+  --color-brand-olive-light: #d8bd6a;
+  --color-brand-olive-dark: #a58838;
+  --color-brand-gold: #c9a84c;
+  --color-brand-gold-light: #d8bd6a;
+  --color-brand-gold-dark: #a58838;
+  --color-brand-text: #f0ece4;
+  --color-brand-muted: #7a7570;
+  --color-brand-border: rgba(201, 168, 76, 0.25);
+  --color-brand-noir: #0a0a0a;
+  --color-brand-noir-card: #111111;
+  --color-brand-noir-hover: #171717;
+  --color-brand-noir-border: rgba(201, 168, 76, 0.25);
+  --color-brand-gold-accent: #d8bd6a;
+  --color-brand-gold-soft: rgba(201, 168, 76, 0.8);
 }
 
 
@@ -171,5 +171,40 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.02em;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+  }
+}
+
+/* Luxury editorial utility classes */
+.lux-label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+}
+.lux-nav {
+  font-family: var(--font-body);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+}
+.lux-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+.lux-headline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.03em;
 }

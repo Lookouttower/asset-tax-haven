@@ -87,39 +87,72 @@ function Navbar() {
   }, []);
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-        scrolled
-          ? "bg-brand-bg/85 backdrop-blur-xl border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 animate-fade-in"
+      style={{
+        animationDelay: "0.3s",
+        animationFillMode: "backwards",
+        background: scrolled ? "rgba(10,10,10,0.7)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(201,168,76,0.15)"
+          : "1px solid transparent",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-gold-light" : "text-brand-cream"}`} />
-          <span className={`font-medium tracking-tight ${scrolled ? "text-brand-cream" : "text-brand-cream"}`}>100% Depreciation Fund</span>
-        </a>
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition-colors tracking-wide">
+      <div className="max-w-7xl mx-auto px-6 h-20 grid grid-cols-3 items-center">
+        {/* Left: nav links */}
+        <nav className="hidden lg:flex items-center gap-8 justify-self-start">
+          {NAV_LINKS.slice(0, 4).map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="lux-nav text-brand-cream/75 hover:text-brand-gold transition-colors duration-300"
+            >
               {l.label}
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-2">
-          <a href="#access" className="px-4 py-2 text-sm font-light rounded-full border border-brand-cream/40 hover:border-brand-cream text-brand-cream transition backdrop-blur tracking-wide">View Terms</a>
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg hover:bg-brand-gold-light transition tracking-wide">Request Access</a>
+
+        {/* Center: logo */}
+        <a href="#home" className="flex items-center justify-center gap-2 justify-self-center">
+          <Landmark className="w-5 h-5 text-brand-gold" strokeWidth={1.25} />
+          <span
+            className="text-brand-cream"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 300,
+              fontStyle: "italic",
+              fontSize: "18px",
+              letterSpacing: "0.08em",
+              whiteSpace: "nowrap",
+            }}
+          >
+            100% Depreciation Fund
+          </span>
+        </a>
+
+        {/* Right: CTA */}
+        <div className="hidden md:flex items-center gap-4 justify-self-end">
+          <a
+            href="#access"
+            className="lux-nav text-brand-gold border border-brand-gold/60 hover:bg-brand-gold hover:text-brand-bg transition-all duration-500"
+            style={{ padding: "12px 28px" }}
+          >
+            Request Access
+          </a>
         </div>
-        <button className="lg:hidden text-brand-cream" onClick={() => setOpen(!open)} aria-label="Menu">
+
+        <button className="lg:hidden text-brand-cream justify-self-end col-start-3" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-brand-bg/95 backdrop-blur-xl">
-          <div className="px-6 py-4 flex flex-col gap-3">
+        <div className="lg:hidden border-t border-brand-gold/20" style={{ background: "rgba(10,10,10,0.96)", backdropFilter: "blur(12px)" }}>
+          <div className="px-6 py-6 flex flex-col gap-5">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-light text-brand-cream/85 py-1 tracking-wide">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="lux-nav text-brand-cream/85 py-1">{l.label}</a>
             ))}
-            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg text-center tracking-wide">Request Access</a>
+            <a href="#access" onClick={() => setOpen(false)} className="lux-nav mt-2 py-3 text-brand-gold border border-brand-gold/60 text-center">Request Access</a>
           </div>
         </div>
       )}
@@ -169,9 +202,46 @@ function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: stri
 function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
   return (
     <motion.div {...fadeIn} className="max-w-3xl mb-14">
-      <div className={`text-xs uppercase tracking-[0.2em] font-semibold mb-4 ${dark ? "text-brand-gold-light" : "text-brand-gold"}`}>{eyebrow}</div>
-      <h2 className={`text-4xl md:text-5xl font-serif font-semibold tracking-tight leading-[1.1] ${dark ? "text-brand-cream" : "text-brand-text"}`}>{title}</h2>
-      {lead && <p className={`mt-5 text-lg font-light leading-relaxed tracking-wide ${dark ? "text-brand-muted" : "text-brand-muted"}`}>{lead}</p>}
+      <div
+        className={`mb-5 ${dark ? "text-brand-gold" : "text-brand-gold"}`}
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontWeight: 400,
+          textTransform: "uppercase",
+          letterSpacing: "0.3em",
+          fontSize: "11px",
+        }}
+      >
+        {eyebrow}
+      </div>
+      <h2
+        className={dark ? "text-brand-cream" : "text-brand-text"}
+        style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontWeight: 300,
+          fontStyle: "italic",
+          fontSize: "clamp(36px, 5vw, 56px)",
+          lineHeight: 1.15,
+          letterSpacing: "0.02em",
+        }}
+      >
+        {title}
+      </h2>
+      <div className="mt-6 mb-2" style={{ width: 60, height: 1, background: "#c9a84c" }} />
+      {lead && (
+        <p
+          className="mt-6 text-brand-muted"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 300,
+            fontSize: "15px",
+            lineHeight: 1.9,
+            letterSpacing: "0.02em",
+          }}
+        >
+          {lead}
+        </p>
+      )}
     </motion.div>
   );
 }
@@ -211,36 +281,91 @@ function Hero() {
           style={{
             zIndex: 1,
             background:
-              "linear-gradient(to bottom, rgba(10,8,4,0.35) 0%, rgba(10,8,4,0.65) 100%)",
+              "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.75) 100%)",
           }}
         />
 
         {/* Content: centered headline */}
-        <div className="absolute inset-0 flex items-center" style={{ zIndex: 2 }}>
-          <div className="w-full max-w-4xl mx-auto px-6">
-            <motion.div {...fadeIn} className="text-center">
-              <h1
-                className="font-serif font-semibold tracking-tight text-brand-cream"
-                style={{ fontSize: "clamp(42px, 7vw, 88px)", lineHeight: 1.1 }}
+        <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 2 }}>
+          <div className="w-full max-w-4xl mx-auto px-6 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-brand-cream"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 300,
+                fontStyle: "italic",
+                fontSize: "clamp(52px, 9vw, 96px)",
+                lineHeight: 1.05,
+                letterSpacing: "0.05em",
+              }}
+            >
+              Harmony of Forms
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+              className="mt-8 mx-auto uppercase"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 300,
+                fontSize: "14px",
+                letterSpacing: "0.2em",
+                color: "rgba(240,236,228,0.7)",
+                maxWidth: 640,
+              }}
+            >
+              Hard assets · Tax efficiency · Monthly income
+            </motion.p>
+
+            {/* Gold divider */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.55 }}
+              className="mx-auto mt-10"
+              style={{
+                width: 60,
+                height: 1,
+                background: "#c9a84c",
+                transformOrigin: "center",
+              }}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
+              className="mt-10"
+            >
+              <a
+                href="#access"
+                className="inline-block uppercase"
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "11px",
+                  letterSpacing: "0.3em",
+                  color: "#c9a84c",
+                  border: "1px solid #c9a84c",
+                  padding: "14px 40px",
+                  transition: "all 0.4s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#c9a84c";
+                  e.currentTarget.style.color = "#0a0a0a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = "#c9a84c";
+                }}
               >
-                <span className="block text-brand-gold-light">100%+ Depreciation.</span>
-                <span className="block">Monthly Income.</span>
-                <span className="block">Travel Credits.</span>
-              </h1>
-              <p
-                className="mt-6 text-lg md:text-xl font-light leading-relaxed tracking-wide mx-auto"
-                style={{ color: "rgba(245,240,232,0.85)", maxWidth: 640 }}
-              >
-                One fund. Three benefits. Built for accredited investors who want a first-year write-off, cash every month, and real travel value — backed by hard assets.
-              </p>
-              <div className="mt-8">
-                <a
-                  href="#access"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold text-brand-bg font-medium hover:bg-brand-gold-light transition shadow-lg shadow-black/40 tracking-wide"
-                >
-                  Request Investor Access <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
+                Request Investor Access
+              </a>
             </motion.div>
           </div>
         </div>
