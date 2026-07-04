@@ -225,23 +225,23 @@ function Hero() {
           <div className="w-full max-w-4xl mx-auto px-6">
             <motion.div {...fadeIn} className="text-center">
               <h1
-                className="font-bold tracking-tight text-white"
+                className="font-serif font-semibold tracking-tight text-brand-cream"
                 style={{ fontSize: "clamp(42px, 7vw, 88px)", lineHeight: 1.1 }}
               >
-                <span className="block text-[#D4B968]">100%+ Depreciation.</span>
+                <span className="block text-brand-gold-light">100%+ Depreciation.</span>
                 <span className="block">Monthly Income.</span>
                 <span className="block">Travel Credits.</span>
               </h1>
               <p
-                className="mt-6 text-lg md:text-xl leading-relaxed mx-auto"
-                style={{ color: "rgba(255,255,255,0.85)", maxWidth: 640 }}
+                className="mt-6 text-lg md:text-xl font-light leading-relaxed tracking-wide mx-auto"
+                style={{ color: "rgba(245,240,232,0.85)", maxWidth: 640 }}
               >
                 One fund. Three benefits. Built for accredited investors who want a first-year write-off, cash every month, and real travel value — backed by hard assets.
               </p>
               <div className="mt-8">
                 <a
                   href="#access"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#D4B968] text-[#14261A] font-semibold hover:bg-[#c9ab54] transition shadow-lg shadow-black/40"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-gold text-brand-bg font-medium hover:bg-brand-gold-light transition shadow-lg shadow-black/40 tracking-wide"
                 >
                   Request Investor Access <ArrowRight className="w-4 h-4" />
                 </a>
@@ -249,6 +249,7 @@ function Hero() {
             </motion.div>
           </div>
         </div>
+
       </section>
 
 
