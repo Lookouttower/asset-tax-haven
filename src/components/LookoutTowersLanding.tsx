@@ -1209,14 +1209,13 @@ export default function LookoutTowersLanding() {
       <Navbar />
       <main>
         <Hero />
-        <CoreBenefits />
-        <HowItWorks />
+        <Thesis />
         <Portfolio />
-        <Travel />
         <Returns />
         <Risks />
         <AccessForm />
       </main>
+
       <Footer />
     </div>
   );
