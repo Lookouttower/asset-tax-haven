@@ -1111,66 +1111,67 @@ function AccessForm() {
     setForm({ firstName: "", lastName: "", email: "", phone: "", range: "", source: "", accredited: false });
   };
   return (
-    <section id="access" className="py-24 bg-white">
+    <section id="access" className="py-24 bg-brand-bg border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader eyebrow="Get Access" title="Request the Private Placement Memorandum" />
         <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-brand-border border border-brand-border rounded-lg overflow-hidden mb-10">
           {stats.map(([k, v]) => (
-            <div key={k} className="bg-white p-5">
+            <div key={k} className="bg-brand-card p-5">
               <div className="text-[10px] uppercase tracking-wider text-brand-muted mb-1.5">{k}</div>
-              <div className="font-semibold text-brand-text text-sm">{v}</div>
+              <div className="font-medium text-brand-cream text-sm">{v}</div>
             </div>
           ))}
         </div>
-        <motion.form {...fadeIn} onSubmit={onSubmit} className="bg-white border border-brand-border rounded-xl p-8 grid md:grid-cols-2 gap-5">
+        <motion.form {...fadeIn} onSubmit={onSubmit} className="bg-brand-card border border-brand-border rounded-xl p-8 grid md:grid-cols-2 gap-5">
           <div>
-            <Label htmlFor="fn">First Name</Label>
-            <Input id="fn" required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} className="mt-2" />
+            <Label htmlFor="fn" className="text-brand-cream/80 font-light">First Name</Label>
+            <Input id="fn" required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} className="mt-2 bg-brand-bg border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label htmlFor="ln">Last Name</Label>
-            <Input id="ln" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} className="mt-2" />
+            <Label htmlFor="ln" className="text-brand-cream/80 font-light">Last Name</Label>
+            <Input id="ln" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} className="mt-2 bg-brand-bg border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label htmlFor="em">Email</Label>
-            <Input id="em" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-2" />
+            <Label htmlFor="em" className="text-brand-cream/80 font-light">Email</Label>
+            <Input id="em" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-2 bg-brand-bg border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label htmlFor="ph">Phone</Label>
-            <Input id="ph" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-2" />
+            <Label htmlFor="ph" className="text-brand-cream/80 font-light">Phone</Label>
+            <Input id="ph" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="mt-2 bg-brand-bg border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div>
-            <Label>Investment Range</Label>
+            <Label className="text-brand-cream/80 font-light">Investment Range</Label>
             <Select value={form.range} onValueChange={(v) => setForm({ ...form, range: v })}>
-              <SelectTrigger className="mt-2"><SelectValue placeholder="Select a range" /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="u100">Under $100K</SelectItem>
-                <SelectItem value="100-250">$100K–$250K</SelectItem>
-                <SelectItem value="250-500">$250K–$500K</SelectItem>
-                <SelectItem value="500-1m">$500K–$1M</SelectItem>
-                <SelectItem value="1m+">$1M+</SelectItem>
+              <SelectTrigger className="mt-2 bg-brand-bg border-brand-border text-brand-cream"><SelectValue placeholder="Select a range" /></SelectTrigger>
+              <SelectContent className="bg-brand-card border-brand-border">
+                <SelectItem value="u100" className="text-brand-cream focus:bg-brand-bg-light focus:text-brand-cream">Under $100K</SelectItem>
+                <SelectItem value="100-250" className="text-brand-cream focus:bg-brand-bg-light focus:text-brand-cream">$100K–$250K</SelectItem>
+                <SelectItem value="250-500" className="text-brand-cream focus:bg-brand-bg-light focus:text-brand-cream">$250K–$500K</SelectItem>
+                <SelectItem value="500-1m" className="text-brand-cream focus:bg-brand-bg-light focus:text-brand-cream">$500K–$1M</SelectItem>
+                <SelectItem value="1m+" className="text-brand-cream focus:bg-brand-bg-light focus:text-brand-cream">$1M+</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div>
-            <Label htmlFor="src">How did you hear about us</Label>
-            <Input id="src" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className="mt-2" />
+            <Label htmlFor="src" className="text-brand-cream/80 font-light">How did you hear about us</Label>
+            <Input id="src" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className="mt-2 bg-brand-bg border-brand-border text-brand-cream placeholder:text-brand-muted" />
           </div>
           <div className="md:col-span-2 flex items-start gap-3 pt-2">
-            <Checkbox id="acc" checked={form.accredited} onCheckedChange={(v) => setForm({ ...form, accredited: v === true })} className="mt-1" />
-            <Label htmlFor="acc" className="text-sm text-brand-muted leading-relaxed font-normal">
+            <Checkbox id="acc" checked={form.accredited} onCheckedChange={(v) => setForm({ ...form, accredited: v === true })} className="mt-1 border-brand-border data-[state=checked]:bg-brand-gold data-[state=checked]:text-brand-bg" />
+            <Label htmlFor="acc" className="text-sm text-brand-muted font-light leading-relaxed font-normal">
               I confirm I am an accredited investor as defined under SEC Rule 501(a) and understand this offering is available only to accredited investors.
             </Label>
           </div>
           <div className="md:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-2">
-            <p className="text-xs text-brand-muted max-w-md">Your information is kept strictly confidential. This is not a commitment to invest.</p>
-            <Button type="submit" className="bg-brand-olive hover:bg-brand-olive-dark text-white px-6 py-6 h-auto">
+            <p className="text-xs text-brand-muted font-light tracking-wide max-w-md">Your information is kept strictly confidential. This is not a commitment to invest.</p>
+            <Button type="submit" className="bg-brand-gold hover:bg-brand-gold-light text-brand-bg px-6 py-6 h-auto tracking-wide">
               Request the PPM
             </Button>
           </div>
         </motion.form>
       </div>
     </section>
+
   );
 }
 
