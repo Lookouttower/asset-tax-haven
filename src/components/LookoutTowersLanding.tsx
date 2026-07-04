@@ -616,7 +616,7 @@ function Hero() {
         <CinematicPillar
           number="01"
           label="PILLAR 01"
-          title={<>100%+ First-Year <em style={{ fontStyle: "italic" }}>Write-Off</em></>}
+          title={<>100% <em style={{ fontStyle: "italic" }}>Depreciation</em></>}
           body="Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap."
           image={pillar1Documents.url}
         />
@@ -624,14 +624,14 @@ function Hero() {
           number="02"
           label="PILLAR 02"
           title={<>6% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
-          body="Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month."
+          body="Income is produced by industry-leading leases to established operators."
           image={pillar2Seal.url}
         />
         <CinematicPillar
           number="03"
           label="PILLAR 03"
           title={<>6% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
-          body="Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide."
+          body="Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc."
           image={pillar3Villa.url}
         />
       </div>
@@ -643,9 +643,9 @@ function Hero() {
 
 function Pillars() {
   const pillars = [
-    { icon: Zap, title: "100% First-Year Write-Off", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
-    { icon: Mail, title: "12% Preferred Return", body: "6% paid monthly in cash — direct to your account. 6% in annual travel credits redeemable through Interval International and RCI. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
-    { icon: Plane, title: "Invest. Write Off. Travel.", body: "Your travel credits unlock a global network of resorts, villas, and experiences through Interval International and RCI — the same platforms used by the world's premier hospitality brands.", bg: pillarTravelAsset.url },
+    { icon: Zap, title: "100% Depreciation", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
+    { icon: Mail, title: "12% Preferred Return", body: "Income is produced by industry-leading leases to established operators. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
+    { icon: Plane, title: "Invest. Depreciate. Travel.", body: "Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.", bg: pillarTravelAsset.url },
   ];
   return (
     <section id="pillars" className="py-20 bg-brand-sage border-y border-brand-border">
@@ -696,7 +696,7 @@ function CoreBenefits() {
       icon: DollarSign,
       title: "Monthly Income",
       stat: "6%",
-      body: "Cash income target paid monthly from operator lease income.",
+      body: "Income is produced by industry-leading leases to established operators.",
     },
     {
       icon: Plane,
@@ -755,7 +755,7 @@ function CoreBenefits() {
 function Thesis() {
   const points = [
     { title: "Permanent Law", body: "P.L. 119-21 removed the uncertainty of sunset provisions. Investors can plan multi-year tax strategies with confidence that §168(k) will not phase down." },
-    { title: "Asset-Backed Security", body: "Every dollar invested is backed by a tangible, titled asset. Personal property depreciates faster and qualifies for immediate write-off — giving investors both income and tax shelter." },
+    { title: "Asset-Backed Security", body: "Every dollar invested is backed by a tangible, titled asset. Personal property depreciates faster and qualifies for immediate 100% first-year depreciation — giving investors both income and tax shelter." },
     { title: "True-Lease Structure", body: "The fund retains ownership and residual risk, leasing assets to operators. This preserves the fund as tax owner, enabling full depreciation pass-through via K-1." },
   ];
   const stats = [
