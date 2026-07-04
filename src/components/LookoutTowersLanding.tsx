@@ -382,10 +382,8 @@ function CoreBenefits() {
 function Thesis() {
   const points = [
     { title: "Permanent Law", body: "P.L. 119-21 removed the uncertainty of sunset provisions. Investors can plan multi-year tax strategies with confidence that §168(k) will not phase down." },
-    { title: "Experiential Demand", body: "Post-pandemic travel spending has permanently shifted toward unique, high-touch experiences. Lookout towers, private charters, and off-grid stays command 3–5× the nightly rate of standard lodging." },
     { title: "Asset-Backed Security", body: "Every dollar invested is backed by a tangible, titled asset. Personal property depreciates faster and qualifies for immediate write-off — giving investors both income and tax shelter." },
     { title: "True-Lease Structure", body: "The fund retains ownership and residual risk, leasing assets to operators. This preserves the fund as tax owner, enabling full depreciation pass-through via K-1." },
-    { title: "Diversified Portfolio", body: "18 asset classes across aviation, marine, ground transport, lodging, food & beverage, and development — spread across multiple geographies and operators." },
   ];
   const stats = [
     { label: "Legal Authority", value: "P.L. 119-21 · Permanent" },
@@ -532,6 +530,15 @@ function Portfolio() {
           title="Portfolio Gallery"
           lead="The portfolio supports the three-part investor offer by placing income-producing hospitality assets with operators across aviation, marine, lodging, mobility, food, employee housing, and development."
         />
+        <motion.div {...fadeIn} className="mb-10 p-6 md:p-8 bg-brand-card border border-brand-border rounded-xl">
+          <div className="flex items-start gap-4">
+            <div className="mt-1"><IconBadge icon={Plane} size="sm" /></div>
+            <div>
+              <h4 className="font-medium text-brand-cream mb-2">Experiential Demand</h4>
+              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Post-pandemic travel spending has permanently shifted toward unique, high-touch experiences. Lookout towers, private charters, and off-grid stays command 3–5× the nightly rate of standard lodging.</p>
+            </div>
+          </div>
+        </motion.div>
         <motion.div {...fadeIn} className="mb-10">
           <HeroCarousel slides={PORTFOLIO_HERO_IMAGES} />
         </motion.div>
