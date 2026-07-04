@@ -86,42 +86,43 @@ function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all ${
         scrolled
-          ? "bg-[#0b120d]/85 backdrop-blur-xl border-b border-white/10"
+          ? "bg-brand-bg/85 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
-          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-olive-light" : "text-white"}`} />
-          <span className={`font-semibold tracking-tight ${scrolled ? "text-white" : "text-white"}`}>Lookout Towers Fund</span>
+          <Landmark className={`w-6 h-6 ${scrolled ? "text-brand-gold-light" : "text-brand-cream"}`} />
+          <span className={`font-medium tracking-tight ${scrolled ? "text-brand-cream" : "text-brand-cream"}`}>Lookout Towers Fund</span>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
+            <a key={l.href} href={l.href} className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition-colors tracking-wide">
               {l.label}
             </a>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full border border-white/40 hover:border-white text-white transition backdrop-blur">View Terms</a>
-          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-[#D4B968] text-[#14261A] hover:bg-[#c9ab54] transition">Request Access</a>
+          <a href="#access" className="px-4 py-2 text-sm font-light rounded-full border border-brand-cream/40 hover:border-brand-cream text-brand-cream transition backdrop-blur tracking-wide">View Terms</a>
+          <a href="#access" className="px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg hover:bg-brand-gold-light transition tracking-wide">Request Access</a>
         </div>
-        <button className="lg:hidden text-white" onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className="lg:hidden text-brand-cream" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-[#0b120d]/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-white/10 bg-brand-bg/95 backdrop-blur-xl">
           <div className="px-6 py-4 flex flex-col gap-3">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-white/85 py-1">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-light text-brand-cream/85 py-1 tracking-wide">{l.label}</a>
             ))}
-            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-[#D4B968] text-[#14261A] text-center">Request Access</a>
+            <a href="#access" onClick={() => setOpen(false)} className="mt-2 px-4 py-2 text-sm font-medium rounded-full bg-brand-gold text-brand-bg text-center tracking-wide">Request Access</a>
           </div>
         </div>
       )}
     </header>
   );
+
 }
 
 function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; size?: "sm" | "md" | "lg"; tone?: "light" | "dark" }) {
