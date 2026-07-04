@@ -253,47 +253,55 @@ function Hero() {
       </section>
 
       {/* Three Pillars */}
-      <section id="pillars" className="bg-brand-bg py-[120px] border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div {...fadeIn} className="text-center mb-16">
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#e8c84a]">
-              THE THREE PILLARS
-            </span>
-          </motion.div>
-          <div className="grid md:grid-cols-3 md:divide-x md:divide-[#e8c84a]/40">
-            {[
-              { num: "01", icon: Receipt, title: "100%+ First-Year Write-Off", body: "Full bonus depreciation on qualifying assets, passed through on your K-1 in Year 1." },
-              { num: "02", icon: DollarSign, title: "6% Paid Monthly, Direct to You", body: "Fixed preferred return paid monthly — cash in your account every month on committed capital." },
-              { num: "03", icon: Globe, title: "6% in Annual Travel Credits", body: "Redeemable through Interval International and RCI — resorts, villas, and experiences worldwide." },
-            ].map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <motion.div
-                  key={p.num}
-                  {...fadeIn}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="relative px-8 py-4 text-center"
-                >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 font-serif text-[72px] font-medium text-[#e8c84a] opacity-30 pointer-events-none select-none leading-none">
-                    {p.num}
-                  </div>
-                  <div className="relative z-10 pt-16">
-                    <div className="mb-6 flex justify-center">
-                      <Icon className="w-10 h-10 text-[#e8c84a]" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="font-serif text-[36px] font-medium text-brand-cream mb-4 leading-tight">
-                      {p.title}
-                    </h3>
-                    <div className="w-[60px] h-[2px] bg-[#e8c84a] mx-auto mb-6" />
-                    <p className="text-[16px] font-light leading-[1.8] text-brand-muted mx-auto" style={{ maxWidth: 280 }}>
-                      {p.body}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+      <section id="pillars" className="bg-[#1a1209] border-b border-white/10">
+        {[
+          { num: "01", label: "PILLAR 01", title: "100%+ First-Year Write-Off", body: "Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap.", img: pillarWriteoffV2.url, imageLeft: true },
+          { num: "02", label: "PILLAR 02", title: "6% Paid Monthly, Direct to You", body: "Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month.", img: pillarIncomeV2.url, imageLeft: false },
+          { num: "03", label: "PILLAR 03", title: "6% in Annual Travel Credits", body: "Redeemable through Interval International and RCI — resorts, villas, private islands, and experiences worldwide.", img: pillarTravelV2.url, imageLeft: true },
+        ].map((p, i) => (
+          <div
+            key={p.num}
+            className="grid grid-cols-1 md:grid-cols-2"
+            style={{ minHeight: 600 }}
+          >
+            {/* Image */}
+            <div
+              className={`relative min-h-[400px] md:min-h-[600px] ${p.imageLeft ? "md:order-1" : "md:order-2"}`}
+            >
+              <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
+              <div
+                className="absolute inset-0 pointer-events-none hidden md:block"
+                style={{
+                  background: p.imageLeft
+                    ? "linear-gradient(to right, transparent 60%, #1a1209 100%)"
+                    : "linear-gradient(to left, transparent 60%, #1a1209 100%)",
+                }}
+              />
+            </div>
+            {/* Text */}
+            <motion.div
+              {...fadeIn}
+              transition={{ duration: 0.6, delay: i * 0.05 }}
+              className={`flex items-center bg-[#1a1209] px-8 md:px-16 py-16 ${p.imageLeft ? "md:order-2" : "md:order-1"}`}
+            >
+              <div className="max-w-md">
+                <div className="text-[12px] uppercase tracking-[0.2em] font-semibold text-[#e8c84a] mb-6">
+                  {p.label}
+                </div>
+                <h3 className="font-serif text-[48px] font-medium text-white leading-[1.1] mb-5">
+                  {p.title}
+                </h3>
+                <div className="w-[40px] h-[2px] bg-[#e8c84a] mb-6" />
+                <p className="text-[16px] font-light leading-[1.8] text-[#b8a98a]" style={{ maxWidth: 320 }}>
+                  {p.body}
+                </p>
+                <a href="#thesis" className="inline-block mt-8 text-[13px] uppercase tracking-[0.15em] font-semibold text-[#e8c84a] hover:text-white transition-colors">
+                  Learn how this works →
+                </a>
+              </div>
+            </motion.div>
           </div>
-        </div>
+        ))}
       </section>
 
 
