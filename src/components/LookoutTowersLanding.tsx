@@ -4,6 +4,7 @@ import heroVideo from "@/assets/hero.mp4.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
+import heroOod from "@/assets/hero-ood.jpg.asset.json";
 import redeemAlpine from "@/assets/redeem-alpine.jpeg.asset.json";
 import redeemForest from "@/assets/redeem-forest.jpeg.asset.json";
 import pjetV2 from "@/assets/pjet-v2.jpeg.asset.json";
@@ -480,12 +481,10 @@ function Hero() {
         className="relative w-screen overflow-hidden"
         style={{ minHeight: "100vh", height: "100vh" }}
       >
-        {/* Full-bleed background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        {/* Full-bleed background image — ÖÖD-inspired cinematic still */}
+        <img
+          src={heroOod.url}
+          alt=""
           aria-hidden
           style={{
             position: "absolute",
@@ -496,9 +495,7 @@ function Hero() {
             objectFit: "cover",
             zIndex: 0,
           }}
-        >
-          <source src={heroVideo.url} type="video/mp4" />
-        </video>
+        />
 
         {/* Dark overlay */}
         <div
@@ -526,12 +523,12 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Jost', sans-serif",
                 fontWeight: 300,
-                fontStyle: "italic",
-                fontSize: "clamp(36px, 8vw, 88px)",
-                lineHeight: 1.05,
-                letterSpacing: "0.03em",
+                fontStyle: "normal",
+                fontSize: "clamp(44px, 9vw, 112px)",
+                lineHeight: 1.02,
+                letterSpacing: "-0.02em",
                 color: "#f0ece4",
                 textShadow: "0 2px 40px rgba(0,0,0,0.5)",
               }}
