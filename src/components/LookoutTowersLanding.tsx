@@ -1132,7 +1132,7 @@ function HowItWorks() {
     { icon: FileSignature, title: "Investor Subscribes", body: "Accredited investors subscribe under Reg D, Rule 506(c). Capital is pooled into the fund LLC and deployed into qualifying depreciable assets within the first operating year." },
     { icon: ShoppingCart, title: "Fund Acquires Assets", body: "The fund purchases 18 classes of hospitality equipment — aircraft, marine vessels, towers, vehicles, and structures. All assets are titled to the fund, preserving the fund as tax owner and enabling pass-through depreciation." },
     { icon: Handshake, title: "Assets Are Leased to Operators", body: "Each asset is leased under a true lease: rent payments (not interest), FMV purchase options only, lease terms shorter than useful life, and genuine residual risk retained by the fund." },
-    { icon: FileCheck, title: "Investors Receive K-1 + Distributions", body: "Each year: (a) Schedule K-1 with allocated depreciation deductions; (b) 6% annual cash preferred return paid monthly; and (c) 6% annual travel credits redeemable through Interval International / RCI." },
+    { icon: FileCheck, title: "Investors Receive K-1 + Distributions", body: "Each year: (a) Schedule K-1 with allocated depreciation deductions; (b) 6% annual preferred return paid monthly; and (c) 6% annual travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc." },
   ];
   const terms = [
     ["Fund Structure", "Delaware LLC"],
@@ -1227,7 +1227,7 @@ function TaxEngine() {
         <SectionHeader
           eyebrow="The Tax Engine"
           title="100% Depreciation. Permanent Law. No Cap."
-          lead="P.L. 119-21 permanently restored bonus depreciation under IRC §168(k). For qualifying property placed in service on or after January 19, 2025, the write-off is 100% — in the year of placement."
+          lead="P.L. 119-21 permanently restored bonus depreciation under IRC §168(k). For qualifying property placed in service on or after January 19, 2025, 100% first-year depreciation is available — in the year of placement."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
           {cards.map((c, i) => (
@@ -1285,7 +1285,7 @@ function TaxEngine() {
 
 function Returns() {
   const terms = [
-    ["Depreciation", "100% First-Year"],
+    ["Depreciation", "100% Depreciation"],
     ["Monthly Cash Income", "6% Annual"],
     ["Travel Credits", "6% Annual"],
     ["Preferred Return", "12% Annual"],
@@ -1303,7 +1303,7 @@ function Returns() {
         <SectionHeader
           eyebrow="Investor Terms"
           title="Investor Terms at a Glance"
-          lead="100% depreciation, 6% monthly cash income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
+          lead="100% depreciation, 6% monthly income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
         />
         <motion.div {...fadeIn} className="mb-12 bg-brand-card border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -1321,7 +1321,7 @@ function Returns() {
             <div>
               <div className="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3">Return Composition</div>
               <h4 className="text-3xl font-serif font-medium text-brand-cream tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
-              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
+              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly income — predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.</p>
             </div>
           </div>
         </motion.div>
@@ -1345,14 +1345,14 @@ function Returns() {
             <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={DollarSign} /></div>
               <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
-              <div className="text-lg font-medium text-brand-cream mt-2">Cash Return</div>
-              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
+              <div className="text-lg font-medium text-brand-cream mt-2">Income</div>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly. Tied to hard-asset lease income from the fund's operator network.</p>
             </motion.div>
             <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={Plane} /></div>
               <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
               <div className="text-lg font-medium text-brand-cream mt-2">Travel Credits</div>
-              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.</p>
             </motion.div>
           </div>
         </div>
