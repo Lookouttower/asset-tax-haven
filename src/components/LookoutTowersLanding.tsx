@@ -858,7 +858,11 @@ function Returns() {
   return (
     <section id="opp" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="The Opportunity" title="The 12% Preferred Return" />
+        <SectionHeader
+          eyebrow="Investor Terms"
+          title="Investor Terms at a Glance"
+          lead="100% depreciation, 6% monthly cash income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
+        />
         <motion.div {...fadeIn} className="mb-12 bg-white border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="h-72">
