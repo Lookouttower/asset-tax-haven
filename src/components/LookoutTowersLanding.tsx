@@ -1381,7 +1381,7 @@ const TRAVEL_IMAGES = [
 
 function Travel() {
   const rows = [
-    ["Platform", "Interval International / RCI"],
+    ["Platform", "The Investors Travel Group & Partners"],
     ["Credit Value", "6% of Capital Annually"],
     ["Redemption", "Global Resort Network"],
     ["Taxability", "Taxable as Ordinary Income"],
