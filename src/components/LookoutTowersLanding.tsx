@@ -567,9 +567,9 @@ function Portfolio() {
     <section id="portfolio" className="py-24 bg-brand-bg border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
-          eyebrow="Portfolio"
-          title="Portfolio Gallery"
-          lead="The portfolio supports the three-part investor offer by placing income-producing hospitality assets with operators across aviation, marine, lodging, mobility, food, employee housing, and development."
+          eyebrow="THE ASSETS"
+          title="The Asset Portfolio"
+          lead="Capital is deployed into income-producing hard assets — placed with proven operators across aviation, marine, lodging, mobility, and experiential hospitality."
         />
         <motion.div {...fadeIn} className="mb-10 p-6 md:p-8 bg-brand-card border border-brand-border rounded-xl">
           <div className="flex items-start gap-4">
