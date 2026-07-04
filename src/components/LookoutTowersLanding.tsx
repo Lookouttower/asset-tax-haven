@@ -64,13 +64,14 @@ const fadeIn = {
 } as const;
 
 const NAV_LINKS = [
-  { href: "#benefits", label: "Benefits" },
-  { href: "#how", label: "How It Works" },
+  { href: "#pillars", label: "Three Pillars" },
+  { href: "#thesis", label: "Why Now" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#travel", label: "Travel" },
   { href: "#opp", label: "Investor Terms" },
-  { href: "#risks", label: "Risk Factors" },
+  { href: "#risks", label: "Risks" },
+  { href: "#access", label: "Request Access" },
 ];
+
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -249,7 +250,7 @@ function Hero() {
 
 
       {/* Three-pillar investor strip */}
-      <section className="relative bg-[#0b120d] border-b border-white/10">
+      <section id="pillars" className="relative bg-[#0b120d] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0 }}>
@@ -1208,14 +1209,13 @@ export default function LookoutTowersLanding() {
       <Navbar />
       <main>
         <Hero />
-        <CoreBenefits />
-        <HowItWorks />
+        <Thesis />
         <Portfolio />
-        <Travel />
         <Returns />
         <Risks />
         <AccessForm />
       </main>
+
       <Footer />
     </div>
   );
