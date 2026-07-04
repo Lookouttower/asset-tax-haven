@@ -202,9 +202,46 @@ function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: stri
 function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
   return (
     <motion.div {...fadeIn} className="max-w-3xl mb-14">
-      <div className={`text-xs uppercase tracking-[0.2em] font-semibold mb-4 ${dark ? "text-brand-gold-light" : "text-brand-gold"}`}>{eyebrow}</div>
-      <h2 className={`text-4xl md:text-5xl font-serif font-semibold tracking-tight leading-[1.1] ${dark ? "text-brand-cream" : "text-brand-text"}`}>{title}</h2>
-      {lead && <p className={`mt-5 text-lg font-light leading-relaxed tracking-wide ${dark ? "text-brand-muted" : "text-brand-muted"}`}>{lead}</p>}
+      <div
+        className={`mb-5 ${dark ? "text-brand-gold" : "text-brand-gold"}`}
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontWeight: 400,
+          textTransform: "uppercase",
+          letterSpacing: "0.3em",
+          fontSize: "11px",
+        }}
+      >
+        {eyebrow}
+      </div>
+      <h2
+        className={dark ? "text-brand-cream" : "text-brand-text"}
+        style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontWeight: 300,
+          fontStyle: "italic",
+          fontSize: "clamp(36px, 5vw, 56px)",
+          lineHeight: 1.15,
+          letterSpacing: "0.02em",
+        }}
+      >
+        {title}
+      </h2>
+      <div className="mt-6 mb-2" style={{ width: 60, height: 1, background: "#c9a84c" }} />
+      {lead && (
+        <p
+          className="mt-6 text-brand-muted"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 300,
+            fontSize: "15px",
+            lineHeight: 1.9,
+            letterSpacing: "0.02em",
+          }}
+        >
+          {lead}
+        </p>
+      )}
     </motion.div>
   );
 }
