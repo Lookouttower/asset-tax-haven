@@ -922,24 +922,24 @@ function HeroCarousel({ slides }: { slides: { src: string; caption: string }[] }
 type Asset = { icon: any; name: string; desc: string; tag: string; cat: string };
 type AssetWithImg = Asset & { img: string; imgPos?: string };
 const ASSETS: AssetWithImg[] = [
-  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "100% Write-Off", cat: "Air", img: asset1.url },
-  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "100% Write-Off", cat: "Air", img: asset2.url },
-  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "100% Write-Off", cat: "Air", img: asset3.url },
-  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "100% Write-Off", cat: "Air", img: asset4.url },
-  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "100% Write-Off", cat: "Air", img: asset5.url },
-  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "100% Write-Off", cat: "Marine", img: asset6.url },
-  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "100% Write-Off", cat: "Marine", img: asset7.url },
-  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "100% Write-Off", cat: "Marine", img: asset8.url },
-  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "100% Write-Off", cat: "Ground", img: asset9.url },
-  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "100% Write-Off", cat: "Ground", img: asset10.url },
-  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "100% Write-Off", cat: "Ground", img: asset11.url },
-  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "100% Write-Off", cat: "Ground", img: asset12.url },
+  { icon: Plane, name: "Private Jets", desc: "Charter fleet for premium guest arrivals. Leased to licensed FAA Part 135 operators.", tag: "100% Depreciation", cat: "Air", img: asset1.url },
+  { icon: PlaneTakeoff, name: "Cirrus Vision SF50", desc: "Single-engine personal jet. Ideal for short-hop resort access and owner-operator charters.", tag: "100% Depreciation", cat: "Air", img: asset2.url },
+  { icon: Waves, name: "Sea Plane", desc: "Amphibious arrival to waterfront and island resort properties.", tag: "100% Depreciation", cat: "Air", img: asset3.url },
+  { icon: Wind, name: "Helicopter", desc: "Scenic transfers and emergency access for remote mountain properties.", tag: "100% Depreciation", cat: "Air", img: asset4.url },
+  { icon: PlaneLanding, name: "King Air / Pilatus", desc: "Twin-engine turboprops serving high-altitude mountain resort airstrips.", tag: "100% Depreciation", cat: "Air", img: asset5.url },
+  { icon: Anchor, name: "Center Console Boat", desc: "Bald Head Island coastal access. Ferry and charter operations for island resort guests.", tag: "100% Depreciation", cat: "Marine", img: asset6.url },
+  { icon: Sailboat, name: "Yacht (Miami)", desc: "Luxury charter yacht in South Florida waters. Leased to licensed operator at market rate.", tag: "100% Depreciation", cat: "Marine", img: asset7.url },
+  { icon: Ship, name: "Pontoon Boats", desc: "Lake and river leisure fleet for resort waterfront properties.", tag: "100% Depreciation", cat: "Marine", img: asset8.url },
+  { icon: Mountain, name: "Snowmobiles", desc: "Winter adventure fleet for mountain resort operators. Guided tour and rental programs.", tag: "100% Depreciation", cat: "Ground", img: asset9.url },
+  { icon: Car, name: "UTVs", desc: "Side-by-side utility vehicles for off-road resort exploration and property management.", tag: "100% Depreciation", cat: "Ground", img: asset10.url },
+  { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "100% Depreciation", cat: "Ground", img: asset11.url },
+  { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "100% Depreciation", cat: "Ground", img: asset12.url },
   { icon: Radio, name: "Lookout Towers", desc: "Relocatable timber-frame towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: lookoutTowerAsset.url, imgPos: "75% 50%" },
   { icon: Home, name: "Glass House STR · Ood", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: asset14.url },
-  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "100% Write-Off", cat: "Development", img: asset15.url },
-  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "100% Write-Off", cat: "Development", img: asset16.url },
-  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "100% Write-Off", cat: "Development", img: asset17.url },
-  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "100% Write-Off", cat: "Development", img: asset18.url },
+  { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "100% Depreciation", cat: "Development", img: asset15.url },
+  { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "100% Depreciation", cat: "Development", img: asset16.url },
+  { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "100% Depreciation", cat: "Development", img: asset17.url },
+  { icon: Construction, name: "Excavators & Dump Trucks", desc: "Development equipment rounding out the full hospitality ecosystem.", tag: "100% Depreciation", cat: "Development", img: asset18.url },
 ];
 const CATS = ["All", "Air", "Marine", "Ground", "Lodging", "Development"];
 
@@ -1040,7 +1040,7 @@ function Portfolio() {
                     boxShadow: "0 2px 8px rgba(184,150,12,0.4)",
                   }}
                 >
-                  ✦ 100% Write-Off
+                  ✦ 100% Depreciation
                 </span>
                 <div className="absolute inset-x-0 bottom-0 h-[35%] p-5 flex flex-col justify-center">
                   <h4 className="font-medium text-brand-cream mb-1.5">{a.name}</h4>
@@ -1099,7 +1099,7 @@ function Portfolio() {
                     boxShadow: "0 2px 8px rgba(184,150,12,0.4)",
                   }}
                 >
-                  ✦ 100% Write-Off
+                  ✦ 100% Depreciation
                 </span>
                 <span
                   className="absolute bottom-4 right-4 text-[10px] font-semibold uppercase px-2.5 py-1 rounded-full"
@@ -1678,7 +1678,7 @@ function Footer() {
             <Landmark className="w-6 h-6 text-brand-gold-light" />
             <span className="font-medium tracking-tight">100% Depreciation Fund</span>
           </div>
-          <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Mailbox Money.</p>
+          <p className="text-sm text-brand-cream/60 font-light leading-relaxed tracking-wide">Hard Assets. Tax Efficiency. Income.</p>
         </div>
         {cols.map((c) => (
           <div key={c.title}>
