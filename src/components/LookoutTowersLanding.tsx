@@ -499,7 +499,7 @@ const ASSETS: AssetWithImg[] = [
   { icon: CarFront, name: "Luxury Golf Carts", desc: "Premium electric golf carts for resort and island community transportation.", tag: "100% Write-Off", cat: "Ground", img: asset11.url },
   { icon: Truck, name: "Chauffeur G-Wagons", desc: "Mercedes-Benz G-Class fleet for VIP ground transfers and resort chauffeur services.", tag: "100% Write-Off", cat: "Ground", img: asset12.url },
   { icon: Radio, name: "Lookout Towers", desc: "Relocatable timber-frame towers converted to premium STR accommodations. Personal property — 100% bonus eligible.", tag: "Personal Property", cat: "Lodging", img: lookoutTowerAsset.url, imgPos: "75% 50%" },
-  { icon: Home, name: "Ood Glass Houses", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: asset14.url },
+  { icon: Home, name: "Glass House STR · Ood", desc: "Prefabricated relocatable glass-house STR units. Not permanently affixed — personal property classification.", tag: "Personal Property", cat: "Lodging", img: asset14.url },
   { icon: Leaf, name: "Hydroponic Farm", desc: "On-site food production for resort farm-to-table operations.", tag: "100% Write-Off", cat: "Development", img: asset15.url },
   { icon: Utensils, name: "Food Trailer", desc: "Mobile F&B service across properties.", tag: "100% Write-Off", cat: "Development", img: asset16.url },
   { icon: Tent, name: "Zook Cabins", desc: "Employee housing units supporting on-site staffing.", tag: "100% Write-Off", cat: "Development", img: asset17.url },
@@ -743,7 +743,7 @@ function TaxEngine() {
     "5-Year MACRS — Vehicles & Marine",
     "5-Year MACRS — Snowmobiles & ATVs",
     "Personal Property — Lookout Towers",
-    "Personal Property — Ood Glass Houses",
+    "Personal Property — Glass House STR · Ood",
     "5-Year MACRS — Food Trailer & Farm",
   ];
   return (
@@ -1037,7 +1037,7 @@ const DESTINATIONS = [
   { title: "Bald Head Island, NC", sub: "Island Access", tags: ["Center Console Boat", "Golf Carts", "Lookout Tower"], img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80" },
   { title: "Miami, FL", sub: "South Florida Waters", tags: ["Yacht Charter", "Seaplane", "G-Wagons"], img: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=1200&q=80" },
   { title: "Blue Ridge Mountains", sub: "Mountain Escapes", tags: ["Helicopter", "King Air", "Snowmobiles", "UTVs", "Lookout Tower"], img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80" },
-  { title: "Backcountry / Off-Grid", sub: "The Untamed", tags: ["Ood Glass Houses", "Pontoon Boats", "Food Trailer", "Hydroponic Farm"], img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Backcountry / Off-Grid", sub: "The Untamed", tags: ["Glass House STR · Ood", "Pontoon Boats", "Food Trailer", "Hydroponic Farm"], img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80" },
 ];
 
 function Destinations() {
