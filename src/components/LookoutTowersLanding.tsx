@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import lookoutTowerAsset from "@/assets/lookout-tower-stowe.jpeg.asset.json";
-import heroVideo from "@/assets/hero-web.mp4.asset.json";
+import heroLuxuryJet from "@/assets/hero-luxury-jet.jpg.asset.json";
 import heroLookoutTower from "@/assets/hero-lookout-tower.jpeg.asset.json";
 import heroGlassHouse from "@/assets/hero-glass-house.jpeg.asset.json";
 import heroPrivateJet from "@/assets/hero-private-jet.jpeg.asset.json";
