@@ -254,6 +254,151 @@ function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string;
 
 
 function Hero() {
+  return _HeroImpl();
+}
+
+function CinematicPillar({
+  number,
+  label,
+  title,
+  body,
+  image,
+}: {
+  number: string;
+  label: string;
+  title: React.ReactNode;
+  body: string;
+  image: string;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  // Parallax: image moves slower than scroll (0.4x)
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+
+  return (
+    <section
+      ref={ref}
+      className="relative w-full overflow-hidden"
+      style={{ minHeight: "100vh", background: "#0a0806" }}
+    >
+      {/* Background image with parallax */}
+      <motion.div
+        style={{ y: imgY, position: "absolute", inset: "-15% 0" }}
+        aria-hidden
+      >
+        <img
+          src={image}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ minHeight: "130vh" }}
+        />
+      </motion.div>
+
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(8,6,3,0.92) 0%, rgba(8,6,3,0.4) 60%, rgba(8,6,3,0) 100%)",
+        }}
+      />
+
+      {/* Giant faded numeral */}
+      <div
+        aria-hidden
+        className="hidden md:block absolute pointer-events-none select-none"
+        style={{
+          left: 80,
+          top: 40,
+          fontFamily: "'Cormorant Garamond', serif",
+          fontStyle: "italic",
+          fontWeight: 300,
+          fontSize: 120,
+          lineHeight: 1,
+          color: "rgba(201,168,76,0.12)",
+          zIndex: 1,
+        }}
+      >
+        {number}
+      </div>
+
+      {/* Text content — left side */}
+      <div className="relative h-full min-h-screen flex items-center" style={{ zIndex: 2 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
+          className="px-6 md:pl-[120px] md:pr-8"
+          style={{ maxWidth: 520 + 120 + 32 }}
+        >
+          <div style={{ maxWidth: 520 }}>
+            <div
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 400,
+                textTransform: "uppercase",
+                fontSize: 10,
+                letterSpacing: "0.35em",
+                color: "#c9a84c",
+                marginBottom: 28,
+              }}
+            >
+              {label}
+            </div>
+            <h3
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 300,
+                fontStyle: "italic",
+                fontSize: "clamp(40px, 6vw, 64px)",
+                lineHeight: 1.15,
+                color: "#f0ece4",
+                letterSpacing: "0.02em",
+                margin: 0,
+              }}
+            >
+              {title}
+            </h3>
+            <div style={{ width: 48, height: 1, background: "#c9a84c", margin: "28px 0" }} />
+            <p
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 300,
+                fontSize: 15,
+                lineHeight: 1.9,
+                color: "rgba(240,236,228,0.65)",
+                maxWidth: 420,
+              }}
+            >
+              {body}
+            </p>
+            <a
+              href="#thesis"
+              className="pillar-learn-link inline-flex items-center gap-2 mt-10"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 400,
+                textTransform: "uppercase",
+                fontSize: 10,
+                letterSpacing: "0.3em",
+                color: "#c9a84c",
+              }}
+            >
+              <span className="pillar-learn-underline relative">Learn how this works</span>
+              <span aria-hidden>→</span>
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function _HeroImpl() {
   return (
     <>
       <section
