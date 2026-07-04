@@ -1400,14 +1400,14 @@ function Travel() {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <motion.div {...fadeIn}>
             <p className="text-lg text-brand-muted leading-relaxed">
-              Travel credits are issued annually equal to 6% of invested capital. Redeemable through Interval International and RCI — the global timeshare exchange networks used by Marriott, Hyatt, Hilton, and IHG.
+              Travel credits are issued annually equal to 6% of invested capital. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.
             </p>
             <div className="mt-6 bg-white border-l-4 rounded-lg p-6 border border-brand-border" style={{ borderLeftColor: "#B8955A" }}>
               <div className="flex items-center gap-2 mb-3">
                 <AlertCircle className="w-5 h-5 text-brand-gold" />
                 <h4 className="font-semibold text-brand-text">Personal Use Guardrail</h4>
               </div>
-              <p className="text-sm text-brand-muted leading-relaxed">Investors receive travel credits redeemable through third-party platforms (Interval International/RCI), NOT free use of fund assets. Direct personal use of fund aircraft, yacht, or vessels by investors is prohibited. Market-rate chartering is permitted as business income.</p>
+              <p className="text-sm text-brand-muted leading-relaxed">Investors receive travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc., NOT free use of fund assets. Direct personal use of fund aircraft, yacht, or vessels by investors is prohibited. Market-rate chartering is permitted as business income.</p>
             </div>
           </motion.div>
           <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg overflow-hidden">
@@ -1563,7 +1563,7 @@ function AccessForm() {
     ["Offering Type", "Reg D 506(c)"],
     ["Min. Investment", "$100,000"],
     ["Preferred Return", "12% Annual"],
-    ["Cash Distributions", "Monthly"],
+    ["Distributions", "Monthly"],
     ["Travel Credits", "Annual"],
   ];
   const onSubmit = (e: React.FormEvent) => {
