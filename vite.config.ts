@@ -6,7 +6,7 @@ import path from "node:path";
 
 // Plain static SPA build. BASE_PATH env var overrides base (Netlify sets "/").
 export default defineConfig({
-  base: process.env.BASE_PATH ?? "/asset-tax-haven/",
+  base: process.env.BASE_PATH ?? "/",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
