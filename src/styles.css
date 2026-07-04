@@ -225,3 +225,45 @@
 .pillar-learn-link:hover .pillar-learn-underline::after {
   transform: scaleX(1);
 }
+.pillar-learn-link {
+  transition: color 0.3s ease;
+}
+.pillar-learn-link:hover {
+  color: #f0ece4 !important;
+}
+
+/* Cinematic pillar text block responsive padding + type sizes */
+.pillar-text-block {
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .pillar-text-block {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .pillar-text-block {
+    padding-left: 120px;
+    padding-right: 40px;
+  }
+}
+
+.pillar-headline {
+  font-size: 38px;
+}
+@media (min-width: 768px) {
+  .pillar-headline { font-size: 52px; }
+}
+@media (min-width: 1024px) {
+  .pillar-headline { font-size: 80px; }
+}
+
+.pillar-body {
+  font-size: 15px;
+}
+@media (min-width: 1024px) {
+  .pillar-body { font-size: 17px; }
+}
