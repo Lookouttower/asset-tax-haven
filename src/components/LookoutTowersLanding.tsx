@@ -1244,18 +1244,12 @@ export default function LookoutTowersLanding() {
       <Navbar />
       <main>
         <Hero />
-        <Pillars />
-        <Thesis />
-        <Portfolio />
-        <PhotoBanner src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80" alt="Coastal hospitality" caption="Where hard assets meet the horizon" />
+        <CoreBenefits />
         <HowItWorks />
-        <TaxEngine />
-        <Returns />
+        <Portfolio />
         <Travel />
-        <PhotoBanner src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=80" alt="Forest retreats" caption="Off-grid. On-portfolio." />
-        <Exit />
+        <Returns />
         <Risks />
-        <Destinations />
         <AccessForm />
       </main>
       <Footer />
