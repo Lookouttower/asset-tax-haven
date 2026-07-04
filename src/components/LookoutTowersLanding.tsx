@@ -286,8 +286,16 @@ function CinematicPillar({
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden flex items-center"
-      style={{ height: "100vh", width: "100%", background: "#0a0806", margin: 0, padding: 0 }}
+      className="cinematic-pillar relative overflow-hidden flex items-center"
+      style={{
+        height: "100vh",
+        width: "100vw",
+        background: "#0a0806",
+        margin: 0,
+        padding: 0,
+        display: "flex",
+        alignItems: "center",
+      }}
     >
       {/* Background image with parallax + slow Ken Burns zoom */}
       <motion.img
@@ -315,13 +323,10 @@ function CinematicPillar({
         className="pointer-events-none"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
+          inset: 0,
           zIndex: 1,
           background:
-            "linear-gradient(to right, rgba(8,6,3,0.90) 0%, rgba(8,6,3,0.55) 50%, rgba(8,6,3,0.10) 100%)",
+            "linear-gradient(to right, rgba(8,6,3,0.92) 0%, rgba(8,6,3,0.50) 55%, rgba(8,6,3,0.05) 100%)",
         }}
       />
 
