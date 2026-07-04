@@ -207,15 +207,15 @@ function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: stri
 
 function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string; title: React.ReactNode; lead?: string; dark?: boolean }) {
   return (
-    <motion.div {...fadeIn} className="max-w-3xl mb-14">
+    <motion.div {...fadeIn} className="max-w-3xl mx-auto mb-16 text-center flex flex-col items-center">
       <div
-        className={`mb-5 ${dark ? "text-brand-gold" : "text-brand-gold"}`}
+        className="mb-6 text-brand-gold"
         style={{
           fontFamily: "'Jost', sans-serif",
           fontWeight: 400,
           textTransform: "uppercase",
-          letterSpacing: "0.3em",
-          fontSize: "11px",
+          letterSpacing: "0.35em",
+          fontSize: "12px",
         }}
       >
         {eyebrow}
@@ -226,23 +226,28 @@ function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string;
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 300,
           fontStyle: "italic",
-          fontSize: "clamp(36px, 5vw, 56px)",
+          fontSize: "clamp(40px, 5.5vw, 68px)",
           lineHeight: 1.15,
           letterSpacing: "0.02em",
+          textAlign: "center",
+          maxWidth: 780,
         }}
       >
         {title}
       </h2>
-      <div className="mt-6 mb-2" style={{ width: 60, height: 1, background: "#c9a84c" }} />
+      <div className="mt-8 mb-2 mx-auto" style={{ width: 60, height: 1, background: "#c9a84c" }} />
       {lead && (
         <p
-          className="mt-6 text-brand-muted"
+          className="mt-6 mx-auto"
           style={{
             fontFamily: "'Jost', sans-serif",
             fontWeight: 300,
-            fontSize: "15px",
+            fontSize: "17px",
             lineHeight: 1.9,
             letterSpacing: "0.02em",
+            color: "rgba(240,236,228,0.7)",
+            maxWidth: 640,
+            textAlign: "center",
           }}
         >
           {lead}
