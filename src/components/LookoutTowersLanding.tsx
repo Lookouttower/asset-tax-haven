@@ -140,20 +140,6 @@ function IconBadge({ icon: Icon, size = "md", tone = "light" }: { icon: any; siz
   );
 }
 
-function StatCard({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="relative group bg-brand-noir-card py-10 flex flex-col items-center text-center transition-all duration-300 hover:bg-brand-noir-hover">
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-gold-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      <span className="font-serif text-4xl lg:text-5xl font-bold tracking-tight text-white mb-3">
-        {value}
-      </span>
-      <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold-soft">
-        {label}
-      </p>
-      <div className="mt-4 w-8 h-[1px] bg-brand-noir-border group-hover:w-16 transition-all duration-500" />
-    </div>
-  );
-}
 
 function PhotoBanner({ src, alt, height = "h-72 md:h-96", caption }: { src: string; alt: string; height?: string; caption?: string }) {
   return (
