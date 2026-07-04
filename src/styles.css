@@ -255,7 +255,6 @@
 }
 
 /* Zero-gap continuous cinematic scroll */
-.cinematic-pillar { display: block; }
 .cinematic-pillar + .cinematic-pillar { margin-top: 0 !important; }
 #pillars { margin: 0; padding: 0; }
 #pillars > .cinematic-pillar { margin: 0; padding: 0; border: 0; }
