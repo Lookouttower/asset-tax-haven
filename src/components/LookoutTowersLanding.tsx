@@ -653,10 +653,28 @@ function Portfolio() {
                 <div className="absolute top-4 left-4">
                   <IconBadge icon={selected.icon} size="sm" />
                 </div>
-                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded backdrop-blur ${selected.tag === "Personal Property" ? "bg-brand-gold/90 text-brand-bg" : "bg-brand-cream/90 text-brand-bg"}`}>
-                  {selected.tag}
+                <span
+                  className="absolute bottom-4 left-4 text-[11px] font-semibold uppercase px-3.5 py-1.5 rounded-full"
+                  style={{
+                    background: "linear-gradient(135deg, #b8960c 0%, #e8c84a 100%)",
+                    color: "#1a0f0a",
+                    letterSpacing: "0.08em",
+                    fontVariant: "small-caps",
+                    boxShadow: "0 2px 8px rgba(184,150,12,0.4)",
+                  }}
+                >
+                  ✦ 100% Write-Off
                 </span>
-                <span className="absolute bottom-4 right-4 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded bg-brand-cream/90 text-brand-bg backdrop-blur">
+                <span
+                  className="absolute bottom-4 right-4 text-[10px] font-semibold uppercase px-2.5 py-1 rounded-full"
+                  style={{
+                    backgroundColor: "#1a0f0a",
+                    color: "#e8c84a",
+                    border: "1px solid #e8c84a",
+                    letterSpacing: "0.1em",
+                    fontVariant: "small-caps",
+                  }}
+                >
                   {selected.cat}
                 </span>
               </div>
