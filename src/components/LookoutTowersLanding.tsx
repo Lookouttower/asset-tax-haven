@@ -63,13 +63,12 @@ const fadeIn = {
 } as const;
 
 const NAV_LINKS = [
-  { href: "#thesis", label: "Thesis" },
+  { href: "#benefits", label: "Benefits" },
+  { href: "#how", label: "How It Works" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#tax", label: "Tax Engine" },
-  { href: "#opp", label: "Returns" },
   { href: "#travel", label: "Travel" },
-  { href: "#exit", label: "Exit" },
-  { href: "#destinations", label: "Destinations" },
+  { href: "#opp", label: "Investor Terms" },
+  { href: "#risks", label: "Risk Factors" },
 ];
 
 function Navbar() {
