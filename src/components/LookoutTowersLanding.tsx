@@ -942,7 +942,11 @@ function Travel() {
   return (
     <section id="travel" className="py-24 bg-brand-sage border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="Travel Integration" title="Your Return. Redeemable Anywhere." />
+        <SectionHeader
+          eyebrow="Travel Credits"
+          title="Travel Credits, Part of the Preferred Return."
+          lead="Travel credits are part of the preferred return structure. They are delivered through a third-party platform and are separate from free use of fund-owned assets."
+        />
         <motion.div {...fadeIn} className="mb-10">
           <HeroCarousel slides={TRAVEL_IMAGES} />
         </motion.div>
