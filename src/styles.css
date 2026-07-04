@@ -267,3 +267,22 @@
 @media (min-width: 1024px) {
   .pillar-body { font-size: 17px; }
 }
+
+/* Ken Burns slow zoom — layered on top of scroll-based scale via Motion */
+@keyframes pillarKenBurns {
+  0%   { filter: brightness(1) saturate(1); }
+  50%  { filter: brightness(1.05) saturate(1.08); }
+  100% { filter: brightness(1) saturate(1); }
+}
+.pillar-kenburns {
+  animation: pillarKenBurns 18s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* Global readability bump */
+body {
+  font-size: 16px;
+}
+@media (min-width: 1024px) {
+  body { font-size: 17px; }
+}
