@@ -354,6 +354,74 @@ function Pillars() {
   );
 }
 
+function CoreBenefits() {
+  const cards = [
+    {
+      icon: Zap,
+      title: "100% Depreciation",
+      stat: "100%",
+      body: "First-year depreciation on qualifying hospitality hard assets, passed through to investors on a Schedule K-1.",
+    },
+    {
+      icon: DollarSign,
+      title: "Monthly Income",
+      stat: "6%",
+      body: "Cash income target paid monthly from operator lease income.",
+    },
+    {
+      icon: Plane,
+      title: "Travel Credits",
+      stat: "6%",
+      body: "Annual travel-credit value through a third-party exchange or points platform.",
+    },
+  ];
+  return (
+    <section id="benefits" className="py-24 bg-white border-b border-brand-border">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          eyebrow="The Investor Offer"
+          title="Three Benefits. One Fund."
+          lead="A focused, investor-grade offer built around first-year depreciation, recurring monthly income, and annual travel-credit value."
+        />
+        <div className="grid md:grid-cols-3 gap-6">
+          {cards.map((c, i) => (
+            <motion.div
+              key={c.title}
+              {...fadeIn}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              whileHover={{ y: -4 }}
+              className="relative rounded-2xl border border-brand-border bg-white p-10 shadow-sm hover:shadow-2xl transition-shadow"
+            >
+              <div className="mb-6"><IconBadge icon={c.icon} size="lg" /></div>
+              <div className="font-serif text-6xl font-bold tracking-tight text-brand-olive-dark leading-none">
+                {c.stat}
+              </div>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-brand-text">{c.title}</h3>
+              <p className="mt-3 text-brand-muted text-[15px] leading-relaxed">{c.body}</p>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div
+          {...fadeIn}
+          className="mt-6 rounded-2xl border border-brand-olive/30 bg-brand-olive/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-4"
+        >
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold">Summary</div>
+            <h4 className="mt-1 text-2xl font-bold text-brand-text tracking-tight">12% Preferred Return</h4>
+            <p className="mt-1 text-sm text-brand-muted">6% monthly cash income + 6% travel credits.</p>
+          </div>
+          <a
+            href="#access"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-olive text-white font-medium hover:bg-brand-olive-dark transition"
+          >
+            Request Access <ArrowRight className="w-4 h-4" />
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Thesis() {
   const points = [
     { title: "Permanent Law", body: "P.L. 119-21 removed the uncertainty of sunset provisions. Investors can plan multi-year tax strategies with confidence that §168(k) will not phase down." },
