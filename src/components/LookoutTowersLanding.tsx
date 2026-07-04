@@ -383,7 +383,7 @@ function Hero() {
       </section>
 
       {/* Three Pillars */}
-      <section id="pillars" className="bg-[#1a1209] border-b border-white/10">
+      <section id="pillars" className="border-b border-brand-gold/15" style={{ background: "#0a0806" }}>
         {[
           { num: "01", label: "PILLAR 01", title: "100%+ First-Year Write-Off", body: "Full bonus depreciation on qualifying assets, passed directly through on your Schedule K-1 in Year 1. No phase-down. No dollar cap.", img: pillarWriteoffV2.url, imageLeft: true },
           { num: "02", label: "PILLAR 02", title: "6% Paid Monthly, Direct to You", body: "Fixed preferred return paid monthly — direct deposit tied to hard-asset lease income. Cash in your account every single month.", img: pillarIncomeV2.url, imageLeft: false },
@@ -403,8 +403,8 @@ function Hero() {
                 className="absolute inset-0 pointer-events-none hidden md:block"
                 style={{
                   background: p.imageLeft
-                    ? "linear-gradient(to right, transparent 60%, #1a1209 100%)"
-                    : "linear-gradient(to left, transparent 60%, #1a1209 100%)",
+                    ? "linear-gradient(to right, transparent 60%, #0a0806 100%)"
+                    : "linear-gradient(to left, transparent 60%, #0a0806 100%)",
                 }}
               />
             </div>
@@ -412,21 +412,65 @@ function Hero() {
             <motion.div
               {...fadeIn}
               transition={{ duration: 0.6, delay: i * 0.05 }}
-              className={`flex items-center bg-[#1a1209] px-8 md:px-16 py-16 ${p.imageLeft ? "md:order-2" : "md:order-1"}`}
+              className={`flex items-center px-8 md:px-16 py-16 ${p.imageLeft ? "md:order-2" : "md:order-1"}`}
+              style={{ background: "#0a0806" }}
             >
               <div className="max-w-md">
-                <div className="text-[12px] uppercase tracking-[0.2em] font-semibold text-[#e8c84a] mb-6">
+                <div
+                  className="mb-6"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 400,
+                    textTransform: "uppercase",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    color: "#c9a84c",
+                  }}
+                >
                   {p.label}
                 </div>
-                <h3 className="font-serif text-[48px] font-medium text-white leading-[1.1] mb-5">
+                <h3
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 300,
+                    fontStyle: "italic",
+                    fontSize: "clamp(36px, 5vw, 52px)",
+                    lineHeight: 1.15,
+                    color: "#f0ece4",
+                    letterSpacing: "0.02em",
+                  }}
+                >
                   {p.title}
                 </h3>
-                <div className="w-[40px] h-[2px] bg-[#e8c84a] mb-6" />
-                <p className="text-[16px] font-light leading-[1.8] text-[#b8a98a]" style={{ maxWidth: 320 }}>
+                <div style={{ width: 40, height: 1, background: "#c9a84c", margin: "16px 0" }} />
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "14px",
+                    lineHeight: 1.9,
+                    color: "rgba(240,236,228,0.6)",
+                    maxWidth: 360,
+                  }}
+                >
                   {p.body}
                 </p>
-                <a href="#thesis" className="inline-block mt-8 text-[13px] uppercase tracking-[0.15em] font-semibold text-[#e8c84a] hover:text-white transition-colors">
-                  Learn how this works →
+                <a
+                  href="#thesis"
+                  className="pillar-learn-link group inline-flex items-center gap-2 mt-8"
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontWeight: 400,
+                    textTransform: "uppercase",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    color: "#c9a84c",
+                  }}
+                >
+                  <span className="pillar-learn-underline relative">
+                    Learn how this works
+                  </span>
+                  <span aria-hidden>→</span>
                 </a>
               </div>
             </motion.div>
