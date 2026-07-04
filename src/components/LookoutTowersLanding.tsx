@@ -279,9 +279,9 @@ function CinematicPillar({
     target: ref,
     offset: ["start end", "end start"],
   });
-  // Parallax: image moves slower than scroll (0.4x)
-  const imgY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
+  // Parallax: gentle drift, generous scale so cover never reveals background
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.25, 1.4]);
 
   return (
     <section
@@ -328,6 +328,26 @@ function CinematicPillar({
           background:
             "linear-gradient(to right, rgba(8,6,3,0.92) 0%, rgba(8,6,3,0.50) 55%, rgba(8,6,3,0.05) 100%)",
         }}
+      />
+
+      {/* Filmic top & bottom bleed — dissolves seam between pillar sections */}
+      <div
+        aria-hidden
+        className="pointer-events-none"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          background:
+            "linear-gradient(to bottom, rgba(8,6,3,0.75) 0%, rgba(8,6,3,0) 14%, rgba(8,6,3,0) 82%, rgba(8,6,3,0.85) 100%)",
+        }}
+      />
+
+      {/* Grain — subtle film texture for luxury feel */}
+      <div
+        aria-hidden
+        className="pointer-events-none pillar-grain"
+        style={{ position: "absolute", inset: 0, zIndex: 2, opacity: 0.35, mixBlendMode: "overlay" }}
       />
 
       {/* Vignette for cinematic depth */}
