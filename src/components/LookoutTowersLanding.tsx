@@ -38,7 +38,7 @@ import {
   Leaf, Utensils, Tent, Construction, FileSignature, ShoppingCart, Handshake,
   FileCheck, Scale, AlertTriangle, Gavel, FileText, Ban, Building, Infinity,
   DollarSign, AlertCircle, LogOut, RefreshCw, TreeDeciduous, Lock, Users,
-  RotateCcw, ChevronLeft, ChevronRight, X, ArrowRight, Menu,
+  RotateCcw, ChevronLeft, ChevronRight, X, ArrowRight, Menu, Receipt, Globe,
 } from "lucide-react";
 
 
