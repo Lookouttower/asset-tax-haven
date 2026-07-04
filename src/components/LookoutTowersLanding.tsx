@@ -253,10 +253,6 @@ function SectionHeader({ eyebrow, title, lead, dark = true }: { eyebrow: string;
 }
 
 
-function Hero() {
-  return _HeroImpl();
-}
-
 function CinematicPillar({
   number,
   label,
@@ -398,7 +394,7 @@ function CinematicPillar({
   );
 }
 
-function _HeroImpl() {
+function Hero() {
   return (
     <>
       <section
