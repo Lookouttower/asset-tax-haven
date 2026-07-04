@@ -825,18 +825,18 @@ function Returns() {
     ["Investor Term", "1–3 Years"],
   ];
   const splitData = [
-    { name: "6% Cash (Monthly)", value: 6, color: "#4B6B2F" },
-    { name: "6% Travel Credits (Annual)", value: 6, color: "#B8955A" },
+    { name: "6% Cash (Monthly)", value: 6, color: "#B8960C" },
+    { name: "6% Travel Credits (Annual)", value: 6, color: "#D4B968" },
   ];
   return (
-    <section id="opp" className="py-24 bg-white">
+    <section id="opp" className="py-24 bg-brand-bg-light border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Investor Terms"
           title="Investor Terms at a Glance"
           lead="100% depreciation, 6% monthly cash income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
         />
-        <motion.div {...fadeIn} className="mb-12 bg-white border border-brand-border rounded-xl p-8 shadow-md">
+        <motion.div {...fadeIn} className="mb-12 bg-brand-card border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="h-72">
               <ResponsiveContainer width="100%" height="100%">
@@ -850,54 +850,55 @@ function Returns() {
               </ResponsiveContainer>
             </div>
             <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold mb-3">Return Composition</div>
-              <h4 className="text-3xl font-bold text-brand-text tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
-              <p className="text-brand-muted leading-relaxed">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
+              <div className="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3">Return Composition</div>
+              <h4 className="text-3xl font-serif font-medium text-brand-cream tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
+              <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly cash — direct deposit, predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through Interval International and RCI's global resort network.</p>
             </div>
           </div>
         </motion.div>
         <div className="grid lg:grid-cols-2 gap-6 items-start">
-          <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-lg overflow-hidden">
-            <div className="px-6 py-4 bg-brand-sage border-b border-brand-border">
-              <h4 className="font-semibold text-brand-text">Deal Terms</h4>
+          <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-lg overflow-hidden">
+            <div className="px-6 py-4 bg-brand-bg border-b border-brand-border">
+              <h4 className="font-medium text-brand-cream">Deal Terms</h4>
             </div>
             <table className="w-full text-sm">
               <tbody>
                 {terms.map(([k, v]) => (
                   <tr key={k} className="border-b border-brand-border last:border-0">
-                    <td className="px-6 py-3 text-brand-muted">{k}</td>
-                    <td className="px-6 py-3 text-right font-medium text-brand-text">{v}</td>
+                    <td className="px-6 py-3 text-brand-muted font-light">{k}</td>
+                    <td className="px-6 py-3 text-right font-medium text-brand-cream">{v}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </motion.div>
           <div className="space-y-4">
-            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={DollarSign} /></div>
-              <div className="text-5xl font-bold text-brand-text tracking-tight">6%</div>
-              <div className="text-lg font-semibold text-brand-text mt-2">Cash Return</div>
-              <p className="text-sm text-brand-muted mt-2 leading-relaxed">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
+              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
+              <div className="text-lg font-medium text-brand-cream mt-2">Cash Return</div>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly, direct deposit. Tied to hard-asset lease income from the fund's operator network.</p>
             </motion.div>
-            <motion.div {...fadeIn} className="bg-white border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={Plane} /></div>
-              <div className="text-5xl font-bold text-brand-text tracking-tight">6%</div>
-              <div className="text-lg font-semibold text-brand-text mt-2">Travel Credits</div>
-              <p className="text-sm text-brand-muted mt-2 leading-relaxed">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
+              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
+              <div className="text-lg font-medium text-brand-cream mt-2">Travel Credits</div>
+              <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable annually through Interval International and RCI. Access to thousands of global resort properties.</p>
             </motion.div>
           </div>
         </div>
-        <motion.div {...fadeIn} className="mt-14 bg-brand-dark rounded-xl p-10 flex flex-wrap items-center justify-between gap-6">
+        <motion.div {...fadeIn} className="mt-14 bg-brand-bg rounded-xl p-10 flex flex-wrap items-center justify-between gap-6 border border-brand-border">
           <div>
-            <h3 className="text-3xl font-bold text-white tracking-tight">Ready to Deploy Capital?</h3>
-            <p className="text-white/70 mt-2">Request the Private Placement Memorandum.</p>
+            <h3 className="text-3xl font-serif font-medium text-brand-cream tracking-tight">Ready to Deploy Capital?</h3>
+            <p className="text-brand-cream/70 mt-2 font-light tracking-wide">Request the Private Placement Memorandum.</p>
           </div>
-          <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-olive-light text-white font-medium hover:bg-brand-olive transition">
+          <a href="#access" className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-brand-gold text-brand-bg font-medium hover:bg-brand-gold-light transition tracking-wide">
             Request the PPM <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
     </section>
+
   );
 }
 
