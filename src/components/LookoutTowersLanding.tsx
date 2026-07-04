@@ -277,28 +277,39 @@ function CinematicPillar({
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: "100vh", background: "#0a0806" }}
+      className="relative overflow-hidden flex items-center"
+      style={{ height: "100vh", width: "100%", background: "#0a0806", margin: 0, padding: 0 }}
     >
       {/* Background image with parallax */}
-      <motion.div
-        style={{ y: imgY, position: "absolute", inset: "-15% 0" }}
+      <motion.img
+        src={image}
+        alt=""
         aria-hidden
-      >
-        <img
-          src={image}
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ minHeight: "130vh" }}
-        />
-      </motion.div>
+        style={{
+          y: imgY,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+          zIndex: 0,
+        }}
+      />
 
       {/* Gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="pointer-events-none"
         style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 1,
           background:
-            "linear-gradient(to right, rgba(8,6,3,0.92) 0%, rgba(8,6,3,0.4) 60%, rgba(8,6,3,0) 100%)",
+            "linear-gradient(to right, rgba(8,6,3,0.90) 0%, rgba(8,6,3,0.55) 50%, rgba(8,6,3,0.10) 100%)",
         }}
       />
 
@@ -307,89 +318,89 @@ function CinematicPillar({
         aria-hidden
         className="hidden md:block absolute pointer-events-none select-none"
         style={{
-          left: 80,
+          left: 100,
           top: 40,
           fontFamily: "'Cormorant Garamond', serif",
           fontStyle: "italic",
           fontWeight: 300,
-          fontSize: 120,
+          fontSize: 220,
           lineHeight: 1,
-          color: "rgba(201,168,76,0.12)",
-          zIndex: 1,
+          color: "rgba(201,168,76,0.10)",
+          zIndex: 2,
         }}
       >
         {number}
       </div>
 
       {/* Text content — left side */}
-      <div className="relative h-full min-h-screen flex items-center" style={{ zIndex: 2 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-          className="px-6 md:pl-[120px] md:pr-8"
-          style={{ maxWidth: 520 + 120 + 32 }}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-15%" }}
+        transition={{ duration: 1.1, ease: "easeOut" }}
+        className="pillar-text-block"
+        style={{ position: "relative", zIndex: 3, maxWidth: 580 }}
+      >
+        <div
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 400,
+            textTransform: "uppercase",
+            fontSize: 12,
+            letterSpacing: "0.35em",
+            color: "#c9a84c",
+            marginBottom: 24,
+          }}
         >
-          <div style={{ maxWidth: 520 }}>
-            <div
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontWeight: 400,
-                textTransform: "uppercase",
-                fontSize: 10,
-                letterSpacing: "0.35em",
-                color: "#c9a84c",
-                marginBottom: 28,
-              }}
-            >
-              {label}
-            </div>
-            <h3
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 300,
-                fontStyle: "italic",
-                fontSize: "clamp(40px, 6vw, 64px)",
-                lineHeight: 1.15,
-                color: "#f0ece4",
-                letterSpacing: "0.02em",
-                margin: 0,
-              }}
-            >
-              {title}
-            </h3>
-            <div style={{ width: 48, height: 1, background: "#c9a84c", margin: "28px 0" }} />
-            <p
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontWeight: 300,
-                fontSize: 15,
-                lineHeight: 1.9,
-                color: "rgba(240,236,228,0.65)",
-                maxWidth: 420,
-              }}
-            >
-              {body}
-            </p>
-            <a
-              href="#thesis"
-              className="pillar-learn-link inline-flex items-center gap-2 mt-10"
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontWeight: 400,
-                textTransform: "uppercase",
-                fontSize: 10,
-                letterSpacing: "0.3em",
-                color: "#c9a84c",
-              }}
-            >
-              <span className="pillar-learn-underline relative">Learn how this works</span>
-              <span aria-hidden>→</span>
-            </a>
-          </div>
-        </motion.div>
-      </div>
+          {label}
+        </div>
+        <h3
+          className="pillar-headline"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 300,
+            fontStyle: "italic",
+            lineHeight: 1.1,
+            color: "#f0ece4",
+            letterSpacing: "0.02em",
+            margin: 0,
+            maxWidth: 600,
+            textShadow: "0 2px 40px rgba(0,0,0,0.6)",
+          }}
+        >
+          {title}
+        </h3>
+        <div style={{ width: 48, height: 1, background: "#c9a84c", margin: "28px 0" }} />
+        <p
+          className="pillar-body"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 300,
+            lineHeight: 1.9,
+            color: "rgba(240,236,228,0.80)",
+            maxWidth: 480,
+            textShadow: "0 1px 20px rgba(0,0,0,0.8)",
+          }}
+        >
+          {body}
+        </p>
+        <a
+          href="#thesis"
+          className="pillar-learn-link inline-flex items-center gap-2"
+          style={{
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 400,
+            textTransform: "uppercase",
+            fontSize: 12,
+            letterSpacing: "0.3em",
+            color: "#c9a84c",
+            marginTop: 32,
+          }}
+        >
+          <span className="pillar-learn-underline relative">Learn how this works</span>
+          <span aria-hidden>→</span>
+        </a>
+      </motion.div>
     </section>
   );
 }
