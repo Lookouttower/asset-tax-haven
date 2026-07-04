@@ -1079,7 +1079,7 @@ function AccessForm() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", range: "", source: "", accredited: false });
   const stats = [
     ["Offering Type", "Reg D 506(c)"],
-    ["Min. Investment", "Contact for Details"],
+    ["Min. Investment", "$100,000"],
     ["Preferred Return", "12% Annual"],
     ["Cash Distributions", "Monthly"],
     ["Travel Credits", "Annual"],
