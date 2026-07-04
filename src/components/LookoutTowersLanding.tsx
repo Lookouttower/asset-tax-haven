@@ -1171,9 +1171,29 @@ function AccessForm() {
 
 function Footer() {
   const cols = [
-    { title: "Fund", links: ["Investment Thesis", "Asset Portfolio", "Tax Engine", "Investor Returns"] },
-    { title: "Legal", links: ["Risk Factors", "PPM Request", "Accredited Investor Definition", "Privacy Policy"] },
-    { title: "Contact", links: ["Request Access", "Schedule a Call", "Investor Relations"] },
+    {
+      title: "Fund",
+      links: [
+        { label: "Three Pillars", href: "#pillars" },
+        { label: "Portfolio", href: "#portfolio" },
+        { label: "Investor Terms", href: "#opp" },
+        { label: "Risks", href: "#risks" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Reg D Disclosure", href: "#risks" },
+        { label: "Privacy Policy", href: "#access" },
+      ],
+    },
+    {
+      title: "Contact",
+      links: [
+        { label: "Contact Form", href: "#access" },
+        { label: "Request Access", href: "#access" },
+      ],
+    },
   ];
   return (
     <footer className="bg-brand-bg text-brand-cream border-t border-white/10">
@@ -1190,7 +1210,7 @@ function Footer() {
             <div className="text-xs uppercase tracking-wider font-semibold text-brand-cream/60 mb-4">{c.title}</div>
             <ul className="space-y-2.5">
               {c.links.map((l) => (
-                <li key={l}><a href="#access" className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition tracking-wide">{l}</a></li>
+                <li key={l.label}><a href={l.href} className="text-sm font-light text-brand-cream/80 hover:text-brand-cream transition tracking-wide">{l.label}</a></li>
               ))}
             </ul>
           </div>
