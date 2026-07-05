@@ -707,6 +707,9 @@ function Pillars() {
   return null;
 }
 
+// deprecated stub kept to preserve line offsets — real Pillars is _PillarsOriginal below
+function _PillarsStub() {}
+
 function PortfolioVideoSection() {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
