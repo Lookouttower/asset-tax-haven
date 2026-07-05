@@ -1768,6 +1768,7 @@ export default function LookoutTowersLanding() {
       <Navbar />
       <main>
         <Hero />
+        <VideoSection />
         <Thesis />
         <Portfolio />
         <Returns />
