@@ -703,6 +703,152 @@ function VideoSection() {
 
 function Pillars() {
   const pillars = [
+  ];
+  return null;
+}
+
+function PortfolioVideoSection() {
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setVisible(true),
+      { threshold: 0.15 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const handlePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = false;
+    v.volume = 1;
+    v.play().catch(() => {});
+    setPlaying(true);
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full"
+      style={{
+        background: "#0a0806",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+        transition: "opacity 1200ms cubic-bezier(0.22,1,0.36,1), transform 1200ms cubic-bezier(0.22,1,0.36,1)",
+      }}
+    >
+      <div className="text-center px-6" style={{ paddingTop: "clamp(64px, 10vw, 128px)", paddingBottom: "clamp(32px, 5vw, 56px)" }}>
+        <h2
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 300,
+            fontStyle: "italic",
+            color: "#c9a84c",
+            fontSize: "clamp(36px, 5.5vw, 64px)",
+            lineHeight: 1.1,
+            letterSpacing: "0.02em",
+          }}
+        >
+          See the Portfolio Come to Life
+        </h2>
+        <p
+          style={{
+            marginTop: 18,
+            fontFamily: "'Jost', sans-serif",
+            fontWeight: 300,
+            color: "#f0ece4",
+            fontSize: "clamp(14px, 1.4vw, 17px)",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+          }}
+        >
+          Every asset. One fund.
+        </p>
+      </div>
+      <div
+        className="relative w-full"
+        style={{ background: "#0a0806", paddingBottom: "clamp(48px, 8vw, 96px)" }}
+      >
+        <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
+          <video
+            ref={videoRef}
+            src={portfolioVideoAsset.url}
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ borderRadius: 0, background: "#0a0806" }}
+            onClick={playing ? undefined : handlePlay}
+          />
+          {!playing && (
+            <button
+              type="button"
+              onClick={handlePlay}
+              aria-label="Play video"
+              className="absolute inset-0 flex items-center justify-center group"
+              style={{
+                background: "linear-gradient(180deg, rgba(10,8,6,0.35) 0%, rgba(10,8,6,0.55) 100%)",
+                border: 0,
+                cursor: "pointer",
+              }}
+            >
+              <span
+                style={{
+                  position: "relative",
+                  width: 108,
+                  height: 108,
+                  borderRadius: "9999px",
+                  border: "1px solid #c9a84c",
+                  background: "rgba(10,8,6,0.4)",
+                  backdropFilter: "blur(6px)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 10px 40px -10px rgba(201,168,76,0.6)",
+                }}
+              >
+                <span
+                  aria-hidden
+                  style={{
+                    position: "absolute",
+                    inset: -14,
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(201,168,76,0.55)",
+                    animation: "playPulse 2.4s ease-out infinite",
+                  }}
+                />
+                <span
+                  aria-hidden
+                  style={{
+                    position: "absolute",
+                    inset: -28,
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(201,168,76,0.28)",
+                    animation: "playPulse 2.4s ease-out infinite",
+                    animationDelay: "0.6s",
+                  }}
+                />
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="#c9a84c" style={{ marginLeft: 4 }}>
+                  <path d="M6 4l14 8-14 8V4z" />
+                </svg>
+              </span>
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function _PillarsOriginal() {
+  const pillars = [
     { icon: Zap, title: "100% Depreciation", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
     { icon: Mail, title: "12% Preferred Return", body: "Income is produced by industry-leading leases to established operators. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
     { icon: Plane, title: "Invest. Depreciate. Travel.", body: "Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.", bg: pillarTravelAsset.url },
