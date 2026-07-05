@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
 export default defineConfig({
-  base: "/asset-tax-haven/",
+  base: process.env.BASE_PATH || "/",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
