@@ -841,7 +841,7 @@ function PortfolioVideoSection() {
   );
 }
 
-function _PillarsOriginal() {
+function Pillars() {
   const pillars = [
     { icon: Zap, title: "100% Depreciation", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
     { icon: Mail, title: "12% Preferred Return", body: "Income is produced by industry-leading leases to established operators. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
