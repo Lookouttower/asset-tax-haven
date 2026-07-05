@@ -1,3 +1,4 @@
+import finalaVideoAsset from "@/assets/finala-1.mp4.asset.json";
 import { useState, useEffect, useCallback, useRef } from "react";
 // Assets served from public/assets/ so they work on any host (Lovable + GitHub Pages).
 const asset = (name: string) => ({ url: `${import.meta.env.BASE_URL}assets/${name}` });
