@@ -4,9 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
-// Plain static SPA build. BASE_PATH env var overrides base (Netlify sets "/").
 export default defineConfig({
-  base: process.env.BASE_PATH ?? "/",
+  base: "/asset-tax-haven/",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
