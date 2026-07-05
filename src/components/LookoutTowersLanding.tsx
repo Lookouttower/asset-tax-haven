@@ -645,6 +645,60 @@ function Hero() {
   );
 }
 
+function VideoSection() {
+  return (
+    <section className="relative w-full overflow-hidden" style={{ height: "70vh", minHeight: 480, background: "#0a0806" }}>
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ opacity: 0.85 }}
+      >
+        <source src={finalaVideoAsset.url} type="video/mp4" />
+      </video>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,8,6,0.75) 0%, rgba(10,8,6,0.25) 40%, rgba(10,8,6,0.25) 60%, rgba(10,8,6,0.85) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 2 }}>
+        <div className="text-center px-6">
+          <div
+            className="mb-4 text-brand-gold"
+            style={{
+              fontFamily: "'Jost', sans-serif",
+              fontWeight: 400,
+              textTransform: "uppercase",
+              letterSpacing: "0.35em",
+              fontSize: "12px",
+            }}
+          >
+            In Motion
+          </div>
+          <h2
+            className="text-brand-cream"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 300,
+              fontStyle: "italic",
+              fontSize: "clamp(32px, 5vw, 56px)",
+              lineHeight: 1.15,
+              letterSpacing: "0.02em",
+              textShadow: "0 2px 30px rgba(0,0,0,0.5)",
+            }}
+          >
+            The Experience
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Pillars() {
   const pillars = [
     { icon: Zap, title: "100% Depreciation", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
