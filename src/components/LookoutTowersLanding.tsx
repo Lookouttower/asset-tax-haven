@@ -628,14 +628,14 @@ function Hero() {
         <CinematicPillar
           number="02"
           label="PILLAR 02"
-          title={<>6% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
+          title={<>10% Paid Monthly, <em style={{ fontStyle: "italic" }}>Direct to You</em></>}
           body="Income is produced by industry-leading leases to established operators."
           image={pillar2Seal.url}
         />
         <CinematicPillar
           number="03"
           label="PILLAR 03"
-          title={<>6% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
+          title={<>5% in Annual <em style={{ fontStyle: "italic" }}>Travel Credits</em></>}
           body="Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc."
           image={pillar3Villa.url}
         />
@@ -790,7 +790,7 @@ function PortfolioVideoSection() {
 function Pillars() {
   const pillars = [
     { icon: Zap, title: "100% Depreciation", body: "P.L. 119-21 permanently restored §168(k) bonus depreciation. Qualifying personal property placed in service on or after Jan 19, 2025 is fully deductible in Year 1 — no phase-down, no dollar cap, no sunset.", bg: pillarWriteoffAsset.url },
-    { icon: Mail, title: "12% Preferred Return", body: "Income is produced by industry-leading leases to established operators. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
+    { icon: Mail, title: "15% Preferred Return", body: "Income is produced by industry-leading leases to established operators. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc. Consistent, predictable, and tied to hard-asset lease income.", bg: pillarReturnAsset.url },
     { icon: Plane, title: "Invest. Depreciate. Travel.", body: "Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.", bg: pillarTravelAsset.url },
   ];
   return (
@@ -841,13 +841,13 @@ function CoreBenefits() {
     {
       icon: DollarSign,
       title: "Monthly Income",
-      stat: "6%",
+      stat: "10%",
       body: "Income is produced by industry-leading leases to established operators.",
     },
     {
       icon: Plane,
       title: "Travel Credits",
-      stat: "6%",
+      stat: "5%",
       body: "Annual travel-credit value through a third-party exchange or points platform.",
     },
   ];
@@ -859,6 +859,22 @@ function CoreBenefits() {
           title="Three Benefits. One Fund."
           lead="A focused, investor-grade offer built around first-year depreciation, recurring monthly income, and annual travel-credit value."
         />
+        <motion.div
+          {...fadeIn}
+          className="mb-8 flex justify-center"
+        >
+          <div
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border-2"
+            style={{ borderColor: "#c9a84c", background: "rgba(201,168,76,0.08)" }}
+          >
+            <span
+              className="font-serif font-bold tracking-tight text-2xl md:text-3xl text-center"
+              style={{ color: "#c9a84c" }}
+            >
+              15% Total Annual ROI
+            </span>
+          </div>
+        </motion.div>
         <div className="grid md:grid-cols-3 gap-6">
           {cards.map((c, i) => (
             <motion.div
@@ -883,8 +899,8 @@ function CoreBenefits() {
         >
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-brand-olive font-semibold">Summary</div>
-            <h4 className="mt-1 text-2xl font-bold text-brand-text tracking-tight">12% Preferred Return</h4>
-            <p className="mt-1 text-sm text-brand-muted">6% monthly income + 6% travel credits.</p>
+            <h4 className="mt-1 text-2xl font-bold text-brand-text tracking-tight">15% Preferred Return</h4>
+            <p className="mt-1 text-sm text-brand-muted">10% monthly income + 5% travel credits.</p>
           </div>
           <a
             href="#access"
@@ -1278,15 +1294,15 @@ function HowItWorks() {
     { icon: FileSignature, title: "Investor Subscribes", body: "Accredited investors subscribe under Reg D, Rule 506(c). Capital is pooled into the fund LLC and deployed into qualifying depreciable assets within the first operating year." },
     { icon: ShoppingCart, title: "Fund Acquires Assets", body: "The fund purchases 18 classes of hospitality equipment — aircraft, marine vessels, towers, vehicles, and structures. All assets are titled to the fund, preserving the fund as tax owner and enabling pass-through depreciation." },
     { icon: Handshake, title: "Assets Are Leased to Operators", body: "Each asset is leased under a true lease: rent payments (not interest), FMV purchase options only, lease terms shorter than useful life, and genuine residual risk retained by the fund." },
-    { icon: FileCheck, title: "Investors Receive K-1 + Distributions", body: "Each year: (a) Schedule K-1 with allocated depreciation deductions; (b) 6% annual preferred return paid monthly; and (c) 6% annual travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc." },
+    { icon: FileCheck, title: "Investors Receive K-1 + Distributions", body: "Each year: (a) Schedule K-1 with allocated depreciation deductions; (b) 10% annual preferred return paid monthly; and (c) 5% annual travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc." },
   ];
   const terms = [
     ["Fund Structure", "Delaware LLC"],
     ["Offering Type", "Reg D, Rule 506(c)"],
     ["Investor Eligibility", "Accredited Only"],
     ["Tax Document", "Schedule K-1"],
-    ["Income Distribution", "Monthly (6% Pref.)"],
-    ["Travel Credits", "Annual (6% Pref.)"],
+    ["Income Distribution", "Monthly (10% Pref.)"],
+    ["Travel Credits", "Annual (5% Pref.)"],
     ["Investor Term", "1–3 Years"],
     ["Asset Hold Period", "4–10 Years"],
   ];
@@ -1356,8 +1372,8 @@ function TaxEngine() {
   const chartData = [
     { name: "Capital Deployed", value: 500000, color: "#5C6355" },
     { name: "§168(k) Depreciation", value: -500000, color: "#4B6B2F" },
-    { name: "6% Income Dist.", value: 30000, color: "#7B9A4B" },
-    { name: "6% Travel Credits", value: 30000, color: "#B8955A" },
+    { name: "10% Income Dist.", value: 50000, color: "#7B9A4B" },
+    { name: "5% Travel Credits", value: 25000, color: "#B8955A" },
     { name: "Net Taxable Y1", value: -440000, color: "#2F4A1D" },
   ];
   const tags = [
@@ -1432,16 +1448,16 @@ function TaxEngine() {
 function Returns() {
   const terms = [
     ["Depreciation", "100% Depreciation"],
-    ["Monthly Income", "6% Annual"],
-    ["Travel Credits", "6% Annual"],
-    ["Preferred Return", "12% Annual"],
+    ["Monthly Income", "10% Annual"],
+    ["Travel Credits", "5% Annual"],
+    ["Preferred Return", "15% Annual"],
     ["Investor Eligibility", "Accredited Investors Only"],
     ["Tax Document", "Schedule K-1"],
     ["Investor Term", "1–3 Years"],
   ];
   const splitData = [
-    { name: "6% Income (Monthly)", value: 6, color: "#B8960C" },
-    { name: "6% Travel Credits (Annual)", value: 6, color: "#D4B968" },
+    { name: "10% Income (Monthly)", value: 10, color: "#B8960C" },
+    { name: "5% Travel Credits (Annual)", value: 5, color: "#D4B968" },
   ];
   return (
     <section id="opp" className="py-24 bg-brand-bg-light border-b border-white/10">
@@ -1449,7 +1465,7 @@ function Returns() {
         <SectionHeader
           eyebrow="Investor Terms"
           title="Investor Terms at a Glance"
-          lead="100% depreciation, 6% monthly income, 6% travel credits — a 12% preferred return for accredited investors, reported on Schedule K-1."
+          lead="100% depreciation, 10% monthly income, 5% travel credits — a 15% preferred return for accredited investors, reported on Schedule K-1."
         />
         <motion.div {...fadeIn} className="mb-12 bg-brand-card border border-brand-border rounded-xl p-8 shadow-md">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -1466,7 +1482,7 @@ function Returns() {
             </div>
             <div>
               <div className="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3">Return Composition</div>
-              <h4 className="text-3xl font-serif font-medium text-brand-cream tracking-tight mb-4">12% Preferred, Split Two Ways</h4>
+              <h4 className="text-3xl font-serif font-medium text-brand-cream tracking-tight mb-4">15% Preferred, Split Two Ways</h4>
               <p className="text-brand-muted font-light leading-relaxed tracking-wide">Half of your annual return arrives as monthly income — predictable, tied to hard-asset lease income. The other half becomes travel credits redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.</p>
             </div>
           </div>
@@ -1490,13 +1506,13 @@ function Returns() {
           <div className="space-y-4">
             <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={DollarSign} /></div>
-              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
+              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">10%</div>
               <div className="text-lg font-medium text-brand-cream mt-2">Income</div>
               <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Paid monthly. Tied to hard-asset lease income from the fund's operator network.</p>
             </motion.div>
             <motion.div {...fadeIn} className="bg-brand-card border border-brand-border rounded-xl p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4"><IconBadge icon={Plane} /></div>
-              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">6%</div>
+              <div className="text-5xl font-serif font-medium text-brand-cream tracking-tight">5%</div>
               <div className="text-lg font-medium text-brand-cream mt-2">Travel Credits</div>
               <p className="text-sm text-brand-muted font-light mt-2 leading-relaxed tracking-wide">Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.</p>
             </motion.div>
@@ -1528,7 +1544,7 @@ const TRAVEL_IMAGES = [
 function Travel() {
   const rows = [
     ["Platform", "The Investors Travel Group & Partners"],
-    ["Credit Value", "6% of Capital Annually"],
+    ["Credit Value", "5% of Capital Annually"],
     ["Redemption", "Global Resort Network"],
     ["Taxability", "Taxable as Ordinary Income"],
   ];
@@ -1546,7 +1562,7 @@ function Travel() {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <motion.div {...fadeIn}>
             <p className="text-lg text-brand-muted leading-relaxed">
-              Travel credits are issued annually equal to 6% of invested capital. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.
+              Travel credits are issued annually equal to 5% of invested capital. Redeemable through an affiliation with The Investors Travel Group and other distinguished companies like Amex, Expedia, Marriott, etc.
             </p>
             <div className="mt-6 bg-white border-l-4 rounded-lg p-6 border border-brand-border" style={{ borderLeftColor: "#B8955A" }}>
               <div className="flex items-center gap-2 mb-3">
@@ -1708,7 +1724,7 @@ function AccessForm() {
   const stats = [
     ["Offering Type", "Reg D 506(c)"],
     ["Min. Investment", "$100,000"],
-    ["Preferred Return", "12% Annual"],
+    ["Preferred Return", "15% Annual"],
     ["Distributions", "Monthly"],
     ["Travel Credits", "Annual"],
   ];
